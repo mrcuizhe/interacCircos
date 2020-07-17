@@ -1,0 +1,13 @@
+Package: NGCircos
+Type: Package
+Title: Next Generation Circos in R 
+Version: 1.0.0
+Author: Zhe Cui
+Maintainer: Zhe Cui <mrcuizhe@gamil.com>
+Description: A R package for NGCircos: Next-generation Circos for data visualization and interpretation
+License: MIT
+Encoding: UTF-8
+LazyData: true
+Depends: R (>= 3.1.0)
+Imports: RColorBrewer, htmlwidgets, jsonlite, plyr, grDevices
+RoxygenNote: 7.1.0

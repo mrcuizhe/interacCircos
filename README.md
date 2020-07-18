@@ -10,4 +10,4 @@ We developed this R packaged for NGCircos based on htmlwidget framework
 
         # You need devtools for that
         if (!require('devtools')){install.packages('devtools')}
-        devtools::install_github('lvulliard/BioCircos.R', build_vignettes = TRUE)
+        devtools::install_github('https://github.com/mrcuizhe/NGCircos.r', build_vignettes = TRUE)

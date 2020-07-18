@@ -11,3 +11,5 @@ LazyData: true
 Depends: R (>= 3.1.0)
 Imports: RColorBrewer, htmlwidgets, jsonlite, plyr, grDevices
 RoxygenNote: 7.1.0
+Suggests: 
+    testthat

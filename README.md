@@ -1,12 +1,12 @@
 # NGCircos.r
 A R package for Next generation Circos(NGCircos)
 
-##Introduction
+## Introduction
 NGCircos is developed in JavaScripts and published at www.xxx.com
 
 We developed this R packaged for NGCircos based on htmlwidget framework
 
-##Installation
+## Installation
 
         # You need devtools for that
         if (!require('devtools')){install.packages('devtools')}

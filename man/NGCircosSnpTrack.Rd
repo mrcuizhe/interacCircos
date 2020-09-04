@@ -70,9 +70,8 @@ SNPs are defined by genomic coordinates and associated with a numerical value
 }
 \examples{
 snpData<-snpExample
-NGCircos(NGCircosSnpTrack('SNPTrack', minRadius =150, maxRadius = 190, data = snpExample,SNPFillColor= "#9ACD32",
-   circleSize= 2, SNPAxisColor= "#B8B8B8", SNPAxisWidth= 0.5, SNPAnimationDisplay=TRUE,SNPAnimationTime= 2000,
-   SNPAnimationDelay= 0, SNPAnimationType= "linear") + NGCircosBackgroundTrack('BGTrack',minRadius = 145,
-   maxRadius = 200))
+NGCircos(NGCircosSnpTrack('SNPTrack', minRadius =150, maxRadius = 190, data = snpExample,fillColor= "#9ACD32",
+   circleSize= 2, SNPAnimationDisplay=TRUE,SNPAnimationTime= 2000,SNPAnimationDelay= 0, SNPAnimationType= "linear") +
+    NGCircosBackgroundTrack('BGTrack',minRadius = 145, maxRadius = 200))
 
 }

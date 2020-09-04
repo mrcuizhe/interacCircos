@@ -31,7 +31,6 @@ NGCircos(
   genomeLabelTextColor = "#000",
   genomeLabelDx = 0,
   genomeLabelDy = 0,
-  genomeLabelOrientation = 0,
   compareEvent = FALSE,
   compareEventGroupGapRate = 0.1,
   compareEventGroupDistance = 0,
@@ -814,9 +813,9 @@ format or base R colors. If the vector is shorter than the reference genome, val
 \code{'400px'}, \code{'auto'}) or a number, which will be coerced to a
 string and have \code{'px'} appended.}
 
-\item{innerRadius}{Default 246, Inner radius of chromosome}
+\item{innerRadius}{Default 216, Inner radius of chromosome}
 
-\item{outerRadius}{Default 270, Outer radius of chromosome}
+\item{outerRadius}{Default 240, Outer radius of chromosome}
 
 \item{svgClassName}{The svg class name}
 
@@ -826,8 +825,7 @@ If yes specify the color, in RGB hexadecimal format, and the thickness.}
 \item{genomeTicksDisplay, genomeTicksLen, genomeTicksColor, genomeTicksTextSize, genomeTicksTextColor, genomeTicksScale, genomeTicksRealLength, genomeTicksOffset}{Should the refence genome have ticks, of which length, color (in hexadecimal RGB format), with labels in which font
 size and color, and spaced by how many bases? whether show the real length of genome? The offset from real length}
 
-\item{genomeLabelDisplay, genomeLabelTextSize, genomeLabelTextColor, genomeLabelDx, genomeLabelDy, genomeLabelOrientation}{Should the reference genome have labels on each chromosome, in which font size and color? Moreover rotation
-and radius shifts for the label texts can be added, and the angle between the radius and the label changed.}
+\item{genomeLabelDisplay, genomeLabelTextSize, genomeLabelTextColor, genomeLabelDx, genomeLabelDy}{Should the reference genome have labels on each chromosome, in which font size and color?}
 
 \item{compareEvent}{Default False, open/not COMPARE module}
 

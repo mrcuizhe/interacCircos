@@ -1413,7 +1413,7 @@ var NGCircos;
           "BgFillColor": "none",
           "BgborderColor": "#000",
           "BgborderSize" : 0.5,
-          "axisShow": "false", 
+          "axisShow": false, 
           "axisWidth": 0.3,
           "axisColor": "#000",
           "axisOpacity": 0.5,
@@ -1975,7 +1975,7 @@ var NGCircos;
           "BgFillColor": "none",
           "BgborderColor": "#000",
           "BgborderSize" : 0.5,
-          "axisShow": "false",
+          "axisShow": false,
           "axisWidth": 0.3,
           "axisColor": "#000",
           "axisOpacity": 0.5,
@@ -2781,7 +2781,7 @@ var NGCircos;
                     return "translate(" + compareMoveDistance + "," + 0 + ")";
                   })
 
-                if(self.BACKGROUNDsettings.axisShow=="true"){
+                if(self.BACKGROUNDsettings.axisShow==true){
                     for(i=1;i<=self.BACKGROUNDsettings.axisNum;i++){
                         svg.append("g").selectAll("path")
                             .data(chord.groups)
@@ -2841,7 +2841,7 @@ var NGCircos;
                   .ease(self.BACKGROUNDsettings.BACKGROUNDAnimationType)
                   .attr("d", d3.svg.arc().innerRadius(self.BACKGROUNDsettings.BginnerRadius).outerRadius(self.BACKGROUNDsettings.BgouterRadius));
 
-                if(self.BACKGROUNDsettings.axisShow=="true"){
+                if(self.BACKGROUNDsettings.axisShow==true){
                     for(i=1;i<=self.BACKGROUNDsettings.axisNum;i++){
                         svg.append("g").selectAll("path")
                             .data(chord.groups)

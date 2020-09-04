@@ -20,16 +20,15 @@
 #'   \code{'400px'}, \code{'auto'}) or a number, which will be coerced to a
 #'   string and have \code{'px'} appended.
 #' @param svgClassName The svg class name
-#' @param innerRadius Default 246, Inner radius of chromosome
-#' @param outerRadius Default 270, Outer radius of chromosome
+#' @param innerRadius Default 216, Inner radius of chromosome
+#' @param outerRadius Default 240, Outer radius of chromosome
 #' @param displayGenomeBorder,genomeBorderColor,genomeBorderSize Should the reference genome have borders?
 #'  If yes specify the color, in RGB hexadecimal format, and the thickness.
 #' @param genomeTicksDisplay,genomeTicksLen,genomeTicksColor,genomeTicksTextSize,genomeTicksTextColor,genomeTicksScale,genomeTicksRealLength,genomeTicksOffset
 #'  Should the refence genome have ticks, of which length, color (in hexadecimal RGB format), with labels in which font
 #' size and color, and spaced by how many bases? whether show the real length of genome? The offset from real length
-#' @param genomeLabelDisplay,genomeLabelTextSize,genomeLabelTextColor,genomeLabelDx,genomeLabelDy,genomeLabelOrientation
-#'  Should the reference genome have labels on each chromosome, in which font size and color? Moreover rotation
-#'  and radius shifts for the label texts can be added, and the angle between the radius and the label changed.
+#' @param genomeLabelDisplay,genomeLabelTextSize,genomeLabelTextColor,genomeLabelDx,genomeLabelDy
+#'  Should the reference genome have labels on each chromosome, in which font size and color?
 #' @param compareEvent  Default False, open/not COMPARE module
 #' @param compareEventGroupGapRate Default 0.1, control the two-side gap rate on each group of genome
 #' @param compareEventGroupDistance Default 0, distance between two groups of genome
@@ -800,8 +799,7 @@ NGCircos <- function(tracklist = NGCircosTracklist(),
                      genomeTicksDisplay = FALSE, genomeTicksLen = 5, genomeTicksColor = "#000", genomeTicksTextSize = "0.6em",
                      genomeTicksRealLength = TRUE, genomeTicksTextColor = "#000", genomeTicksScale = 30000000, genomeTicksOffset = 0,
                      genomeLabelDisplay = TRUE, genomeLabelTextSize = "10pt", genomeLabelTextColor = "#000",
-                     genomeLabelDx = 0, genomeLabelDy = 0, genomeLabelOrientation = 0,
-                     compareEvent=FALSE,compareEventGroupGapRate=0.1,compareEventGroupDistance=0,
+                     genomeLabelDx = 0, genomeLabelDy = 0, compareEvent=FALSE,compareEventGroupGapRate=0.1,compareEventGroupDistance=0,
                      zoom = TRUE, TEXTModuleDragEvent = FALSE,
                      CNVxlink=FALSE, CNVMouseEvent = TRUE, CNVMouseClickDisplay = FALSE, CNVMouseClickColor = "red",
                      CNVMouseClickArcOpacity = 1, CNVMouseClickArcStrokeColor = "#F26223",
@@ -1236,7 +1234,6 @@ NGCircos <- function(tracklist = NGCircosTracklist(),
     genomeLabelTextColor = genomeLabelTextColor,
     genomeLabelDx = genomeLabelDx,
     genomeLabelDy = genomeLabelDy,
-    genomeLabelOrientation = genomeLabelOrientation,
     compareEvent=compareEvent,
     compareEventGroupGapRate=compareEventGroupGapRate,
     compareEventGroupDistance=compareEventGroupDistance,
@@ -2479,10 +2476,9 @@ NGCircosGeneTrack <- function(trackname, compareGroup = 1, outerRadius = 180, in
 #'
 #' @examples
 #' snpData<-snpExample
-#' NGCircos(NGCircosSnpTrack('SNPTrack', minRadius =150, maxRadius = 190, data = snpExample,SNPFillColor= "#9ACD32",
-#'    circleSize= 2, SNPAxisColor= "#B8B8B8", SNPAxisWidth= 0.5, SNPAnimationDisplay=TRUE,SNPAnimationTime= 2000,
-#'    SNPAnimationDelay= 0, SNPAnimationType= "linear") + NGCircosBackgroundTrack('BGTrack',minRadius = 145,
-#'    maxRadius = 200))
+#' NGCircos(NGCircosSnpTrack('SNPTrack', minRadius =150, maxRadius = 190, data = snpExample,fillColor= "#9ACD32",
+#'    circleSize= 2, SNPAnimationDisplay=TRUE,SNPAnimationTime= 2000,SNPAnimationDelay= 0, SNPAnimationType= "linear") +
+#'     NGCircosBackgroundTrack('BGTrack',minRadius = 145, maxRadius = 200))
 #'
 #' @export
 NGCircosSnpTrack <- function(trackname, compareGroup = 1, minRadius = 153, maxRadius = 205, fillColorType = "specific",
@@ -2643,9 +2639,9 @@ NGCircosChordTrack <- function(trackname, innerRadius = 237, outerRadius = 238, 
                                outerARCStrokeColor = c("black"), outerARCText = TRUE, data, ...){
 
   track1 = paste("CHORD", trackname, sep="_")
-  track2 = list(CHORDinnerRadius = innerRadius, CHORDouterRadius = outerRadius, CHORDfillOpacity = fillOpacity,
-                CHORDfillStrokeWidth = fillStrokeWidth, CHORDpadding = padding, CHORDautoFillColor = autoFillColor,
-                CHORDfillColor = fillColor, CHORDfillStrokeColor = fillStrokeColor, CHORDouterARC = outerARC,
+  track2 = list(CHORDinnerRadius = innerRadius, CHORDouterRadius = outerRadius, CHORDFillOpacity = fillOpacity,
+                CHORDFillStrokeWidth = fillStrokeWidth, CHORDPadding = padding, CHORDAutoFillColor = autoFillColor,
+                CHORDFillColor = fillColor, CHORDFillStrokeColor = fillStrokeColor, CHORDouterARC = outerARC,
                 CHORDouterARCAutoColor = outerARCAutoColor, CHORDouterARCColor = outerARCColor,
                 CHORDouterARCStrokeColor = outerARCStrokeColor, CHORDouterARCText = outerARCText)
 
@@ -3103,11 +3099,12 @@ NGCircosTracklist <- function(){
   if(class(colVar) == "character"){
     if(all(colVar %in% rownames(RColorBrewer::brewer.pal.info))&(length(colVar) == 1)) { # RColorBrewer's brewer
       colVar = grDevices::colorRampPalette(RColorBrewer::brewer.pal(8, colVar))(colLength)
-      colVar =list(colVar)
+      # colVar =list(colVar)
     }else if(length(colVar) == colLength){
-      return(list(colVar))
+      return(colVar)
     }else{
-      return(list("#d3d3d3"))
+      print("Warning! The genomeFillColor should either has same length of genome or be a name of RColorBrewer brewer")
+      colVar = grDevices::colorRampPalette(RColorBrewer::brewer.pal(8, "Spectral"))(colLength)
     }
   }
   else{

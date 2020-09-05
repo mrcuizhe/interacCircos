@@ -1,10 +1,13 @@
 ---
 title: "NGCircos-r-vignette"
-output: rmarkdown::html_vignette
+output: 
+  rmarkdown::html_vignette:
+    toc: true
+    toc_depth: 2
 vignette: >
   %\VignetteIndexEntry{NGCircos-r-vignette}
+  %\usepackage[utf8]{inputenc}
   %\VignetteEngine{knitr::rmarkdown}
-  %\VignetteEncoding{UTF-8}
 date: "`r Sys.Date()`"
 author: "Zhe Cui"
 ---
@@ -29,8 +32,6 @@ NGCircos.r is available at https://github.com/mrcuizhe/NGCircos.r
 if (!require('devtools')){install.packages('devtools')}
 
 devtools::install_github('mrcuizhe/NGCircos.r', build_vignettes = TRUE)
-
-library(NGCircos)
 ```
 
 ## How to draw a interactive Circos plot using NGCircos.r
@@ -44,33 +45,35 @@ For the other 17 of 20 modules, which has a independent function(*NGCircosArcTra
 ### Genome configuration
 
 default:
-```{r plot1, screenshot.force=FALSE,fig.width=8, fig.height=6}
+
+```{r plot1,fig.width=7, fig.height=6,echo=TRUE}
 library(NGCircos)
-NGCircos()
+p<-NGCircos()
 ```
 
 The genome is set by defult as hg19, the genome can be changed by setting genome=list("Example1"=100,"Example2"=200,"Example3"=300). Meanwhile, the color of each chromosome can be changed by setting genomeFillColor = c("red","blue","green")
-```{r plot2, screenshot.force = FALSE,fig.width=8, fig.height=6}
+
+```{r plot2, fig.width=7, fig.height=6,echo=TRUE}
 library(NGCircos)
-NGCircos(genome=list("Example1"=100,"Example2"=200,"Example3"=300),genomeFillColor = c("red","blue","green"))
+p<-NGCircos(genome=list("Example1"=100,"Example2"=200,"Example3"=300),genomeFillColor = c("red","blue","green"))
 ```
 
 The filling color for chromosome can also be set automatically by choosing a *RColorBrewer* palette, such as *Blues*
-```{r plot3, screenshot.force = FALSE,fig.width=8, fig.height=6}
+```{r plot3, fig.width=7, fig.height=6,echo=TRUE,eval=FALSE}
 library(NGCircos)
 NGCircos(genome=list("Example1"=100,"Example2"=200,"Example3"=300),genomeFillColor = "Blues")
 ```
  
 Other parameters are documented and try ?NGCircos() for details
-```{r, screenshot.force = FALSE}
+```{r, screenshot.force = FALSE,eval=FALSE}
 library(NGCircos)
 NGCircos(genome=list("Example1"=100,"Example2"=200,"Example3"=300),genomeFillColor = "Blues",chrPad = 0,genomeTicksDisplay = TRUE,genomeTicksScale = 10,genomeLabelDisplay = FALSE)
 ```
 
 ### Adding module through *tracklist*
 
-17 modules(*NGCircosArcTrack()*, *NGCircosAuxLineTrack()*, *NGCircosBackgroundTrack()*, *NGCircosBubbleTrack()*, *NGCircosChordTrack()*, *NGCircosCnvTrack()*, *NGCircosGeneTrack()*, *NGCircosHeatmapTrack()*, *NGCircosHistogramTrack()*, *NGCircosLegendTrack()*, *NGCircosLineTrack()*, *NGCircosLinkTrack()*, *NGCircosLollipopTrack()*, *NGCircosScatterTrack()*, *NGCircosSnpTrack()*, *NGCircosTextTrack()*, *NGCircosWigTrack()*) are added by using "+" in *tracklist*, for example:
-```{r, screenshot.force = FALSE}
+17 modules(*NGCircosArcTrack()*, *NGCircosAuxLineTrack()*, *NGCircosBackgroundTrack()*, *NGCircosBubbleTrack()*, *NGCircosChordTrack()*, *NGCircosCnvTrack()*, *NGCircosGeneTrack()*, *NGCircosHeatmapTrack()*, *NGCircosHistogramTrack()*, *NGCircosLegendTrack()*, *NGCircosLineTrack()*, *NGCircosLinkTrack()*, *NGCircosLollipopTrack()*, *NGCircosScatterTrack()*, *NGCircosSnpTrack()*, *NGCircosTextTrack()*, *NGCircosWigTrack()*) are added by using "+" in *tracklist*, for example: 
+```{r, screenshot.force = FALSE,eval=FALSE}
 library(NGCircos)
 tracklist<-NGCircosTextTrack('textTrack01', 'Annotation', color = '#DD2222', x = -40) + NGCircosBackgroundTrack('bgTrack01', fillColors="#FFEEEE", borderSize = 1)
 NGCircos(tracklist = tracklist)
@@ -82,8 +85,8 @@ Details for each module are presented below:
 
 There is no data input for Auxiliary line module. The details for parameters are available by ?NGCircosAuxLineTrack
 An example for Auxiliary line module:
-```{r, screenshot.force = FALSE}
-library(NGCircos)  
+```{r, screenshot.force = FALSE,eval=FALSE}
+library(NGCircos)
 NGCircos(NGCircosAuxLineTrack('AuxLineTrack01'))
 ```
 
@@ -91,7 +94,7 @@ NGCircos(NGCircosAuxLineTrack('AuxLineTrack01'))
 
 There is no data input for Background module. The details for parameters are available by ?NGCircosBackgroundTrack
 An example for Background module:
-```{r, screenshot.force = FALSE}
+```{r, screenshot.force = FALSE,eval=FALSE}
 library(NGCircos) 
 NGCircos(NGCircosBackgroundTrack('bgTrack01', fillColors="#FFEEEE", borderSize = 1))
 ```
@@ -100,7 +103,7 @@ NGCircos(NGCircosBackgroundTrack('bgTrack01', fillColors="#FFEEEE", borderSize =
 
 The data is input throught the *data* parameter in bubble module. The details for parameters are available by ?NGCircosBubbleTrack
 An example for bubble module:
-```{r, screenshot.force = FALSE}
+```{r, screenshot.force = FALSE,eval=FALSE}
 library(NGCircos)
 bubbleData<-bubbleExample
 NGCircos(NGCircosBubbleTrack('BubbleTrack01', maxRadius = 230, minRadius = 170, data=bubbleData, blockStroke = TRUE, bubbleMaxSize =10, bubbleMinSize = 2, maxColor = "red", minColor = "yellow", totalLayer =3, animationDisplay = TRUE, animationType="linear"),genome = list("2L"=23011544,"2R"=21146708,"3L"=24543557,"3R"= 27905053,"X"=22422827,"4"=1351857), BUBBLEMouseOverDisplay =TRUE,innerRadius = 236)
@@ -110,7 +113,7 @@ NGCircos(NGCircosBubbleTrack('BubbleTrack01', maxRadius = 230, minRadius = 170, 
 
 The data is input throught the *data* parameter in chord module. The details for parameters are available by ?NGCircosChordTrack
 An example for chord module:
-```{r, screenshot.force = FALSE}
+```{r, screenshot.force = FALSE,eval=FALSE}
 library(NGCircos)
 chordData<-chordExample
 NGCircos(NGCircosChordTrack('CHORDTrack', data = chordData,innerRadius= 210,outerRadius= 211,fillOpacity=0.67,
@@ -126,7 +129,7 @@ genomeLabelDisplay = FALSE)
 
 The data is input throught the *data* parameter in cnv module. The details for parameters are available by ?NGCircosCnvTrack
 An example for cnv module:
-```{r, screenshot.force = FALSE}
+```{r, screenshot.force = FALSE,eval=FALSE}
 library(NGCircos)
 cnvData<-cnvExample
 NGCircos(NGCircosCnvTrack('CnvTrack01',maxRadius =175, minRadius =116, data =cnvData,width=2,color = "#4876FF")+
@@ -137,7 +140,7 @@ NGCircosBackgroundTrack("bgTrack01",minRadius = 116,maxRadius = 175,fillColors =
 
 The data is input throught the *data* parameter in gene module. The details for parameters are available by ?NGCircosGeneTrack
 An example for gene module:
-```{r, screenshot.force = FALSE}
+```{r, screenshot.force = FALSE,eval=FALSE}
 library(NGCircos)
 geneData<-geneExample
 NGCircos(NGCircosGeneTrack('GeneTrack01', outerRadius = 195, innerRadius = 180, data=geneData,arrowGap = 10,
@@ -150,7 +153,7 @@ NGCircos(NGCircosGeneTrack('GeneTrack01', outerRadius = 195, innerRadius = 180, 
 
 The data is input throught the *data* parameter in heatmap module. The details for parameters are available by ?NGCircosHeatmapTrack
 An example for heatmap module:
-```{r, screenshot.force = FALSE}
+```{r, screenshot.force = FALSE,eval=FALSE}
 library(NGCircos)
 heatmapData<-heatmapExample
 NGCircos(NGCircosHeatmapTrack('HeatmapTrack01', maxRadius= 180, minRadius = 100, data=heatmapData,totalLayer = 3),
@@ -162,7 +165,7 @@ HEATMAPMouseEvent = TRUE,HEATMAPMouseOverDisplay = TRUE)
 
 The data is input throught the *data* parameter in histogram module. The details for parameters are available by ?NGCircosHistogramTrack
 An example for histogram module:
-```{r, screenshot.force = FALSE}
+```{r, screenshot.force = FALSE,eval=FALSE}
 library(NGCircos)
 histogramData<-histogramExample
 NGCircos(NGCircosHistogramTrack('HISTOGRAMTrack', data = histogramData,fillColor= "#ff7f0e",maxRadius = 210,
@@ -174,7 +177,7 @@ outerRadius = 220)
 
 There is no data input for legend module. The details for parameters are available by ?NGCircosLegendTrack
 An example for legend module:
-```{r, screenshot.force = FALSE}
+```{r, screenshot.force = FALSE,eval=FALSE}
 library(NGCircos)
 legend1 <- list(type= "circle", color="#1E77B4",opacity="1.0",circleSize="8",text= "C.CK", textSize= "14",textWeight="normal")
 legend2 <- list(type= "circle", color="#AEC7E8",opacity="1.0",circleSize="8",text= "C.NPK", textSize= "14",textWeight="normal")
@@ -185,7 +188,7 @@ NGCircos(NGCircosLegendTrack('legendTrack01', title = "legend",data=list(legend1
 
 The data is input throught the *data* parameter in line module. The details for parameters are available by ?NGCircosLineTrack
 An example for line module:
-```{r, screenshot.force = FALSE}
+```{r, screenshot.force = FALSE,eval=FALSE}
 library(NGCircos)
 lineData<-lineExample
 NGCircos(NGCircosLineTrack('LINETrack', data = lineData,maxRadius=200,minRadius=150,color= "#ff0031")+
@@ -196,7 +199,7 @@ NGCircosBackgroundTrack('BGTrack',minRadius = 205,maxRadius = 150))
 
 The data is input throught the *data* parameter in link module. The details for parameters are available by ?NGCircosLinkTrack
 An example for link module:
-```{r, screenshot.force = FALSE}
+```{r, screenshot.force = FALSE,eval=FALSE}
 library(NGCircos)
 linkData<-linkExample
 NGCircos(NGCircosLinkTrack('LINKTrack', data = linkData,LinkRadius= 140,fillColor= "#9e9ac6",width= 2,
@@ -207,7 +210,7 @@ axisPad= 3,labelPad=8,animationDisplay=TRUE,animationDirection="1to2", animation
 
 The data is input throught the *data* parameter in lollipop module. The details for parameters are available by ?NGCircosLollipopTrack
 An example for lollipop module:
-```{r, screenshot.force = FALSE}
+```{r, screenshot.force = FALSE,eval=FALSE}
 library(NGCircos)
 lollipopData<-lollipopExample
 arcData<-arcExample
@@ -221,7 +224,7 @@ realStart= 101219350)+NGCircosArcTrack('ArcTrack01', outerRadius = 212, innerRad
 
 The data is input throught the *data* parameter in snp module. The details for parameters are available by ?NGCircosSnpTrack
 An example for snp module:
-```{r, screenshot.force = FALSE}
+```{r, screenshot.force = FALSE,eval=FALSE}
 library(NGCircos)
 snpData<-snpExample
 NGCircos(NGCircosSnpTrack('SNPTrack', minRadius =150, maxRadius = 190, data = snpExample,SNPFillColor= "#9ACD32", circleSize= 2, SNPAxisColor= "#B8B8B8", SNPAxisWidth= 0.5, SNPAnimationDisplay=TRUE,SNPAnimationTime= 2000, SNPAnimationDelay= 0, SNPAnimationType= "linear") + NGCircosBackgroundTrack('BGTrack',minRadius = 145,maxRadius = 200))
@@ -231,7 +234,7 @@ NGCircos(NGCircosSnpTrack('SNPTrack', minRadius =150, maxRadius = 190, data = sn
 
 There is no data input for text module. The details for parameters are available by ?NGCircosTextTrack
 An example for text module:
-```{r, screenshot.force = FALSE}
+```{r, screenshot.force = FALSE,eval=FALSE}
 library(NGCircos)  
 NGCircos(NGCircosTextTrack('textTrack01', 'Annotation', color = '#DD2222', x = -40))
 ```
@@ -240,7 +243,7 @@ NGCircos(NGCircosTextTrack('textTrack01', 'Annotation', color = '#DD2222', x = -
 
 The data is input throught the *data* parameter in wig module. The details for parameters are available by ?NGCircosWigTrack
 An example for wig module:
-```{r, screenshot.force = FALSE}
+```{r, screenshot.force = FALSE,eval=FALSE}
 library(NGCircos)
 wigData<-wigExample
 NGCircos(NGCircosWigTrack('WIGTrack', data = wigData, maxRadius= 200,minRadius= 150,strokeColor= "darkblue",
@@ -252,7 +255,7 @@ color= "lightblue",strokeType= "cardinal")+NGCircosBackgroundTrack('BGTrack',min
 
 If you are using RStudio, the plot can be saved as an image or a html page.
 If you are using R in command, the plot can be saved as a html page, thanks to the *htmlwidgets* library:
-```{r eval=FALSE, screenshot.force = FALSE}
+```{r eval=FALSE, screenshot.force = FALSE,eval=FALSE}
 library(NGCircos)
 library(htmlwidgets)
 

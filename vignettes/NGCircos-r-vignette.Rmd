@@ -15,7 +15,7 @@ author: "Zhe Cui"
 ## Introduction
 
 NGCircos is developed in Javascript and displayed in html, based on D3 and JQuery libraries. 
-R language is much more friendly in data visualization and plot programming than html, so we ported NGCircos to this R package based on the *htmlwidgets* framework.
+Since R language is much more friendly in data visualization and plot programming than html, we ported NGCircos to this R package based on the *htmlwidgets* framework.
 
 ## Features
 

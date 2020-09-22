@@ -796,22 +796,17 @@ NGCircos(
 )
 }
 \arguments{
-\item{tracklist}{A list of module to display.}
+\item{tracklist}{Module list displayed in plot.}
 
-\item{genome}{A list of chromosome lengths to be used as reference for the visualization or 'hg19' to use
-the chromosomes 1 to 22 and the sexual chromosomes according to the hg19 reference.}
+\item{genome}{Could be either 'hg19', which is defaultly set to use chromosomes of hg19, or a list of chromosomes with length, for example, list("chr1"=100,"chr2"=200).}
 
-\item{genome2}{Second genome when compare module is applied}
+\item{genome2}{Second genome when compare module is applied, format is same as genome}
 
-\item{genomeFillColor}{The color to display in each chromosome. Can be a RColorBrewer palette name used to
-generate one color per chromosome, or a character object or vector of character objects stating RGB values in hexadecimal
-format or base R colors. If the vector is shorter than the reference genome, values will be repeated.}
+\item{genomeFillColor}{Could be either a color palette from RColorBrewer, or a list of color name, for example, list("yellow","rgb(1,255,255)")}
 
-\item{chrPad}{Distance between chromosomes.}
+\item{chrPad}{Distance between each chromosome, default is 0.04}
 
-\item{width, height}{Must be a valid CSS unit (like \code{'100\%'},
-\code{'400px'}, \code{'auto'}) or a number, which will be coerced to a
-string and have \code{'px'} appended.}
+\item{width, height}{The width and height for svg element, could be px or percent or auto.}
 
 \item{innerRadius}{Default 216, Inner radius of chromosome}
 
@@ -819,13 +814,13 @@ string and have \code{'px'} appended.}
 
 \item{svgClassName}{The svg class name}
 
-\item{displayGenomeBorder, genomeBorderColor, genomeBorderSize}{Should the reference genome have borders?
-If yes specify the color, in RGB hexadecimal format, and the thickness.}
+\item{displayGenomeBorder, genomeBorderColor, genomeBorderSize}{Should the reference genome have borders?}
 
-\item{genomeTicksDisplay, genomeTicksLen, genomeTicksColor, genomeTicksTextSize, genomeTicksTextColor, genomeTicksScale, genomeTicksRealLength, genomeTicksOffset}{Should the refence genome have ticks, of which length, color (in hexadecimal RGB format), with labels in which font
-size and color, and spaced by how many bases? whether show the real length of genome? The offset from real length}
+\item{genomeTicksDisplay, genomeTicksLen, genomeTicksColor, genomeTicksTextSize, genomeTicksTextColor, genomeTicksScale, genomeTicksRealLength, genomeTicksOffset}{Whether display 
+the ticks for chromosome panel. Other parameters only works when genomeTicksDisplay is TRUE and their details are available on NGCircos document.}
 
-\item{genomeLabelDisplay, genomeLabelTextSize, genomeLabelTextColor, genomeLabelDx, genomeLabelDy}{Should the reference genome have labels on each chromosome, in which font size and color?}
+\item{genomeLabelDisplay, genomeLabelTextSize, genomeLabelTextColor, genomeLabelDx, genomeLabelDy}{Whether display the label for chromosome panel. Other parameters only
+works when genomeTicksDisplay is TRUE and their details are available on NGCircos document.}
 
 \item{compareEvent}{Default False, open/not COMPARE module}
 
@@ -833,7 +828,7 @@ size and color, and spaced by how many bases? whether show the real length of ge
 
 \item{compareEventGroupDistance}{Default 0, distance between two groups of genome}
 
-\item{zoom}{Is zooming and moving in the visualization allowed?}
+\item{zoom}{Whether or not the plot is zoomable?}
 
 \item{TEXTModuleDragEvent}{Are text annotations draggable?}
 

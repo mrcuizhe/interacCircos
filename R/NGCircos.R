@@ -2,41 +2,31 @@
 #'
 #' @description A R packages based on Next Generation Circos
 #'
-#' @import htmlwidgets
-#' @import RColorBrewer
 #' @import plyr
 #' @import jsonlite
 #' @import grDevices
+#' @import htmlwidgets
+#' @import RColorBrewer
 #'
-#' @param tracklist A list of module to display.
-#' @param genome A list of chromosome lengths to be used as reference for the visualization or 'hg19' to use
-#'  the chromosomes 1 to 22 and the sexual chromosomes according to the hg19 reference.
-#' @param genome2 Second genome when compare module is applied
-#' @param genomeFillColor The color to display in each chromosome. Can be a RColorBrewer palette name used to
-#'  generate one color per chromosome, or a character object or vector of character objects stating RGB values in hexadecimal
-#'  format or base R colors. If the vector is shorter than the reference genome, values will be repeated.
-#' @param chrPad Distance between chromosomes.
-#' @param width,height Must be a valid CSS unit (like \code{'100\%'},
-#'   \code{'400px'}, \code{'auto'}) or a number, which will be coerced to a
-#'   string and have \code{'px'} appended.
+#' @param tracklist Module list displayed in plot.
+#' @param genome Could be either 'hg19', which is defaultly set to use chromosomes of hg19, or a list of chromosomes with length, for example, list("chr1"=100,"chr2"=200).
+#' @param genome2 Second genome when compare module is applied, format is same as genome
+#' @param genomeFillColor Could be either a color palette from RColorBrewer, or a list of color name, for example, list("yellow","rgb(1,255,255)")
+#' @param chrPad Distance between each chromosome, default is 0.04
+#' @param width,height The width and height for svg element, could be px or percent or auto.
 #' @param svgClassName The svg class name
 #' @param innerRadius Default 216, Inner radius of chromosome
 #' @param outerRadius Default 240, Outer radius of chromosome
 #' @param displayGenomeBorder,genomeBorderColor,genomeBorderSize Should the reference genome have borders?
-#'  If yes specify the color, in RGB hexadecimal format, and the thickness.
-#' @param genomeTicksDisplay,genomeTicksLen,genomeTicksColor,genomeTicksTextSize,genomeTicksTextColor,genomeTicksScale,genomeTicksRealLength,genomeTicksOffset
-#'  Should the refence genome have ticks, of which length, color (in hexadecimal RGB format), with labels in which font
-#' size and color, and spaced by how many bases? whether show the real length of genome? The offset from real length
-#' @param genomeLabelDisplay,genomeLabelTextSize,genomeLabelTextColor,genomeLabelDx,genomeLabelDy
-#'  Should the reference genome have labels on each chromosome, in which font size and color?
+#' @param genomeTicksDisplay,genomeTicksLen,genomeTicksColor,genomeTicksTextSize,genomeTicksTextColor,genomeTicksScale,genomeTicksRealLength,genomeTicksOffset Whether display 
+#' the ticks for chromosome panel. Other parameters only works when genomeTicksDisplay is TRUE and their details are available on NGCircos document.
+#' @param genomeLabelDisplay,genomeLabelTextSize,genomeLabelTextColor,genomeLabelDx,genomeLabelDy Whether display the label for chromosome panel. Other parameters only
+#'  works when genomeTicksDisplay is TRUE and their details are available on NGCircos document.
 #' @param compareEvent  Default False, open/not COMPARE module
 #' @param compareEventGroupGapRate Default 0.1, control the two-side gap rate on each group of genome
 #' @param compareEventGroupDistance Default 0, distance between two groups of genome
-#' @param zoom Is zooming and moving in the visualization allowed?
-#'
+#' @param zoom Whether or not the plot is zoomable?
 #' @param TEXTModuleDragEvent Are text annotations draggable?
-#'
-#'
 #' @param SNPxlink Default False, add/not xlink for SNP module
 #' @param SNPMouseEvent Default True, open/not open mouse event of SNP module
 #' @param SNPMouseCombinationEvent Default False, open/not COMBINATION module for SNP module

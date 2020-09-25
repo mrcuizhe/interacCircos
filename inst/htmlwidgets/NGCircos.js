@@ -36,19 +36,19 @@ HTMLWidgets.widget({
         // var maxRadius = Math.min(height, width)/2; // Compute maximal radial space
 
         // Adapt the radii from relative to absolute values
-        // for (var i = 0; i < opts.tracklist.length; i++) { // For each track
-        //   opts.tracklist[i][1].maxRadius *= 0.7*maxRadius
-        //   opts.tracklist[i][1].minRadius *= 0.7*maxRadius
-        //   opts.tracklist[i][1].BgouterRadius *= 0.7*maxRadius
-        //   opts.tracklist[i][1].BginnerRadius *= 0.7*maxRadius
-        //   opts.tracklist[i][1].outerRadius *= 0.7*maxRadius
-        //   opts.tracklist[i][1].innerRadius *= 0.7*maxRadius
-        //   opts.tracklist[i][1].x *= 0.7*maxRadius
-        //   opts.tracklist[i][1].y *= 0.7*maxRadius
-        //   opts.tracklist[i][1].LinkRadius *= 0.7*maxRadius 
+        // for (var i = 0; i < opts.moduleList.length; i++) { // For each track
+        //   opts.moduleList[i][1].maxRadius *= 0.7*maxRadius
+        //   opts.moduleList[i][1].minRadius *= 0.7*maxRadius
+        //   opts.moduleList[i][1].BgouterRadius *= 0.7*maxRadius
+        //   opts.moduleList[i][1].BginnerRadius *= 0.7*maxRadius
+        //   opts.moduleList[i][1].outerRadius *= 0.7*maxRadius
+        //   opts.moduleList[i][1].innerRadius *= 0.7*maxRadius
+        //   opts.moduleList[i][1].x *= 0.7*maxRadius
+        //   opts.moduleList[i][1].y *= 0.7*maxRadius
+        //   opts.moduleList[i][1].LinkRadius *= 0.7*maxRadius 
         // }
 
-        NGCircos01 = new NGCircos(... opts.tracklist, NGCircosGenome,{
+        NGCircos01 = new NGCircos(... opts.moduleList, NGCircosGenome,{
           // Main configuration
           target : el.id,
           svgWidth : width,

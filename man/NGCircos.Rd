@@ -5,7 +5,7 @@
 \title{NGCircos}
 \usage{
 NGCircos(
-  tracklist = NGCircosTracklist(),
+  moduleList = NGCircosModuleList(),
   genome = "hg19",
   genome2 = "hg19",
   genomeFillColor = "Spectral",
@@ -796,7 +796,7 @@ NGCircos(
 )
 }
 \arguments{
-\item{tracklist}{Module list displayed in plot.}
+\item{moduleList}{Module list displayed in plot.}
 
 \item{genome}{Could be either 'hg19', which is defaultly set to use chromosomes of hg19, or a list of chromosomes with length, for example, list("chr1"=100,"chr2"=200).}
 
@@ -816,7 +816,7 @@ NGCircos(
 
 \item{displayGenomeBorder, genomeBorderColor, genomeBorderSize}{Should the reference genome have borders?}
 
-\item{genomeTicksDisplay, genomeTicksLen, genomeTicksColor, genomeTicksTextSize, genomeTicksTextColor, genomeTicksScale, genomeTicksRealLength, genomeTicksOffset}{Whether display 
+\item{genomeTicksDisplay, genomeTicksLen, genomeTicksColor, genomeTicksTextSize, genomeTicksTextColor, genomeTicksScale, genomeTicksRealLength, genomeTicksOffset}{Whether display
 the ticks for chromosome panel. Other parameters only works when genomeTicksDisplay is TRUE and their details are available on NGCircos document.}
 
 \item{genomeLabelDisplay, genomeLabelTextSize, genomeLabelTextColor, genomeLabelDx, genomeLabelDy}{Whether display the label for chromosome panel. Other parameters only

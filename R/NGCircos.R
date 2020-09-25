@@ -2,13 +2,13 @@
 #'
 #' @description A R packages based on Next Generation Circos
 #'
+#' @import htmlwidgets
+#' @import RColorBrewer
 #' @import plyr
 #' @import jsonlite
 #' @import grDevices
-#' @import htmlwidgets
-#' @import RColorBrewer
 #'
-#' @param tracklist Module list displayed in plot.
+#' @param moduleList Module list displayed in plot.
 #' @param genome Could be either 'hg19', which is defaultly set to use chromosomes of hg19, or a list of chromosomes with length, for example, list("chr1"=100,"chr2"=200).
 #' @param genome2 Second genome when compare module is applied, format is same as genome
 #' @param genomeFillColor Could be either a color palette from RColorBrewer, or a list of color name, for example, list("yellow","rgb(1,255,255)")
@@ -18,7 +18,7 @@
 #' @param innerRadius Default 216, Inner radius of chromosome
 #' @param outerRadius Default 240, Outer radius of chromosome
 #' @param displayGenomeBorder,genomeBorderColor,genomeBorderSize Should the reference genome have borders?
-#' @param genomeTicksDisplay,genomeTicksLen,genomeTicksColor,genomeTicksTextSize,genomeTicksTextColor,genomeTicksScale,genomeTicksRealLength,genomeTicksOffset Whether display 
+#' @param genomeTicksDisplay,genomeTicksLen,genomeTicksColor,genomeTicksTextSize,genomeTicksTextColor,genomeTicksScale,genomeTicksRealLength,genomeTicksOffset Whether display
 #' the ticks for chromosome panel. Other parameters only works when genomeTicksDisplay is TRUE and their details are available on NGCircos document.
 #' @param genomeLabelDisplay,genomeLabelTextSize,genomeLabelTextColor,genomeLabelDx,genomeLabelDy Whether display the label for chromosome panel. Other parameters only
 #'  works when genomeTicksDisplay is TRUE and their details are available on NGCircos document.
@@ -782,7 +782,7 @@
 #' NGCircos(genome = "hg19")
 #'
 #' @export
-NGCircos <- function(tracklist = NGCircosTracklist(),
+NGCircos <- function(moduleList = NGCircosModuleList(),
                      genome = "hg19", genome2 = "hg19", genomeFillColor = "Spectral", chrPad = 0.02, width = NULL, height = NULL,
                      innerRadius = 216, outerRadius=240, svgClassName = "NGCircos",
                      displayGenomeBorder = TRUE, genomeBorderColor = "#000", genomeBorderSize = 0.5,
@@ -1200,7 +1200,7 @@ NGCircos <- function(tracklist = NGCircosTracklist(),
   # forward options using x
   x = list(
     message = message,
-    tracklist = tracklist,
+    moduleList = moduleList,
     genome = genome,
     genome2 = genome2,
     svgClassName = svgClassName,
@@ -2023,17 +2023,17 @@ renderNGCircos <- function(expr, env = parent.frame(), quoted = FALSE) {
   htmlwidgets::shinyRenderWidget(expr, NGCircosOutput, env, quoted = TRUE)
 }
 
-#' Create a BACKGROUND track to be added to a NGCircos tracklist
+#' Create a BACKGROUND module to be added to a NGCircos moduleList
 #'
-#' Simple background to display behind another track
+#' Simple background to display behind another module
 #'
-#' @param trackname The name of the new track.
-#' @param compareGroup The group number of thic track in compare module
+#' @param modulename The name of the new module.
+#' @param compareGroup The group number of this module in compare module
 #' @param fillColors The color of the background element, in hexadecimal RGB format.
 #' @param borderColors The color of the background borders, in hexadecimal RGB format.
 #' @param axisShow Whether show a axis or not
 #' @param axisWidth,axisColor,axisOpacity,axisNum The color, opacity value and number of line for axis
-#' @param minRadius,maxRadius Where the track should begin and end
+#' @param minRadius,maxRadius Where the module should begin and end
 #' @param borderSize The thickness of the background borders.
 #' @param animationDisplay Whether display a animation or not
 #' @param animationTime,animationDelay,animationType The time, delay and display type for animation
@@ -2041,29 +2041,29 @@ renderNGCircos <- function(expr, env = parent.frame(), quoted = FALSE) {
 #' @param ... Ignored
 #'
 #' @examples
-#' NGCircos(NGCircosBackgroundTrack('bgTrack01', fillColors="#FFEEEE", borderSize = 1))
+#' NGCircos(NGCircosBackground('bg01', fillColors="#FFEEEE", borderSize = 1))
 #'
 #' @export
-NGCircosBackgroundTrack <- function(trackname,compareGroup = 1, fillColors = "#EEEEFF", borderColors = "#000000",
+NGCircosBackground <- function(modulename,compareGroup = 1, fillColors = "#EEEEFF", borderColors = "#000000",
                                    axisShow = FALSE, axisColor = "#000", axisOpacity = 0.5, axisNum = 4, axisWidth = 0.3,
                                    maxRadius = 190, minRadius = 105, borderSize = 0.3,
                                    animationDisplay = FALSE, animationTime = 2000, animationDelay=20,
                                    animationType = "bounce",...){
-  track1 = paste("BACKGROUND", trackname, sep="_")
-  track2 = list(compareGroup = compareGroup,axisShow = axisShow, axisWidth = axisWidth, axisColor = axisColor,
+  module1 = paste("BACKGROUND", modulename, sep="_")
+  module2 = list(compareGroup = compareGroup,axisShow = axisShow, axisWidth = axisWidth, axisColor = axisColor,
                 axisOpacity = axisOpacity, axisNum = axisNum, BACKGROUNDAnimationDisplay = animationDisplay,
                 BACKGROUNDAnimationTime = animationTime, BACKGROUNDAnimationDelay = animationDelay,
                 BACKGROUNDAnimationType = animationType, BgouterRadius = maxRadius, BginnerRadius = minRadius,
                 BgFillColor = fillColors, BgborderColor = borderColors, BgborderSize = borderSize)
-  track = NGCircosTracklist() + list(list(track1, track2))
-  return(track)
+  module = NGCircosModuleList() + list(list(module1, module2))
+  return(module)
 }
 
-#' @title Create Text module to be added to a NGCircos tracklist
+#' @title Create Text module to be added to a NGCircos moduleList
 #'
 #' @description Simple text annotation displayed in the visualization
 #'
-#' @param trackname The name of the new track.
+#' @param modulename The name of the new module.
 #'
 #' @param text The text to be displayed.
 #'
@@ -2085,33 +2085,33 @@ NGCircosBackgroundTrack <- function(trackname,compareGroup = 1, fillColors = "#E
 #' @param ... Ignored
 #'
 #' @examples
-#' NGCircos(NGCircosTextTrack('textTrack01', 'Annotation', color = '#DD2222', x = -40))
+#' NGCircos(NGCircosText('text01', 'Annotation', color = '#DD2222', x = -40))
 #'
 #' @export
-NGCircosTextTrack <- function(trackname, text,
+NGCircosText <- function(modulename, text,
                              x = 0, y = 0, size = "1.2em", weight = "bold", opacity = 1, color = "#000000",
                              rotateRate = 0, animationDisplay = FALSE, animationInitialSize = 20,
                              animationInitialWeight = "bold", animationInitialColor = "black",
                              animationInitialOpacity = 1, animationInitialPositionX = 0,
                              animationInitialPositionY = 0 , animationInitialRotate = 0,
                              animationDelay = 50, animationTime = 1000, animationType = "linear", ...){
-  track1 = paste("TEXT", trackname, sep="_")
-  track2 = list(x = x, y = y, textSize = size,textWeight = weight, textColor = color, textOpacity = opacity,
+  module1 = paste("TEXT", modulename, sep="_")
+  module2 = list(x = x, y = y, textSize = size,textWeight = weight, textColor = color, textOpacity = opacity,
                 text = text, rotateRate = rotateRate, TEXTAnimationDisplay = animationDisplay,
                 TEXTAnimationInitialSize = animationInitialSize, TEXTAnimationInitialWeight = animationInitialWeight,
                 TEXTAnimationInitialColor = animationInitialColor, TEXTAnimationInitialOpacity = animationInitialOpacity,
                 TEXTAnimationInitialPositionX = animationInitialPositionX, TEXTAnimationInitialPositionY = animationInitialPositionY,
                 TEXTAnimationInitialRotate = animationInitialRotate, TEXTAnimationDelay = animationDelay,
                 TEXTAnimationTime = animationTime, TEXTAnimationType = animationType)
-  track = NGCircosTracklist() + list(list(track1, track2))
-  return(track)
+  module = NGCircosModuleList() + list(list(module1, module2))
+  return(module)
 }
 
-#' @title Create a LEGEND module to a NGCircos tracklist
+#' @title Create a LEGEND module to a NGCircos moduleList
 #'
 #' @description Simple legend annotation displayed in the visualization.
 #'
-#' @param trackname The name of the new track.
+#' @param modulename The name of the new module.
 #'
 #' @param x,y Coordinates of the lower left corner of the annotation
 #' @param title The title for legend
@@ -2127,25 +2127,25 @@ NGCircosTextTrack <- function(trackname, text,
 #' @examples
 #' legend1 <- list(type= "circle", color="#1E77B4",opacity="1.0",circleSize="8",text= "C.CK", textSize= "14",textWeight="normal")
 #' legend2 <- list(type= "circle", color="#AEC7E8",opacity="1.0",circleSize="8",text= "C.NPK", textSize= "14",textWeight="normal")
-#' NGCircos(NGCircosLegendTrack('legendTrack01', title = "legend",data=list(legend1,legend2),size = 20))
+#' NGCircos(NGCircosLegend('legend01', title = "legend",data=list(legend1,legend2),size = 20))
 #'
 #' @export
-NGCircosLegendTrack <- function(trackname, x = 20, y = 20, title = "legend", size = 6, weight = "normal",
+NGCircosLegend <- function(modulename, x = 20, y = 20, title = "legend", size = 6, weight = "normal",
                                GapBetweenGraphicText = 5, GapBetweenLines = 20, data, ...){
-  track1 = paste("LEGEND", trackname, sep="_")
-  track2 = list(x = x, y = y, title = title, titleSize = size, titleWeight = weight,
+  module1 = paste("LEGEND", modulename, sep="_")
+  module2 = list(x = x, y = y, title = title, titleSize = size, titleWeight = weight,
                 GapBetweenGraphicText = GapBetweenGraphicText, GapBetweenLines = GapBetweenLines)
-  track3 = data
-  track = NGCircosTracklist() + list(list(track1, track2, track3))
-  return(track)
+  module3 = data
+  module = NGCircosModuleList() + list(list(module1, module2, module3))
+  return(module)
 }
 
-#' Create a AUXILIAYLINE module to a NGCircos tracklist
+#' Create a AUXILIAYLINE module to a NGCircos moduleList
 #'
 #' A auxiliary line displayed in the visualization
 #' The document for more parameters in NGCircos is available at www.xxxxx.com
 #'
-#' @param trackname The name of the new track.
+#' @param modulename The name of the new module.
 #'
 #' @param startX,startY Start coordinates for auxiliary line.
 #' @param endX,endY End coordinates for auxiliary line.
@@ -2165,16 +2165,16 @@ NGCircosLegendTrack <- function(trackname, x = 20, y = 20, title = "legend", siz
 #' @param ... Ignored
 #'
 #' @examples
-#' NGCircos(NGCircosAuxLineTrack('AuxLineTrack01'))
+#' NGCircos(NGCircosAuxLine('AuxLine01'))
 #'
 #' @export
-NGCircosAuxLineTrack <- function(trackname, startX = 20, startY = 20, endX = 120, endY = 120, color = "red", width = 0.5,
+NGCircosAuxLine <- function(modulename, startX = 20, startY = 20, endX = 120, endY = 120, color = "red", width = 0.5,
                                 type = "straight", controlPointX = 0, controlPointY = 0, lineType = "solid",
                                 dashArray = 3, marker = TRUE, markerType = "circle", markerColor = "blue",
                                 markerHeight = 5, markerWidth = 5, markerPosition = 2, animationDisplay = FALSE,
                                 animationTime = 50, animationDelay = 1000, animationType = "linear", ...){
-  track1 = paste("AUXILIARYLINE", trackname, sep="_")
-  track2 = list(startX = startX, startY = startY, endX = endX, endY = endY, AUXILIARYLINEColor = color,
+  module1 = paste("AUXILIARYLINE", modulename, sep="_")
+  module2 = list(startX = startX, startY = startY, endX = endX, endY = endY, AUXILIARYLINEColor = color,
                 AUXILIARYLINEWidth = width, AUXILIARYLINEType = type, AUXILIARYLINEControlPointX = controlPointX,
                 AUXILIARYLINEControlPointY = controlPointY, AUXILIARYLINELineType = lineType,
                 AUXILIARYLINEDashArray = dashArray, AUXILIARYLINEMarker = marker, AUXILIARYLINEMarkerType = markerType,
@@ -2182,24 +2182,24 @@ NGCircosAuxLineTrack <- function(trackname, startX = 20, startY = 20, endX = 120
                 AUXILIARYLINEMarkerWidth = markerWidth, AUXILIARYLINEMarkerPosition = markerPosition,
                 AUXILIARYLINEanimationDisplay = animationDisplay, AUXILIARYLINEAnimationTime = animationTime,
                 AUXILIARYLINEAnimationDelay = animationDelay, AUXILIARYLINEAnimationType = animationType)
-  track = NGCircosTracklist() + list(list(track1, track2))
-  return(track)
+  module = NGCircosModuleList() + list(list(module1, module2))
+  return(module)
 }
 
-#' @title Create a CNV module to a NGCircos tracklist
+#' @title Create a CNV module to a NGCircos moduleList
 #'
-#' @description A copy number variance track displayed in the visualization
+#' @description A copy number variance module displayed in the visualization
 #'
-#' @param trackname The name of the new track.
+#' @param modulename The name of the new module.
 #'
-#' @param compareGroup The group number of thic track in compare module
-#' @param maxRadius,minRadius Where the track should begin and end.
-#' @param width Width for CNV track
-#' @param color Color for CNV track
+#' @param compareGroup The group number of this module in compare module
+#' @param maxRadius,minRadius Where the module should begin and end.
+#' @param width Width for CNV module
+#' @param color Color for CNV module
 #' @param ValueAxisManualScale Whether manually control the scale of value
 #' @param ValueAxisMaxScale,ValueAxisMinScale The max and min scale value for manually control
 #' @param strokeColor,strokeWidth The color and width for stroke
-#' @param opacity The opacity for track
+#' @param opacity The opacity for module
 #' @param animationDisplay Whether display animation
 #' @param animationTime,animationDelay,animationType The time, delay and display type for animation
 #' @param data A list of CNV with details including start, end, value, link, color and html.
@@ -2209,23 +2209,23 @@ NGCircosAuxLineTrack <- function(trackname, startX = 20, startY = 20, endX = 120
 #'
 #' @examples
 #' cnvData<-cnvExample
-#' NGCircos(NGCircosCnvTrack('CnvTrack01',maxRadius =175, minRadius =116, data =cnvData,width=2,color = "#4876FF")+
-#' NGCircosBackgroundTrack("bgTrack01",minRadius = 116,maxRadius = 175,fillColors = "#F2F2F2",axisShow = TRUE),CNVMouseOverDisplay = TRUE)
+#' NGCircos(NGCircosCnv('Cnv01',maxRadius =175, minRadius =116, data =cnvData,width=2,color = "#4876FF")+
+#' NGCircosBackground("bg01",minRadius = 116,maxRadius = 175,fillColors = "#F2F2F2",axisShow = TRUE),CNVMouseOverDisplay = TRUE)
 #'
 #' @export
-NGCircosCnvTrack <- function(trackname, compareGroup = 1, maxRadius = 200, minRadius = 190, width = 10, color = "#CAE1FF",
+NGCircosCnv <- function(modulename, compareGroup = 1, maxRadius = 200, minRadius = 190, width = 10, color = "#CAE1FF",
                             ValueAxisManualScale = FALSE, ValueAxisMaxScale = 10, ValueAxisMinScale = 0,
                             strokeColor = "black", strokeWidth = 1, opacity = 1, animationDisplay = FALSE,
                             animationTime = 2000, animationDelay = 50, animationType = "bounce", data, ...){
-  track1 = paste("CNV", trackname, sep="_")
-  track2 = list(compareGroup = compareGroup, maxRadius = maxRadius, minRadius = minRadius, CNVwidth = width,
+  module1 = paste("CNV", modulename, sep="_")
+  module2 = list(compareGroup = compareGroup, maxRadius = maxRadius, minRadius = minRadius, CNVwidth = width,
                 CNVColor = color, ValueAxisManualScale = ValueAxisManualScale, ValueAxisMaxScale = ValueAxisMaxScale,
                 ValueAxisMinScale = ValueAxisMinScale, strokeColor = strokeColor, strokeWidth = strokeWidth,
                 opacity = opacity, CNVAnimationDisplay = animationDisplay, CNVAnimationTime = animationTime,
                 CNVAnimationDelay = animationDelay, CNVAnimationType = animationType)
-  track3 = unname(alply(data, 1, as.list))
-  track = NGCircosTracklist() + list(list(track1, track2, track3))
-  return(track)
+  module3 = unname(alply(data, 1, as.list))
+  module = NGCircosModuleList() + list(list(module1, module2, module3))
+  return(module)
 }
 
 #' @title Cnv module example data
@@ -2243,14 +2243,14 @@ NGCircosCnvTrack <- function(trackname, compareGroup = 1, maxRadius = 200, minRa
 #' }
 "cnvExample"
 
-#' @title Create a HEATMAP module to a NGCircos tracklist
+#' @title Create a HEATMAP module to a NGCircos moduleList
 #'
 #' @description A heatmap plot displayed in the visualization
 #'
-#' @param trackname The name of the new track.
+#' @param modulename The name of the new module.
 #'
-#' @param compareGroup The group number of thic track in compare module
-#' @param maxRadius,minRadius Where the track should begin and end.
+#' @param compareGroup The group number of this module in compare module
+#' @param maxRadius,minRadius Where the module should begin and end.
 #' @param minColor The color for heatmap with min value
 #' @param maxColor The color for heatmap with max value
 #' @param ValueAxisManualScale Whether manually control the scale of value
@@ -2267,26 +2267,26 @@ NGCircosCnvTrack <- function(trackname, compareGroup = 1, maxRadius = 200, minRa
 #'
 #' @examples
 #' heatmapData<-heatmapExample
-#' NGCircos(NGCircosHeatmapTrack('HeatmapTrack01', maxRadius= 180, minRadius = 100, data=heatmapData,totalLayer = 3),
+#' NGCircos(NGCircosHeatmap('Heatmap01', maxRadius= 180, minRadius = 100, data=heatmapData,totalLayer = 3),
 #' genome = list("2L"=23011544,"2R"=21146708,"3L"=24543557,"3R"=27905053,"4"=1351857,"X"=22422827),
 #' HEATMAPMouseEvent = TRUE,HEATMAPMouseOverDisplay = TRUE)
 #'
 #' @export
-NGCircosHeatmapTrack <- function(trackname, compareGroup = 1, maxRadius = 180, minRadius = 100, minColor = "red",
+NGCircosHeatmap <- function(modulename, compareGroup = 1, maxRadius = 180, minRadius = 100, minColor = "red",
                                 maxColor = "green", ValueAxisManualScale = FALSE, ValueAxisMaxScale = 10,
                                 ValueAxisMinScale = 0, totalLayer = 1, animationDisplay = FALSE,
                                 animationDirection = "O2I", animationColorDirection = "L2C",
                                 animationTime = 2000, animationDelay = 20, animationType = "bounce", data, ...){
-  track1 = paste("HEATMAP", trackname, sep="_")
-  track2 = list(compareGroup = compareGroup, outerRadius = maxRadius, innerRadius = minRadius, maxColor = maxColor,
+  module1 = paste("HEATMAP", modulename, sep="_")
+  module2 = list(compareGroup = compareGroup, outerRadius = maxRadius, innerRadius = minRadius, maxColor = maxColor,
                 minColor = minColor, ValueAxisManualScale = ValueAxisManualScale, ValueAxisMaxScale = ValueAxisMaxScale,
                 ValueAxisMinScale = ValueAxisMinScale, totalLayer = totalLayer, HEATMAPAnimationDisplay = animationDisplay,
                 HEATMAPAnimationDirection = animationDirection, HEATMAPAnimationColorDirection = animationColorDirection,
                 HEATMAPAnimationTime = animationTime, HEATMAPAnimationDelay = animationDelay,
                 HEATMAPAnimationType = animationType)
-  track3 = unname(alply(data, 1, as.list))
-  track = NGCircosTracklist() + list(list(track1, track2, track3))
-  return(track)
+  module3 = unname(alply(data, 1, as.list))
+  module = NGCircosModuleList() + list(list(module1, module2, module3))
+  return(module)
 }
 
 #' @title Heatmap plot example data
@@ -2304,14 +2304,14 @@ NGCircosHeatmapTrack <- function(trackname, compareGroup = 1, maxRadius = 180, m
 #' }
 "heatmapExample"
 
-#' @title Create a BUBBLE module to a NGCircos tracklist
+#' @title Create a BUBBLE module to a NGCircos moduleList
 #'
 #' @description A bubble plot displayed in the visualization
 #'
-#' @param trackname The name of the new track.
+#' @param modulename The name of the new module.
 #'
-#' @param compareGroup The group number of thic track in compare module
-#' @param maxRadius,minRadius Where the track should begin and end.
+#' @param compareGroup The group number of this module in compare module
+#' @param maxRadius,minRadius Where the module should begin and end.
 #' @param blockStroke Whether display the stroke between each bubble block
 #' @param blockStrokeColor Stroke color for block
 #' @param blockStrokeWidth Stroke width for block
@@ -2333,29 +2333,29 @@ NGCircosHeatmapTrack <- function(trackname, compareGroup = 1, maxRadius = 180, m
 #'
 #' @examples
 #' bubbleData<-bubbleExample
-#' NGCircos(NGCircosBubbleTrack('BubbleTrack01', maxRadius = 230, minRadius = 170, data=bubbleData, blockStroke = TRUE,
+#' NGCircos(NGCircosBubble('Bubble01', maxRadius = 230, minRadius = 170, data=bubbleData, blockStroke = TRUE,
 #' bubbleMaxSize =10, bubbleMinSize = 2, maxColor = "red", minColor = "yellow", totalLayer =3, animationDisplay = TRUE,
 #' animationType="linear"),genome = list("2L"=23011544,"2R"=21146708,"3L"=24543557,"3R"= 27905053,"X"=22422827,"4"=1351857),
 #' BUBBLEMouseOverDisplay =TRUE,innerRadius = 236)
 #'
 #' @export
-NGCircosBubbleTrack <- function(trackname, compareGroup = 1, maxRadius = 200, minRadius = 50, blockStroke = TRUE,
+NGCircosBubble <- function(modulename, compareGroup = 1, maxRadius = 200, minRadius = 50, blockStroke = TRUE,
                                 blockStrokeColor = "black", blockStrokeWidth = 1, blockFill = FALSE,
                                 blockFillColor = "white", bubbleMaxSize = 5, bubbleMinSize = 2, minColor = "red",
                                 maxColor = "green", ValueAxisManualScale = FALSE, ValueAxisMaxScale = 10,
                                 ValueAxisMinScale = 0, totalLayer = 1, animationDisplay = FALSE,
                                 animationTime = 2000, animationDelay = 20, animationType = "bounce", data, ...){
-  track1 = paste("BUBBLE", trackname, sep="_")
-  track2 = list(compareGroup = compareGroup, maxRadius = maxRadius, minRadius = minRadius, blockStroke = blockStroke,
+  module1 = paste("BUBBLE", modulename, sep="_")
+  module2 = list(compareGroup = compareGroup, maxRadius = maxRadius, minRadius = minRadius, blockStroke = blockStroke,
                 blockStrokeColor = blockStrokeColor, blockStrokeWidth = blockStrokeWidth, blockFill = blockFill,
                 blockFillColor = blockFillColor, bubbleMaxSize = bubbleMaxSize, bubbleMinSize = bubbleMinSize,
                 maxColor = maxColor, minColor = minColor, ValueAxisManualScale = ValueAxisManualScale,
                 ValueAxisMaxScale = ValueAxisMaxScale, ValueAxisMinScale = ValueAxisMinScale, totalLayer = totalLayer,
                 BUBBLEAnimationDisplay = animationDisplay, BUBBLEAnimationTime = animationTime,
                 BUBBLEAnimationDelay = animationDelay, BUBBLEAnimationType = animationType)
-  track3 = unname(alply(data, 1, as.list))
-  track = NGCircosTracklist() + list(list(track1, track2, track3))
-  return(track)
+  module3 = unname(alply(data, 1, as.list))
+  module = NGCircosModuleList() + list(list(module1, module2, module3))
+  return(module)
 }
 
 #' @title Bubble plot example data
@@ -2375,14 +2375,14 @@ NGCircosBubbleTrack <- function(trackname, compareGroup = 1, maxRadius = 200, mi
 "bubbleExample"
 
 
-#' @title Create a GENE module to a NGCircos tracklist
+#' @title Create a GENE module to a NGCircos moduleList
 #'
 #' @description A number of genes with different functional region displayed in the visualization
 #'
-#' @param trackname The name of the new track.
+#' @param modulename The name of the new module.
 #'
-#' @param compareGroup The group number of thic track in compare module
-#' @param outerRadius,innerRadius Where the track should begin and end.
+#' @param compareGroup The group number of this module in compare module
+#' @param outerRadius,innerRadius Where the module should begin and end.
 #' @param pathColor The color for path between gene elements
 #' @param pathWidth The width for path between gene elements
 #' @param arrow Whether display arrows on path
@@ -2398,28 +2398,28 @@ NGCircosBubbleTrack <- function(trackname, compareGroup = 1, maxRadius = 200, mi
 #'
 #' @examples
 #' geneData<-geneExample
-#' NGCircos(NGCircosGeneTrack('GeneTrack01', outerRadius = 195, innerRadius = 180, data=geneData,arrowGap = 10,
+#' NGCircos(NGCircosGene('Gene01', outerRadius = 195, innerRadius = 180, data=geneData,arrowGap = 10,
 #'  arrowColor = "black",arrowSize = "12px",cdsColor = "#1e77b3",cdsStrokeColor = "#1e77b3",cdsStrokeWidth= 5,
 #'  utrWidth= -2,utrColor= "#fe7f0e",utrStrokeColor= "#fe7f0e",animationDisplay = TRUE),genome =list("EGFR"=1000),
 #'  outerRadius = 220)
 #'
 #' @export
-NGCircosGeneTrack <- function(trackname, compareGroup = 1, outerRadius = 180, innerRadius = 150, pathColor = "black",
+NGCircosGene <- function(modulename, compareGroup = 1, outerRadius = 180, innerRadius = 150, pathColor = "black",
                               pathWidth = 1, arrow = TRUE, arrowGap = 2, arrowColor = "blue",
                               arrowSize = 5, cdsColor = "#1e77b3", cdsStrokeColor = "black",cdsStrokeWidth = 1,
                               utrWidth = -5, utrColor = "blue", utrStrokeColor = "blue", utrStrokeWidth = 1,
                               animationDisplay = FALSE,animationTime = 2000, animationDelay = 20,
                               animationType = "bounce", data, ...){
-  track1 = paste("GENE", trackname, sep="_")
-  track2 = list(compareGroup = compareGroup, outerRadius = outerRadius, innerRadius = innerRadius, pathColor = pathColor,
+  module1 = paste("GENE", modulename, sep="_")
+  module2 = list(compareGroup = compareGroup, outerRadius = outerRadius, innerRadius = innerRadius, pathColor = pathColor,
                 pathWidth = pathWidth, arrow = arrow, arrowGap = arrowGap, arrowColor = arrowColor, arrowSize = arrowSize,
                 cdsColor = cdsColor, cdsStrokeColor = cdsStrokeColor, cdsStrokeWidth = cdsStrokeWidth,
                 utrWidth = utrWidth, utrColor = utrColor, utrStrokeColor = utrStrokeColor,utrStrokeWidth = utrStrokeWidth,
                 GENEAnimationDisplay = animationDisplay, GENEAnimationTime = animationTime,
                 GENEAnimationDelay = animationDelay, GENEAnimationType = animationType)
-  track3 = unname(alply(data, 1, as.list))
-  track = NGCircosTracklist() + list(list(track1, track2, track3))
-  return(track)
+  module3 = unname(alply(data, 1, as.list))
+  module = NGCircosModuleList() + list(list(module1, module2, module3))
+  return(module)
 }
 
 #' @title Gene plot example data
@@ -2439,14 +2439,14 @@ NGCircosGeneTrack <- function(trackname, compareGroup = 1, outerRadius = 180, in
 "geneExample"
 
 
-#' @title Create a track with SNPs to be added to a NGCircos tracklist
+#' @title Create a module with SNPs to be added to a NGCircos moduleList
 #'
 #' @description SNPs are defined by genomic coordinates and associated with a numerical value
 #'
-#' @param trackname The name of the new track.
+#' @param modulename The name of the new module.
 #'
-#' @param compareGroup The group number of thic track in compare module
-#' @param maxRadius,minRadius Where the track should begin and end
+#' @param compareGroup The group number of this module in compare module
+#' @param maxRadius,minRadius Where the module should begin and end
 #' @param fillColorType The type of filling color, could be either specific or r2(means based on r2)
 #' @param fillColor If specific, the color for SNP filling
 #' @param fillr2Color If r2, the color for SNP filling
@@ -2466,20 +2466,20 @@ NGCircosGeneTrack <- function(trackname, compareGroup = 1, outerRadius = 180, in
 #'
 #' @examples
 #' snpData<-snpExample
-#' NGCircos(NGCircosSnpTrack('SNPTrack', minRadius =150, maxRadius = 190, data = snpExample,fillColor= "#9ACD32",
+#' NGCircos(NGCircosSnp('SNP01', minRadius =150, maxRadius = 190, data = snpExample,fillColor= "#9ACD32",
 #'    circleSize= 2, SNPAnimationDisplay=TRUE,SNPAnimationTime= 2000,SNPAnimationDelay= 0, SNPAnimationType= "linear") +
-#'     NGCircosBackgroundTrack('BGTrack',minRadius = 145, maxRadius = 200))
+#'     NGCircosBackground('BG01',minRadius = 145, maxRadius = 200))
 #'
 #' @export
-NGCircosSnpTrack <- function(trackname, compareGroup = 1, minRadius = 153, maxRadius = 205, fillColorType = "specific",
+NGCircosSnp <- function(modulename, compareGroup = 1, minRadius = 153, maxRadius = 205, fillColorType = "specific",
                              fillColor = "#9400D3", fillr2Color = c("13#ff0031","#ff0031","#ff0031","#ff0031","#ff0031"),
                              ValueAxisManualScale= FALSE, ValueAxisMaxScale = 10, ValueAxisMinScale = 0,
                              pointType = "circle", circleSize = 2, rectWidth = 2, rectHeight = 2,
                              animationDisplay = FALSE, animationInitialPositionX = 0, animationInitialPositionY = 0,
                              animationTime = 2000, animationDelay = 20, animationType = "bounce", data, ...){
 
-  track1 = paste("SNP", trackname, sep="_")
-  track2 = list(compareGroup = compareGroup, minRadius = minRadius, maxRadius = maxRadius,
+  module1 = paste("SNP", modulename, sep="_")
+  module2 = list(compareGroup = compareGroup, minRadius = minRadius, maxRadius = maxRadius,
                 SNPFillColorType = fillColorType, SNPFillColor = fillColor, SNPFillr2Color = fillr2Color,
                 ValueAxisManualScale = ValueAxisManualScale, ValueAxisMaxScale = ValueAxisMaxScale,
                 ValueAxisMinScale = ValueAxisMinScale, PointType = pointType, circleSize = circleSize,
@@ -2488,10 +2488,10 @@ NGCircosSnpTrack <- function(trackname, compareGroup = 1, minRadius = 153, maxRa
                 SNPAnimationTime = animationTime, SNPAnimationDelay = animationDelay,
                 SNPAnimationType = animationType)
 
-  track3 = unname(alply(data, 1, as.list))
+  module3 = unname(alply(data, 1, as.list))
 
-  track = NGCircosTracklist() + list(list(track1, track2, track3))
-  return(track)
+  module = NGCircosModuleList() + list(list(module1, module2, module3))
+  return(module)
 }
 
 #' @title Snp plot example data
@@ -2514,13 +2514,13 @@ NGCircosSnpTrack <- function(trackname, compareGroup = 1, minRadius = 153, maxRa
 
 
 
-#' @title Create a LINK module to a NGCircos tracklist
+#' @title Create a LINK module to a NGCircos moduleList
 #'
 #' @description Link two specific region in genome.
 #'
-#' @param trackname The name of the new track.
+#' @param modulename The name of the new module.
 #'
-#' @param compareGroup The group number of thic track in compare module
+#' @param compareGroup The group number of thic module in compare module
 #' @param radius Radius of link circle.
 #' @param fillColor Color for link.
 #' @param width Width for link.
@@ -2543,18 +2543,18 @@ NGCircosSnpTrack <- function(trackname, compareGroup = 1, minRadius = 153, maxRa
 #'
 #' @examples
 #' linkData<-linkExample
-#' NGCircos(NGCircosLinkTrack('LINKTrack', data = linkData,LinkRadius= 140,fillColor= "#9e9ac6",width= 2,
+#' NGCircos(NGCircosLink('LINK', data = linkData,LinkRadius= 140,fillColor= "#9e9ac6",width= 2,
 #' axisPad= 3,labelPad=8,animationDisplay=TRUE,animationDirection="1to2", animationType= "linear" ))
 #'
 #' @export
-NGCircosLinkTrack <- function(trackname, compareGroup = 1, radius = 108, fillColor = "red", width = 3,
+NGCircosLink <- function(modulename, compareGroup = 1, radius = 108, fillColor = "red", width = 3,
                               type = "Q", displayLinkAxis = TRUE, axisColor = "#B8B8B8", axisWidth = 0.5,
                               axisPad = 3, displayLinkLabel = TRUE, labelColor = "red", labelSize = 13,
                               labelPad = 8, animationDisplay = FALSE, animationDirection = "1to2",
                               animationTime = 2000, animationDelay = 20, animationType = "bounce", data, ...){
 
-  track1 = paste("LINK", trackname, sep="_")
-  track2 = list(compareGroup = compareGroup, LinkRadius = radius, LinkFillColor = fillColor,
+  module1 = paste("LINK", modulename, sep="_")
+  module2 = list(compareGroup = compareGroup, LinkRadius = radius, LinkFillColor = fillColor,
                 LinkWidth = width, LinkType = type, displayLinkAxis = displayLinkAxis,
                 LinkAxisColor = axisColor, LinkAxisWidth = axisWidth, LinkAxisPad = axisPad,
                 displayLinkLabel = displayLinkLabel, LinkLabelColor = labelColor, LinkLabelSize = labelSize,
@@ -2562,10 +2562,10 @@ NGCircosLinkTrack <- function(trackname, compareGroup = 1, radius = 108, fillCol
                 LINKAnimationDirection = animationDirection,LINKAnimationTime = animationTime,
                 LINKAnimationDelay = animationDelay,LINKAnimationType = animationType)
 
-  track3 = unname(alply(data, 1, as.list))
+  module3 = unname(alply(data, 1, as.list))
 
-  track = NGCircosTracklist() + list(list(track1, track2, track3))
-  return(track)
+  module = NGCircosModuleList() + list(list(module1, module2, module3))
+  return(module)
 }
 
 #' @title Link plot example data
@@ -2588,11 +2588,11 @@ NGCircosLinkTrack <- function(trackname, compareGroup = 1, radius = 108, fillCol
 "linkExample"
 
 
-#' @title Create a CHORD module to a NGCircos tracklist
+#' @title Create a CHORD module to a NGCircos moduleList
 #'
 #' @description Display a chord module using a data matrix.
 #'
-#' @param trackname The name of the new track.
+#' @param modulename The name of the new module.
 #'
 #' @param innerRadius The inner radius for chord circle
 #' @param outerRadius The outer radius for chord circle
@@ -2614,7 +2614,7 @@ NGCircosLinkTrack <- function(trackname, compareGroup = 1, radius = 108, fillCol
 #' @examples
 #'
 #' chordData<-chordExample
-#' NGCircos(NGCircosChordTrack('CHORDTrack', data = chordData,innerRadius= 210,outerRadius= 211,fillOpacity=0.67,
+#' NGCircos(NGCircosChord('CHORD', data = chordData,innerRadius= 210,outerRadius= 211,fillOpacity=0.67,
 #' strokeColor="black",strokeWidth= "1px",outerARCText=FALSE),genome=list("C.CK" = 189.51,"C.NPK"=188,"GC.CK"=186.11,
 #' "GC.NPK"=191.51,"Alphaproteobacteria"=70.16,"Betaproteobacteria"=23.51,"Gammaproteobacteria"=25.51,
 #' "Deltaproteobacteria"=23.28,"Acidobacteria"=53.62,"Actinobacteria"=72.33,"Bacteroidetes"=22.41,
@@ -2623,28 +2623,28 @@ NGCircosLinkTrack <- function(trackname, compareGroup = 1, radius = 108, fillCol
 #' genomeLabelDisplay = FALSE)
 #'
 #' @export
-NGCircosChordTrack <- function(trackname, innerRadius = 237, outerRadius = 238, fillOpacity = 0.67, fillStrokeWidth = 1,
+NGCircosChord <- function(modulename, innerRadius = 237, outerRadius = 238, fillOpacity = 0.67, fillStrokeWidth = 1,
                                padding = 0.06, autoFillColor = TRUE, fillColor = c("#B8B8B8"), fillStrokeColor = c("black"),
                                outerARC = TRUE, outerARCAutoColor = TRUE, outerARCColor = c("red"),
                                outerARCStrokeColor = c("black"), outerARCText = TRUE, data, ...){
 
-  track1 = paste("CHORD", trackname, sep="_")
-  track2 = list(CHORDinnerRadius = innerRadius, CHORDouterRadius = outerRadius, CHORDFillOpacity = fillOpacity,
+  module1 = paste("CHORD", modulename, sep="_")
+  module2 = list(CHORDinnerRadius = innerRadius, CHORDouterRadius = outerRadius, CHORDFillOpacity = fillOpacity,
                 CHORDFillStrokeWidth = fillStrokeWidth, CHORDPadding = padding, CHORDAutoFillColor = autoFillColor,
                 CHORDFillColor = fillColor, CHORDFillStrokeColor = fillStrokeColor, CHORDouterARC = outerARC,
                 CHORDouterARCAutoColor = outerARCAutoColor, CHORDouterARCColor = outerARCColor,
                 CHORDouterARCStrokeColor = outerARCStrokeColor, CHORDouterARCText = outerARCText)
 
 
-  track3 = list(colnames(data))
+  module3 = list(colnames(data))
   tmp<-list(as.numeric(unname(data[1,])))
   for(i in 2:nrow(data)){
     tmp<-c(tmp,list(as.numeric(unname(data[i,]))))
   }
-  track3 = c(track3,list(tmp))
+  module3 = c(module3,list(tmp))
 
-  track = NGCircosTracklist() + list(list(track1, track2, track3))
-  return(track)
+  module = NGCircosModuleList() + list(list(module1, module2, module3))
+  return(module)
 }
 
 #' @title Chord plot example data
@@ -2657,14 +2657,14 @@ NGCircosChordTrack <- function(trackname, innerRadius = 237, outerRadius = 238, 
 #' }
 "chordExample"
 
-#' @title Create a HISTOGRAM module to a NGCircos tracklist
+#' @title Create a HISTOGRAM module to a NGCircos moduleList
 #'
 #' @description Display a multi-layer histogram in circos
 #'
-#' @param trackname The name of the new track.
+#' @param modulename The name of the new module.
 #'
-#' @param compareGroup The group number of thic track in compare module
-#' @param maxRadius,minRadius Where the track should begin and end
+#' @param compareGroup The group number of this module in compare module
+#' @param maxRadius,minRadius Where the module should begin and end
 #' @param ValueAxisManualScale Whether manually control the scale of value
 #' @param ValueAxisMaxScale,ValueAxisMinScale The max and min scale value for manually control
 #' @param fillColor The color for histgram.
@@ -2677,27 +2677,27 @@ NGCircosChordTrack <- function(trackname, innerRadius = 237, outerRadius = 238, 
 #' @examples
 #'
 #' histogramData<-histogramExample
-#' NGCircos(NGCircosHistogramTrack('HISTOGRAMTrack', data = histogramData,fillColor= "#ff7f0e",maxRadius = 210,
+#' NGCircos(NGCircosHistogram('HISTOGRAM01', data = histogramData,fillColor= "#ff7f0e",maxRadius = 210,
 #' minRadius = 175),genome=list("2L"=23011544,"2R"=21146708,"3L"=24543557,"3R"= 27905053,"X"=22422827,"4"=1351857),
 #' outerRadius = 220)
 #'
 #' @export
-NGCircosHistogramTrack <- function(trackname, compareGroup = 1, maxRadius = 108, minRadius = 95,
+NGCircosHistogram <- function(modulename, compareGroup = 1, maxRadius = 108, minRadius = 95,
                                    ValueAxisManualScale = FALSE, ValueAxisMaxScale = 10, ValueAxisMinScale = 0,
                                    fillColor = "red", animationDisplay = FALSE, animationTime = 2000,
                                    animationDelay = 20, data, ...){
 
-  track1 = paste("HISTOGRAM", trackname, sep="_")
-  track2 = list(compareGroup = compareGroup, maxRadius = maxRadius, minRadius = minRadius,
+  module1 = paste("HISTOGRAM", modulename, sep="_")
+  module2 = list(compareGroup = compareGroup, maxRadius = maxRadius, minRadius = minRadius,
                 ValueAxisManualScale = ValueAxisManualScale, ValueAxisMaxScale = ValueAxisMaxScale,
                 ValueAxisMinScale = ValueAxisMinScale, histogramFillColor = fillColor,
                 HISTOGRAMAnimationDisplay = animationDisplay, HISTOGRAMAnimationTime = animationTime,
                 HISTOGRAMAnimationDelay = animationDelay)
 
-  track3 = unname(alply(data, 1, as.list))
+  module3 = unname(alply(data, 1, as.list))
 
-  track = NGCircosTracklist() + list(list(track1, track2, track3))
-  return(track)
+  module = NGCircosModuleList() + list(list(module1, module2, module3))
+  return(module)
 }
 
 #' @title Histogram plot example data
@@ -2715,14 +2715,14 @@ NGCircosHistogramTrack <- function(trackname, compareGroup = 1, maxRadius = 108,
 #' }
 "histogramExample"
 
-#' @title Create a LINE module to a NGCircos tracklist
+#' @title Create a LINE module to a NGCircos moduleList
 #'
 #' @description Display a multi-layer line plot in circos
 #'
-#' @param trackname The name of the new track.
+#' @param modulename The name of the new module.
 #'
-#' @param compareGroup The group number of thic track in compare module
-#' @param maxRadius,minRadius Where the track should begin and end
+#' @param compareGroup The group number of this module in compare module
+#' @param maxRadius,minRadius Where the module should begin and end
 #' @param ValueAxisManualScale Whether manually control the scale of value
 #' @param ValueAxisMaxScale,ValueAxisMinScale The max and min scale value for manually control
 #' @param color Color for line
@@ -2738,28 +2738,28 @@ NGCircosHistogramTrack <- function(trackname, compareGroup = 1, maxRadius = 108,
 #' @examples
 #'
 #' lineData<-lineExample
-#' NGCircos(NGCircosLineTrack('LINETrack', data = lineData,maxRadius=200,minRadius=150,color= "#ff0031")+
-#' NGCircosBackgroundTrack('BGTrack',minRadius = 205,maxRadius = 150))
+#' NGCircos(NGCircosLine('LINE01', data = lineData,maxRadius=200,minRadius=150,color= "#ff0031")+
+#' NGCircosBackground('BG01',minRadius = 205,maxRadius = 150))
 #'
 #' @export
-NGCircosLineTrack <- function(trackname, compareGroup = 1, maxRadius = 108, minRadius = 95,
+NGCircosLine <- function(modulename, compareGroup = 1, maxRadius = 108, minRadius = 95,
                                    ValueAxisManualScale = FALSE, ValueAxisMaxScale = 10, ValueAxisMinScale = 0,
                                    color = "red", width = 2, type = "cardinal",animationDisplay = FALSE,
                                    animationDirection = "S2E", animationTime = 2000,
                                    animationDelay = 20, animationType = "bounce", data, ...){
 
-  track1 = paste("LINE", trackname, sep="_")
-  track2 = list(compareGroup = compareGroup, maxRadius = maxRadius, minRadius = minRadius,
+  module1 = paste("LINE", modulename, sep="_")
+  module2 = list(compareGroup = compareGroup, maxRadius = maxRadius, minRadius = minRadius,
                 ValueAxisManualScale = ValueAxisManualScale, ValueAxisMaxScale = ValueAxisMaxScale,
                 ValueAxisMinScale = ValueAxisMinScale, LineColor = color, LineWidth = width, LineType = type,
                 LINEAnimationDisplay = animationDisplay, LINEAnimationDirection = animationDirection,
                 LINEAnimationTime = animationTime, LINEAnimationDelay = animationDelay,
                 LINEAnimationType = animationType)
 
-  track3 = unname(alply(data, 1, as.list))
+  module3 = unname(alply(data, 1, as.list))
 
-  track = NGCircosTracklist() + list(list(track1, track2, track3))
-  return(track)
+  module = NGCircosModuleList() + list(list(module1, module2, module3))
+  return(module)
 }
 
 #' @title Line plot example data
@@ -2775,14 +2775,14 @@ NGCircosLineTrack <- function(trackname, compareGroup = 1, maxRadius = 108, minR
 #' }
 "lineExample"
 
-#' @title Create a WIG module to a NGCircos tracklist
+#' @title Create a WIG module to a NGCircos moduleList
 #'
 #' @description Display a multi-layer line plot in circos
 #'
-#' @param trackname The name of the new track.
+#' @param modulename The name of the new module.
 #'
-#' @param compareGroup The group number of thic track in compare module
-#' @param maxRadius,minRadius Where the track should begin and end
+#' @param compareGroup The group number of this module in compare module
+#' @param maxRadius,minRadius Where the module should begin and end
 #' @param direction The direction of plot, either inside or outside
 #' @param ValueAxisManualScale Whether manually control the scale of value
 #' @param ValueAxisMaxScale,ValueAxisMinScale The max and min scale value for manually control
@@ -2800,29 +2800,29 @@ NGCircosLineTrack <- function(trackname, compareGroup = 1, maxRadius = 108, minR
 #' @examples
 #'
 #' wigData<-wigExample
-#' NGCircos(NGCircosWigTrack('WIGTrack', data = wigData, maxRadius= 200,minRadius= 150,strokeColor= "darkblue",
-#' color= "lightblue",strokeType= "cardinal")+NGCircosBackgroundTrack('BGTrack',minRadius = 205,maxRadius = 150)
+#' NGCircos(NGCircosWig('WIG01', data = wigData, maxRadius= 200,minRadius= 150,strokeColor= "darkblue",
+#' color= "lightblue",strokeType= "cardinal")+NGCircosBackground('BG01',minRadius = 205,maxRadius = 150)
 #' ,genome=list("chr8"=1000),outerRadius = 220)
 #'
 #' @export
-NGCircosWigTrack <- function(trackname, compareGroup = 1, maxRadius = 108, minRadius = 95, direction = "out",
+NGCircosWig <- function(modulename, compareGroup = 1, maxRadius = 108, minRadius = 95, direction = "out",
                              ValueAxisManualScale = FALSE, ValueAxisMaxScale = 10, ValueAxisMinScale = 0,
                              color = "red", opacity = 1, strokeColor = "black", strokeWidth = 1,
                              strokeType = "cardinal",animationDisplay = FALSE, animationTime = 2000,
                              animationDelay = 20, animationType = "bounce", data, ...){
 
-  track1 = paste("WIG", trackname, sep="_")
-  track2 = list(compareGroup = compareGroup, maxRadius = maxRadius, minRadius = minRadius, direction = direction,
+  module1 = paste("WIG", modulename, sep="_")
+  module2 = list(compareGroup = compareGroup, maxRadius = maxRadius, minRadius = minRadius, direction = direction,
                 ValueAxisManualScale = ValueAxisManualScale, ValueAxisMaxScale = ValueAxisMaxScale,
                 ValueAxisMinScale = ValueAxisMinScale, WIGColor = color, WIGOpacity = opacity,
                 WIGStrokeColor = strokeColor, WIGStrokeWidth = strokeWidth, WIGStrokeType = strokeType,
                 WIGAnimationDisplay = animationDisplay, WIGAnimationTime = animationTime,
                 WIGAnimationDelay = animationDelay, WIGAnimationType = animationType)
 
-  track3 = unname(alply(data, 1, as.list))
+  module3 = unname(alply(data, 1, as.list))
 
-  track = NGCircosTracklist() + list(list(track1, track2, track3))
-  return(track)
+  module = NGCircosModuleList() + list(list(module1, module2, module3))
+  return(module)
 }
 
 #' @title Wig plot example data
@@ -2838,13 +2838,13 @@ NGCircosWigTrack <- function(trackname, compareGroup = 1, maxRadius = 108, minRa
 #' }
 "wigExample"
 
-#' @title Create a SCATTER module to a NGCircos tracklist
+#' @title Create a SCATTER module to a NGCircos moduleList
 #'
 #' @description Display a point plot in circos
 #'
-#' @param trackname The name of the new track.
+#' @param modulename The name of the new module.
 #'
-#' @param compareGroup The group number of thic track in compare module
+#' @param compareGroup The group number of this module in compare module
 #' @param radius Radius of scatter circle
 #' @param innerPointType,outerPointType The type for inner and outer point, could be circle or rect
 #' @param innerCircleSize,outerCircleSize If circle, inner and outer circle size
@@ -2864,11 +2864,11 @@ NGCircosWigTrack <- function(trackname, compareGroup = 1, maxRadius = 108, minRa
 #' @examples
 #'
 #' scatterData<-scatterExample
-#' NGCircos(NGCircosScatterTrack('SCATTERTrack', data = scatterData,radius=180,innerCircleColor= "#3d6390",
+#' NGCircos(NGCircosScatter('SCATTER01', data = scatterData,radius=180,innerCircleColor= "#3d6390",
 #' outerCircleColor= "#99cafe",random_data= 40))
 #'
 #' @export
-NGCircosScatterTrack <- function(trackname, compareGroup = 1, radius = 140, innerCircleSize = 1,
+NGCircosScatter <- function(modulename, compareGroup = 1, radius = 140, innerCircleSize = 1,
                                  outerCircleSize = 5, innerCircleColor = "#F26223", outerCircleColor = "#F26223",
                                  innerPointType = "circle", outerPointType = "circle", innerrectWidth = 2,
                                  innerrectHeight = 2, outerrectWidth = 2, outerrectHeight = 2,
@@ -2876,8 +2876,8 @@ NGCircosScatterTrack <- function(trackname, compareGroup = 1, radius = 140, inne
                                  animationInitialPositionX = 0, animationInitialPositionY = 0, animationTime = 2000,
                                  animationDelay = 20, animationType = "bounce", data, ...){
 
-  track1 = paste("SCATTER", trackname, sep="_")
-  track2 = list(compareGroup = compareGroup, SCATTERRadius = radius, innerCircleSize = innerCircleSize,
+  module1 = paste("SCATTER", modulename, sep="_")
+  module2 = list(compareGroup = compareGroup, SCATTERRadius = radius, innerCircleSize = innerCircleSize,
                 outerCircleSize = outerCircleSize, innerCircleColor = innerCircleColor,
                 outerCircleColor = outerCircleColor, innerPointType = innerPointType,
                 outerPointType = outerPointType, innerrectWidth = innerrectWidth,
@@ -2887,10 +2887,10 @@ NGCircosScatterTrack <- function(trackname, compareGroup = 1, radius = 140, inne
                 SCATTERAnimationInitialPositionY = animationInitialPositionY, SCATTERAnimationTime = animationTime,
                 SCATTERAnimationDelay = animationDelay, SCATTERAnimationType = animationType)
 
-  track3 = unname(alply(data, 1, as.list))
+  module3 = unname(alply(data, 1, as.list))
 
-  track = NGCircosTracklist() + list(list(track1, track2, track3))
-  return(track)
+  module = NGCircosModuleList() + list(list(module1, module2, module3))
+  return(module)
 }
 
 #' @title Scatter plot example data
@@ -2908,14 +2908,14 @@ NGCircosScatterTrack <- function(trackname, compareGroup = 1, radius = 140, inne
 #' }
 "scatterExample"
 
-#' @title Create a ARC module to a NGCircos tracklist
+#' @title Create a ARC module to a NGCircos moduleList
 #'
 #' @description Display the CNV without value, Gene domain, Chromosome band in the visualization
 #'
-#' @param trackname The name of the new track.
+#' @param modulename The name of the new module.
 #'
-#' @param compareGroup The group number of thic track in compare module
-#' @param innerRadius,outerRadius Where the track should begin and end
+#' @param compareGroup The group number of this module in compare module
+#' @param innerRadius,outerRadius Where the module should begin and end
 #' @param opacity The opacity for arc
 #' @param animationDisplay Whether display animation
 #' @param animationTime,animationDelay,animationType The time, delay and display type for animation
@@ -2926,20 +2926,20 @@ NGCircosScatterTrack <- function(trackname, compareGroup = 1, radius = 140, inne
 #'
 #' @examples
 #' arcData<-arcExample
-#' NGCircos(NGCircosArcTrack('ArcTrack01', outerRadius = 212, innerRadius = 224, data=arcData),
+#' NGCircos(NGCircosArc('Arc01', outerRadius = 212, innerRadius = 224, data=arcData),
 #'  genome=list("EGFR"=1211),outerRadius = 220,genomeFillColor = c("grey"))
 #'
 #' @export
-NGCircosArcTrack <- function(trackname, compareGroup = 1, outerRadius = 150, innerRadius = 130, opacity = 1,
+NGCircosArc <- function(modulename, compareGroup = 1, outerRadius = 150, innerRadius = 130, opacity = 1,
                               animationDisplay = FALSE,animationTime = 2000, animationDelay = 20,
                               animationType = "bounce", data, ...){
-  track1 = paste("ARC", trackname, sep="_")
-  track2 = list(compareGroup = compareGroup, outerRadius = outerRadius, innerRadius = innerRadius,
+  module1 = paste("ARC", modulename, sep="_")
+  module2 = list(compareGroup = compareGroup, outerRadius = outerRadius, innerRadius = innerRadius,
                 ARCOpacity = opacity, ARCAnimationDisplay = animationDisplay, ARCAnimationTime = animationTime,
                 ARCAnimationDelay = animationDelay, ARCAnimationType = animationType)
-  track3 = unname(alply(data, 1, as.list))
-  track = NGCircosTracklist() + list(list(track1, track2, track3))
-  return(track)
+  module3 = unname(alply(data, 1, as.list))
+  module = NGCircosModuleList() + list(list(module1, module2, module3))
+  return(module)
 }
 
 #' @title Arc plot example data
@@ -2958,13 +2958,13 @@ NGCircosArcTrack <- function(trackname, compareGroup = 1, outerRadius = 150, inn
 "arcExample"
 
 
-#' @title Create a LOLLIPOP module to a NGCircos tracklist
+#' @title Create a LOLLIPOP module to a NGCircos moduleList
 #'
 #' @description Display a lollipop plot in the visualization
 #'
-#' @param trackname The name of the new track.
+#' @param modulename The name of the new module.
 #'
-#' @param compareGroup The group number of thic track in compare module
+#' @param compareGroup The group number of this module in compare module
 #' @param fillColor Filling color for lollipop
 #' @param secondColor Second filling color for heterogeneous lollipop
 #' @param pointType The type for lollipop, could be circle, rect and diamond
@@ -2991,13 +2991,13 @@ NGCircosArcTrack <- function(trackname, compareGroup = 1, outerRadius = 150, inn
 #' @examples
 #' lollipopData<-lollipopExample
 #' arcData<-arcExample
-#' NGCircos(NGCircosLollipopTrack('LollipopTrack01', data=lollipopData, fillColor="#9400D3",
+#' NGCircos(NGCircosLollipop('Lollipop01', data=lollipopData, fillColor="#9400D3",
 #' circleSize= 6, strokeColor= "#999999", strokeWidth= "1px", animationDisplay=TRUE, lineWidth= 2,
-#' realStart= 101219350)+NGCircosArcTrack('ArcTrack01', outerRadius = 212, innerRadius = 224, data=arcData),
+#' realStart= 101219350)+NGCircosArc('Arc01', outerRadius = 212, innerRadius = 224, data=arcData),
 #'  genome=list("EGFR"=1211),outerRadius = 220,genomeFillColor = c("grey"))
 #'
 #' @export
-NGCircosLollipopTrack <- function(trackname, compareGroup = 1, fillColor = "#9400D3", secondColor = "#FFFFFF",
+NGCircosLollipop <- function(modulename, compareGroup = 1, fillColor = "#9400D3", secondColor = "#FFFFFF",
                                    pointType = "circle", circleSize = 2, diamondWidth = 10, diamondHeight = 5,
                                    rectWidth = 2, rectHeight = 2, stroke = TRUE, strokeColor = "#000000",
                                    strokeWidth = 0.5, lineAutoHeight = TRUE, lineAutoMaximumHeightZoomRate = 1,
@@ -3005,8 +3005,8 @@ NGCircosLollipopTrack <- function(trackname, compareGroup = 1, fillColor = "#940
                                    ValueAxisManualScale = FALSE, ValueAxisMaxScale = 10,
                                    ValueAxisMinScale = 0, animationDisplay = FALSE, animationTime = 2000,
                                    animationDelay = 20, animationType = "bounce", data, ...){
-  track1 = paste("LOLLIPOP", trackname, sep="_")
-  track2 = list(compareGroup = compareGroup, LOLLIPOPFillColor = fillColor, LOLLIPOPSecondColor = secondColor,
+  module1 = paste("LOLLIPOP", modulename, sep="_")
+  module2 = list(compareGroup = compareGroup, LOLLIPOPFillColor = fillColor, LOLLIPOPSecondColor = secondColor,
                 PointType = pointType, circleSize = circleSize, diamondWidth = diamondWidth,
                 diamondHeight = diamondHeight, rectWidth = rectWidth, rectHeight = rectHeight,
                 stroke = stroke, strokeColor = strokeColor, strokeWidth = strokeWidth, lineAutoHeight = lineAutoHeight,
@@ -3016,9 +3016,9 @@ NGCircosLollipopTrack <- function(trackname, compareGroup = 1, fillColor = "#940
                 LOLLIPOPAnimationTime = animationTime, LOLLIPOPAnimationDelay = animationDelay,
                 LOLLIPOPAnimationType = animationType, LOLLIPOPLineWidth = lineWidth,
                 LOLLIPOPLineColor = lineColor, realStart = 0)
-  track3 = unname(alply(data, 1, as.list))
-  track = NGCircosTracklist() + list(list(track1, track2, track3))
-  return(track)
+  module3 = unname(alply(data, 1, as.list))
+  module = NGCircosModuleList() + list(list(module1, module2, module3))
+  return(module)
 }
 
 #' @title Lollipop plot example data
@@ -3042,35 +3042,35 @@ NGCircosLollipopTrack <- function(trackname, compareGroup = 1, fillColor = "#940
 "lollipopExample"
 
 
-#' @title Create a list of NGCircos tracks
+#' @title Create a list of NGCircos modules
 #'
 #' @description This allows the use of the '+' and '-' operator on these lists
 #'
-#' @name NGCircosTracklist
+#' @name NGCircosModuleList
 #'
-#' @param x The tracklist on which other tracks should be added or removed.
-#' @param ... The tracks to add (as tracklists) or to remove (as track names).
+#' @param x The moduleList on which other modules should be added or removed.
+#' @param ... The modules to add (as moduleLists) or to remove (as module names).
 #'
 #' @export
-NGCircosTracklist <- function(){
+NGCircosModuleList <- function(){
   x = list()
-  class(x) <- c("NGCircosTracklist")
+  class(x) <- c("NGCircosModuleList")
   return(x)
 }
 
-#' @rdname NGCircosTracklist
+#' @rdname NGCircosModuleList
 #' @export
-"+.NGCircosTracklist" <- function(x,...) {
+"+.NGCircosModuleList" <- function(x,...) {
   x <- append(x,...)
-  if(class(x) != "NGCircosTracklist"){
-    class(x) <- c("NGCircosTracklist")
+  if(class(x) != "NGCircosModuleList"){
+    class(x) <- c("NGCircosModuleList")
   }
   return(x)
 }
 
-#' @rdname NGCircosTracklist
+#' @rdname NGCircosModuleList
 #' @export
-"-.NGCircosTracklist" <- function(x,...) {
+"-.NGCircosModuleList" <- function(x,...) {
   indicesToDelete = list()
   for (i in 1:length(x)){
     if(paste(strsplit(x[[i]][[1]], '_')[[1]][-1], collapse = "_") %in% ...){

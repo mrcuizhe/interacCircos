@@ -1,6 +1,6 @@
 Document is available at 
 
-- [NGCircos.r-jupyter notebook](https://mybinder.org/v2/gh/mrcuizhe/NGCircos.r/master?filepath=doc%2FNGCircos.r_document.ipynb)
+- [NGCircos.r-jupyter notebook](https://mybinder.org/v2/gh/mrcuizhe/NGCircos.r/master?filepath=doc%2FNGCircos.r_document.ipynb) Run each cell for demo ( Shift + Enter ).
 
 Or 
 

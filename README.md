@@ -1,6 +1,6 @@
 # NGCircos.r
 
-A R package for Next generation Circos(NGCircos)
+A R package for Next Generation Circos(NGCircos)
 
 ## Introduction
 
@@ -25,11 +25,14 @@ Since R language is much more friendly in data visualization and plot programmin
         
 ## Document
 
-Document is available at doc/ folder
+Document is available at 
 
-Or try:
+- [NGCircos.r-jupyter notebook](https://github.com/mrcuizhe/NGCircos.r/blob/master/NGCircos.r_document.ipynb)
 
-        browseVignettes("NGCircos")
+Or 
+
+- [NGCircos.r-pdf](https://github.com/mrcuizhe/NGCircos.r/blob/master/NGCircos_1.0.0.pdf)
+
         
 ## Contact
 

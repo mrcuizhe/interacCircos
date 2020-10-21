@@ -46,26 +46,33 @@ For the other 17 of 20 modules, which has a independent function(*NGCircosArc()*
 
 default:
 
-```{r plot1,fig.width=7, fig.height=6,echo=TRUE}
+```{r plot1,fig.width=7, fig.height=6,echo=TRUE,screenshot.force = FALSE}
+
 library(NGCircos)
-p<-NGCircos()
+NGCircos(zoom=FALSE)
+
 ```
 
 The genome is set by defult as hg19, the genome can be changed by setting genome=list("Example1"=100,"Example2"=200,"Example3"=300). Meanwhile, the color of each chromosome can be changed by setting genomeFillColor = c("red","blue","green")
 
-```{r plot2, fig.width=7, fig.height=6,echo=TRUE}
+```{r plot2,fig.width=7, fig.height=6,echo=TRUE,screenshot.force = FALSE}
+
+# hist(rnorm(1000))
 library(NGCircos)
-p<-NGCircos(genome=list("Example1"=100,"Example2"=200,"Example3"=300),genomeFillColor = c("red","blue","green"))
+NGCircos(genome=list("Example1"=100,"Example2"=200,"Example3"=300),genomeFillColor = c("red","blue","green"))
+
 ```
 
 The filling color for chromosome can also be set automatically by choosing a *RColorBrewer* palette, such as *Blues*
-```{r plot3, fig.width=7, fig.height=6,echo=TRUE,eval=FALSE}
+```{r plot3, fig.width=7, fig.height=6,echo=TRUE}
+hist(rnorm(1000))
 library(NGCircos)
 NGCircos(genome=list("Example1"=100,"Example2"=200,"Example3"=300),genomeFillColor = "Blues")
 ```
  
 Other parameters are documented and try ?NGCircos() for details
-```{r, screenshot.force = FALSE,eval=FALSE}
+```{r plot4, fig.width=7, fig.height=6,echo=TRUE}
+hist(rnorm(1000))
 library(NGCircos)
 NGCircos(genome=list("Example1"=100,"Example2"=200,"Example3"=300),genomeFillColor = "Blues",chrPad = 0,genomeTicksDisplay = TRUE,genomeTicksScale = 10,genomeLabelDisplay = FALSE)
 ```
@@ -73,7 +80,7 @@ NGCircos(genome=list("Example1"=100,"Example2"=200,"Example3"=300),genomeFillCol
 ### Adding module through *moduleList*
 
 17 modules(*NGCircosArc()*, *NGCircosAuxLine()*, *NGCircosBackground()*, *NGCircosBubble()*, *NGCircosChord()*, *NGCircosCnv()*, *NGCircosGene()*, *NGCircosHeatmap()*, *NGCircosHistogram()*, *NGCircosLegend()*, *NGCircosLine()*, *NGCircosLink()*, *NGCircosLollipop()*, *NGCircosScatter()*, *NGCircosSnp()*, *NGCircosText()*, *NGCircosWig()*) are added by using "+" in *moduleList*, for example: 
-```{r, screenshot.force = FALSE,eval=FALSE}
+```{r plot5, fig.width=7, fig.height=6,echo=TRUE}
 library(NGCircos)
 moduleList<-NGCircosText('text01', 'Annotation', color = '#DD2222', x = -40) + NGCircosBackground('bg01', fillColors="#FFEEEE", borderSize = 1)
 NGCircos(moduleList = moduleList)
@@ -85,7 +92,7 @@ Details for each module are presented below:
 
 There is no data input for Auxiliary line module. The details for parameters are available by ?NGCircosAuxLine
 An example for Auxiliary line module:
-```{r, screenshot.force = FALSE,eval=FALSE}
+```{r plot6, fig.width=7, fig.height=6,echo=TRUE}
 library(NGCircos)
 NGCircos(NGCircosAuxLine('AuxLine01'))
 ```
@@ -94,7 +101,7 @@ NGCircos(NGCircosAuxLine('AuxLine01'))
 
 There is no data input for Background module. The details for parameters are available by ?NGCircosBackground
 An example for Background module:
-```{r, screenshot.force = FALSE,eval=FALSE}
+```{r plot7, fig.width=7, fig.height=6,echo=TRUE}
 library(NGCircos) 
 NGCircos(NGCircosBackground('bg01', fillColors="#FFEEEE", borderSize = 1))
 ```
@@ -103,7 +110,7 @@ NGCircos(NGCircosBackground('bg01', fillColors="#FFEEEE", borderSize = 1))
 
 The data is input throught the *data* parameter in bubble module. The details for parameters are available by ?NGCircosBubble
 An example for bubble module:
-```{r, screenshot.force = FALSE,eval=FALSE}
+```{r plot8, fig.width=7, fig.height=6,echo=TRUE}
 library(NGCircos)
 bubbleData<-bubbleExample
 NGCircos(NGCircosBubble('Bubble01', maxRadius = 230, minRadius = 170, data=bubbleData, blockStroke = TRUE, bubbleMaxSize =10, bubbleMinSize = 2, maxColor = "red", minColor = "yellow", totalLayer =3, animationDisplay = TRUE, animationType="linear"),genome = list("2L"=23011544,"2R"=21146708,"3L"=24543557,"3R"= 27905053,"X"=22422827,"4"=1351857), BUBBLEMouseOverDisplay =TRUE,innerRadius = 236)
@@ -113,7 +120,7 @@ NGCircos(NGCircosBubble('Bubble01', maxRadius = 230, minRadius = 170, data=bubbl
 
 The data is input throught the *data* parameter in chord module. The details for parameters are available by ?NGCircosChord
 An example for chord module:
-```{r, screenshot.force = FALSE,eval=FALSE}
+```{r plot9, fig.width=7, fig.height=6,echo=TRUE}
 library(NGCircos)
 chordData<-chordExample
 NGCircos(NGCircosChord('CHORD01', data = chordData,innerRadius= 210,outerRadius= 211,fillOpacity=0.67,
@@ -129,7 +136,7 @@ genomeLabelDisplay = FALSE)
 
 The data is input throught the *data* parameter in cnv module. The details for parameters are available by ?NGCircosCnv
 An example for cnv module:
-```{r, screenshot.force = FALSE,eval=FALSE}
+```{r plot10, fig.width=7, fig.height=6,echo=TRUE}
 library(NGCircos)
 cnvData<-cnvExample
 NGCircos(NGCircosCnv('Cnv01',maxRadius =175, minRadius =116, data =cnvData,width=2,color = "#4876FF")+
@@ -140,7 +147,7 @@ NGCircosBackground("bg01",minRadius = 116,maxRadius = 175,fillColors = "#F2F2F2"
 
 The data is input throught the *data* parameter in gene module. The details for parameters are available by ?NGCircosGene
 An example for gene module:
-```{r, screenshot.force = FALSE,eval=FALSE}
+```{r plot11, fig.width=7, fig.height=6,echo=TRUE}
 library(NGCircos)
 geneData<-geneExample
 NGCircos(NGCircosGene('Gene01', outerRadius = 195, innerRadius = 180, data=geneData,arrowGap = 10,
@@ -153,7 +160,7 @@ NGCircos(NGCircosGene('Gene01', outerRadius = 195, innerRadius = 180, data=geneD
 
 The data is input throught the *data* parameter in heatmap module. The details for parameters are available by ?NGCircosHeatmap
 An example for heatmap module:
-```{r, screenshot.force = FALSE,eval=FALSE}
+```{r plot12, fig.width=7, fig.height=6,echo=TRUE}
 library(NGCircos)
 heatmapData<-heatmapExample
 NGCircos(NGCircosHeatmap('Heatmap01', maxRadius= 180, minRadius = 100, data=heatmapData,totalLayer = 3),
@@ -165,7 +172,7 @@ HEATMAPMouseEvent = TRUE,HEATMAPMouseOverDisplay = TRUE)
 
 The data is input throught the *data* parameter in histogram module. The details for parameters are available by ?NGCircosHistogram
 An example for histogram module:
-```{r, screenshot.force = FALSE,eval=FALSE}
+```{r plot13, fig.width=7, fig.height=6,echo=TRUE}
 library(NGCircos)
 histogramData<-histogramExample
 NGCircos(NGCircosHistogram('HISTOGRAM01', data = histogramData,fillColor= "#ff7f0e",maxRadius = 210,
@@ -177,7 +184,7 @@ outerRadius = 220)
 
 There is no data input for legend module. The details for parameters are available by ?NGCircosLegend
 An example for legend module:
-```{r, screenshot.force = FALSE,eval=FALSE}
+```{r plot14, fig.width=7, fig.height=6,echo=TRUE}
 library(NGCircos)
 legend1 <- list(type= "circle", color="#1E77B4",opacity="1.0",circleSize="8",text= "C.CK", textSize= "14",textWeight="normal")
 legend2 <- list(type= "circle", color="#AEC7E8",opacity="1.0",circleSize="8",text= "C.NPK", textSize= "14",textWeight="normal")
@@ -188,7 +195,7 @@ NGCircos(NGCircosLegend('legend01', title = "legend",data=list(legend1,legend2),
 
 The data is input throught the *data* parameter in line module. The details for parameters are available by ?NGCircosLine
 An example for line module:
-```{r, screenshot.force = FALSE,eval=FALSE}
+```{r plot15, fig.width=7, fig.height=6,echo=TRUE}
 library(NGCircos)
 lineData<-lineExample
 NGCircos(NGCircosLine('LINE01', data = lineData,maxRadius=200,minRadius=150,color= "#ff0031")+
@@ -199,7 +206,7 @@ NGCircosBackground('BG01',minRadius = 205,maxRadius = 150))
 
 The data is input throught the *data* parameter in link module. The details for parameters are available by ?NGCircosLink
 An example for link module:
-```{r, screenshot.force = FALSE,eval=FALSE}
+```{r plot16, fig.width=7, fig.height=6,echo=TRUE}
 library(NGCircos)
 linkData<-linkExample
 NGCircos(NGCircosLink('LINK01', data = linkData,LinkRadius= 140,fillColor= "#9e9ac6",width= 2,
@@ -210,7 +217,7 @@ axisPad= 3,labelPad=8,animationDisplay=TRUE,animationDirection="1to2", animation
 
 The data is input throught the *data* parameter in lollipop module. The details for parameters are available by ?NGCircosLollipop
 An example for lollipop module:
-```{r, screenshot.force = FALSE,eval=FALSE}
+```{r plot17, fig.width=7, fig.height=6,echo=TRUE}
 library(NGCircos)
 lollipopData<-lollipopExample
 arcData<-arcExample
@@ -224,7 +231,7 @@ realStart= 101219350)+NGCircosArc('Arc01', outerRadius = 212, innerRadius = 224,
 
 The data is input throught the *data* parameter in snp module. The details for parameters are available by ?NGCircosSnp
 An example for snp module:
-```{r, screenshot.force = FALSE,eval=FALSE}
+```{r plot18, fig.width=7, fig.height=6,echo=TRUE}
 library(NGCircos)
 snpData<-snpExample
 NGCircos(NGCircosSnp('SNP01', minRadius =150, maxRadius = 190, data = snpExample,SNPFillColor= "#9ACD32", circleSize= 2, SNPAxisColor= "#B8B8B8", SNPAxisWidth= 0.5, SNPAnimationDisplay=TRUE,SNPAnimationTime= 2000, SNPAnimationDelay= 0, SNPAnimationType= "linear") + NGCircosBackground('BG01',minRadius = 145,maxRadius = 200))
@@ -234,7 +241,7 @@ NGCircos(NGCircosSnp('SNP01', minRadius =150, maxRadius = 190, data = snpExample
 
 There is no data input for text module. The details for parameters are available by ?NGCircosText
 An example for text module:
-```{r, screenshot.force = FALSE,eval=FALSE}
+```{r plot19, fig.width=7, fig.height=6,echo=TRUE}
 library(NGCircos)  
 NGCircos(NGCircosText('text01', 'Annotation', color = '#DD2222', x = -40))
 ```
@@ -243,7 +250,7 @@ NGCircos(NGCircosText('text01', 'Annotation', color = '#DD2222', x = -40))
 
 The data is input throught the *data* parameter in wig module. The details for parameters are available by ?NGCircosWig
 An example for wig module:
-```{r, screenshot.force = FALSE,eval=FALSE}
+```{r plot20, fig.width=7, fig.height=6,echo=TRUE}
 library(NGCircos)
 wigData<-wigExample
 NGCircos(NGCircosWig('WIG01', data = wigData, maxRadius= 200,minRadius= 150,strokeColor= "darkblue",
@@ -255,7 +262,7 @@ color= "lightblue",strokeType= "cardinal")+NGCircosBackground('BG01',minRadius =
 
 If you are using RStudio, the plot can be saved as an image or a html page.
 If you are using R in command, the plot can be saved as a html page, thanks to the *htmlwidgets* library:
-```{r eval=FALSE, screenshot.force = FALSE,eval=FALSE}
+```{r eval=FALSE, screenshot.force = FALSE}
 library(NGCircos)
 library(htmlwidgets)
 

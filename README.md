@@ -27,7 +27,7 @@ Since R language is much more friendly in data visualization and plot programmin
 
 Document is available at 
 
-- [NGCircos.r-jupyter notebook](https://github.com/mrcuizhe/NGCircos.r/blob/master/NGCircos.r_document.ipynb?flush_cache=true)
+- [NGCircos.r-jupyter notebook](https://nbviewer.jupyter.org/github/mrcuizhe/NGCircos.r/blob/master/NGCircos.r_document.ipynb?flush_cache=true)
 
 Or 
 

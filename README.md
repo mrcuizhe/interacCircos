@@ -8,7 +8,9 @@ NGCircos is developed in JavaScripts based on D3.js and JQuery.js
 
 NGCircos is originally published at NAR Genomics and Bioinformatics and available at 
 
-- [NGCircos](https://wlcb.oit.uci.edu/NG-Circos)
+- [NGCircos Document](https://wlcb.oit.uci.edu/NG-Circos)
+
+- [NGCircos Paper](https://academic.oup.com/nargab/article/2/3/lqaa069/5901067)
 
 Since R language is much more friendly in data visualization and plot programming than html, we ported NGCircos to this R package based on the *htmlwidgets* framework.
 
@@ -21,7 +23,7 @@ Since R language is much more friendly in data visualization and plot programmin
 
 ## Installation
 
-        # You need devtools for that
+        # Via devtools
         if (!require('devtools')){install.packages('devtools')}
         devtools::install_github('mrcuizhe/NGCircos.r', build_vignettes = TRUE)
         

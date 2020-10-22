@@ -31,7 +31,7 @@ Since R language is much more friendly in data visualization and plot programmin
 
 Document is available at 
 
-- [NGCircos.r-jupyter notebook](https://mybinder.org/v2/gh/mrcuizhe/NGCircos.r/master?filepath=doc%2FNGCircos.r_document.ipynb) Run each cell for demo ( Shift + Enter ).
+- [NGCircos.r-jupyter notebook](https://mybinder.org/v2/gh/mrcuizhe/NGCircos.r/master?filepath=doc%2FNGCircos.r_document.ipynb) & Run each cell for demo ( Shift + Enter ).
 
 Or 
 

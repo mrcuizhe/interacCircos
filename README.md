@@ -6,7 +6,9 @@ A R package for Next Generation Circos(NGCircos)
 
 NGCircos is developed in JavaScripts based on D3.js and JQuery.js
 
-NGCircos is originally published at NAR Genomics and Bioinformatics and available at https://wlcb.oit.uci.edu/NG-Circos 
+NGCircos is originally published at NAR Genomics and Bioinformatics and available at 
+
+- [NGCircos](https://wlcb.oit.uci.edu/NG-Circos)
 
 Since R language is much more friendly in data visualization and plot programming than html, we ported NGCircos to this R package based on the *htmlwidgets* framework.
 

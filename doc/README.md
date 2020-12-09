@@ -4,4 +4,4 @@ Document is available at
 
 Or 
 
-- [rNGCircos-pdf](https://github.com/mrcuizhe/rNGCircos/blob/master/rNGCircos_1.0.0.pdf)
+- [rNGCircos-pdf](https://github.com/mrcuizhe/rNGCircos/blob/master/doc/rNGCircos_1.0.0.pdf)

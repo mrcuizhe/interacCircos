@@ -1986,11 +1986,11 @@ rNGCircos <- function(moduleList = rNGCircosModuleList(),
     LOLLIPOPMouseOverTooltipsOpacity = LOLLIPOPMouseOverTooltipsOpacity)
   # create widget
   htmlwidgets::createWidget(
-    name = 'rNGCircos',
+    name = 'NGCircos',
     x,
     width = width,
     height = height,
-    package = 'rNGCircos',
+    package = 'NGCircos',
     elementId = elementId
   )
 }

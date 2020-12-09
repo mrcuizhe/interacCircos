@@ -1,6 +1,6 @@
 HTMLWidgets.widget({
 
-  name: 'rNGCircos',
+  name: 'NGCircos',
 
   type: 'output',
 

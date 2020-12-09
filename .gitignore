@@ -4,8 +4,10 @@
 .Ruserdata
 .Rbuildignore
 .DS_Store
-inst/doc
 Meta
 NGCircos.r.Rproj
 .ipynb_checkpoints
-doc
+*.ipynb
+doc/rNGCircos-vignette.html
+doc/rNGCircos-vignette.R
+doc/rNGCircos-vignette.Rmd

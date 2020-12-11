@@ -27,6 +27,8 @@ Since R language is much more friendly in data visualization and plot programmin
         if (!require('devtools')){install.packages('devtools')}
         devtools::install_github('mrcuizhe/rNGCircos', build_vignettes = TRUE)
         
+        # htmlwidgets, RColorBrewer, plyr, jsonlite, grDevices are required !  
+        
 ## Document
 
 Document is available at 

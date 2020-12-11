@@ -46,7 +46,7 @@ For the other 17 of 20 modules, which has a independent function(*rNGCircosArc()
 
 default:
 
-```{r plot1,fig.width=7, fig.height=6,echo=TRUE,screenshot.force = FALSE}
+```{r plot1,fig.width=7, fig.height=6,echo=TRUE}
 
 library(rNGCircos)
 rNGCircos(zoom=FALSE)
@@ -55,24 +55,22 @@ rNGCircos(zoom=FALSE)
 
 The genome is set by defult as hg19, the genome can be changed by setting genome=list("Example1"=100,"Example2"=200,"Example3"=300). Meanwhile, the color of each chromosome can be changed by setting genomeFillColor = c("red","blue","green")
 
-```{r plot2,fig.width=7, fig.height=6,echo=TRUE,screenshot.force = FALSE}
-
-# hist(rnorm(1000))
+```{r plot2,fig.width=7, fig.height=6,echo=TRUE, screenshot.force = FALSE}
 library(rNGCircos)
-rNGCircos(genome=list("Example1"=100,"Example2"=200,"Example3"=300),genomeFillColor = c("red","blue","green"))
+
+rNGCircos(zoom = FALSE,genome=list("Example1"=100,"Example2"=200,"Example3"=300),genomeFillColor = c("red","blue","green"))
 
 ```
 
 The filling color for chromosome can also be set automatically by choosing a *RColorBrewer* palette, such as *Blues*
-```{r plot3, fig.width=7, fig.height=6,echo=TRUE}
-hist(rnorm(1000))
+```{r plot3, fig.width=7, fig.height=6,echo=TRUE, screenshot.force = FALSE}
 library(rNGCircos)
+
 rNGCircos(genome=list("Example1"=100,"Example2"=200,"Example3"=300),genomeFillColor = "Blues")
 ```
  
 Other parameters are documented and try ?rNGCircos() for details
 ```{r plot4, fig.width=7, fig.height=6,echo=TRUE}
-hist(rnorm(1000))
 library(rNGCircos)
 rNGCircos(genome=list("Example1"=100,"Example2"=200,"Example3"=300),genomeFillColor = "Blues",chrPad = 0,genomeTicksDisplay = TRUE,genomeTicksScale = 10,genomeLabelDisplay = FALSE)
 ```

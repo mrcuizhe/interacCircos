@@ -6,7 +6,7 @@
 \alias{renderrNGCircos}
 \title{Shiny bindings for rNGCircos}
 \usage{
-rNGCircosOutput(outputId, width = "100\%", height = "400px")
+rNGCircosOutput(outputId, width = "100\%", height = "100\%")
 
 renderrNGCircos(expr, env = parent.frame(), quoted = FALSE)
 }

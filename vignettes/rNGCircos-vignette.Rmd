@@ -274,7 +274,7 @@ saveWidget(plot, "plot.html")
 
 ## Citation
 
-The NG-Circos is originally published at 
+The NG-Circos is originally published at https://academic.oup.com/nargab/article/2/3/lqaa069/5901067
 The rNGCircos is originally published at 
 
 Please contact cuizhe@hit.edu.cn or mrcuizhe@gmail.com for any question

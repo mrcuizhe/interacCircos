@@ -1986,13 +1986,41 @@ rNGCircos <- function(moduleList = rNGCircosModuleList(),
     LOLLIPOPMouseOverTooltipsOpacity = LOLLIPOPMouseOverTooltipsOpacity)
   # create widget
   htmlwidgets::createWidget(
-    name = 'NGCircos',
+    name = 'rNGCircos',
     x,
     width = width,
     height = height,
-    package = 'NGCircos',
+    package = 'rNGCircos',
     elementId = elementId
   )
+}
+
+#' Shiny bindings for rNGCircos
+#'
+#' Output and render functions for using rNGCircos within Shiny
+#' applications and interactive Rmd documents.
+#'
+#' @param outputId output variable to read from
+#' @param width,height Must be a valid CSS unit (like \code{'100\%'},
+#'   \code{'400px'}, \code{'auto'}) or a number, which will be coerced to a
+#'   string and have \code{'px'} appended.
+#' @param expr An expression that generates a rNGCircos
+#' @param env The environment in which to evaluate \code{expr}.
+#' @param quoted Is \code{expr} a quoted expression (with \code{quote()})? This
+#'   is useful if you want to save an expression in a variable.
+#'
+#' @name rNGCircos-shiny
+#'
+#' @export
+rNGCircosOutput <- function(outputId, width = '100%', height = '400px'){
+  htmlwidgets::shinyWidgetOutput(outputId, 'rNGCircos', width, height, package = 'rNGCircos')
+}
+
+#' @rdname rNGCircos-shiny
+#' @export
+renderrNGCircos <- function(expr, env = parent.frame(), quoted = FALSE) {
+  if (!quoted) { expr <- substitute(expr) } # force quoted
+  htmlwidgets::shinyRenderWidget(expr, rNGCircosOutput, env, quoted = TRUE)
 }
 
 #' Create a BACKGROUND module to be added to a moduleList

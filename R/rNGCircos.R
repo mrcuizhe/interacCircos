@@ -1135,7 +1135,7 @@ rNGCircos <- function(moduleList = rNGCircosModuleList(),
   # If genome is a string, convert to corresponding chromosome lengths
   if(class(genome) == "character"){
     if(genome == "hg19"){
-      genome = list("1" = 249250621, #Hg19
+      genome = list("1" = 249250621,
                     "2" = 243199373,
                     "3" = 198022430,
                     "4" = 191154276,
@@ -1167,7 +1167,7 @@ rNGCircos <- function(moduleList = rNGCircosModuleList(),
 
   if(class(genome2) == "character"){
     if(genome2 == "hg19"){
-      genome2 = list("1" = 249250621, #Hg19
+      genome2 = list("1" = 249250621,
                     "2" = 243199373,
                     "3" = 198022430,
                     "4" = 191154276,
@@ -1987,7 +1987,7 @@ rNGCircos <- function(moduleList = rNGCircosModuleList(),
     LOLLIPOPMouseOverTooltipsBorderRadius = LOLLIPOPMouseOverTooltipsBorderRadius,
     LOLLIPOPMouseOverTooltipsOpacity = LOLLIPOPMouseOverTooltipsOpacity)
   # create widget
-  htmlwidgets::createWidget(
+  html2<-htmlwidgets::createWidget(
     name = 'NGCircos',
     x,
     width = width,
@@ -1995,6 +1995,7 @@ rNGCircos <- function(moduleList = rNGCircosModuleList(),
     package = 'NGCircos',
     elementId = elementId
   )
+  print(html2,browse=TRUE)
 }
 
 #' Shiny bindings for rNGCircos

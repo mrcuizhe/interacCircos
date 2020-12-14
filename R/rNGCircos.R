@@ -7,7 +7,9 @@
 #' @import plyr
 #' @import jsonlite
 #' @import grDevices
-#'
+#' 
+#' @export
+
 #' @param moduleList Module list displayed in plot.
 #' @param genome Could be either 'hg19', which is defaultly set to use chromosomes of hg19, or a list of chromosomes with length, for example, list("chr1"=100,"chr2"=200).
 #' @param genome2 Second genome when compare module is applied, format is same as genome

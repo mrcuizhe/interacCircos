@@ -1986,7 +1986,7 @@ rNGCircos <- function(moduleList = rNGCircosModuleList(),
     LOLLIPOPMouseOverTooltipsOpacity = LOLLIPOPMouseOverTooltipsOpacity)
   # create widget
   htmlwidgets::createWidget(
-    name = "rNGCircos",
+    name = "NGCircos",
     x,
     width = width,
     height = height,
@@ -2012,7 +2012,7 @@ rNGCircos <- function(moduleList = rNGCircosModuleList(),
 #'
 #' @export
 rNGCircosOutput <- function(outputId, width = '100%', height = '100%'){
-  htmlwidgets::shinyWidgetOutput(outputId, 'rNGCircos', width, height, package = 'rNGCircos')
+  htmlwidgets::shinyWidgetOutput(outputId, 'NGCircos', width, height, package = 'NGCircos')
 }
 
 #' @rdname rNGCircos-shiny

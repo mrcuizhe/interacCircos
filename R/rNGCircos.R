@@ -1987,15 +1987,13 @@ rNGCircos <- function(moduleList = rNGCircosModuleList(),
     LOLLIPOPMouseOverTooltipsBorderRadius = LOLLIPOPMouseOverTooltipsBorderRadius,
     LOLLIPOPMouseOverTooltipsOpacity = LOLLIPOPMouseOverTooltipsOpacity)
   # create widget
-  html2<-htmlwidgets::createWidget(
-    name = 'NGCircos',
+  htmlwidgets::createWidget(
+    name = 'rNGCircos',
     x,
     width = width,
     height = height,
-    package = 'NGCircos',
     elementId = elementId
   )
-  print(html2,browse=TRUE)
 }
 
 #' Shiny bindings for rNGCircos

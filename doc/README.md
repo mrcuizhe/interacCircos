@@ -1,6 +1,6 @@
 Document is available at 
 
-- [rNGCircos-jupyter notebook](https://mrcuizhe.github.io/rNGCircos_document/index.html)
+- [rNGCircos-document](https://mrcuizhe.github.io/rNGCircos_document/index.html)
 
 Or 
 

@@ -8,8 +8,6 @@ NG-Circos is developed in JavaScripts based on D3.js and jQuery.js
 
 NG-Circos is originally published at NAR Genomics and Bioinformatics and available at 
 
-- [NG-Circos Document](https://wlcb.oit.uci.edu/NG-Circos)
-
 - [NG-Circos Paper](https://academic.oup.com/nargab/article/2/3/lqaa069/5901067)
 
 Since R language is much more friendly in data visualization and plot programming than html, we published this R package based on *NG-Circos* and the *htmlwidgets* framework.
@@ -43,3 +41,10 @@ Or
 ## Contact
 
 Please contact cuizhe@hit.edu.cn or mrcuizhe@gmail.com for help
+
+### Additional
+
+The document of NG-Circos is available at
+
+- [NG-Circos Document](https://wlcb.oit.uci.edu/NG-Circos)
+

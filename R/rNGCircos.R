@@ -7,7 +7,9 @@
 #' @import plyr
 #' @import jsonlite
 #' @import grDevices
-#'
+#' 
+#' @export
+
 #' @param moduleList Module list displayed in plot.
 #' @param genome Could be either 'hg19', which is defaultly set to use chromosomes of hg19, or a list of chromosomes with length, for example, list("chr1"=100,"chr2"=200).
 #' @param genome2 Second genome when compare module is applied, format is same as genome
@@ -1133,7 +1135,7 @@ rNGCircos <- function(moduleList = rNGCircosModuleList(),
   # If genome is a string, convert to corresponding chromosome lengths
   if(class(genome) == "character"){
     if(genome == "hg19"){
-      genome = list("1" = 249250621, #Hg19
+      genome = list("1" = 249250621,
                     "2" = 243199373,
                     "3" = 198022430,
                     "4" = 191154276,
@@ -1165,7 +1167,7 @@ rNGCircos <- function(moduleList = rNGCircosModuleList(),
 
   if(class(genome2) == "character"){
     if(genome2 == "hg19"){
-      genome2 = list("1" = 249250621, #Hg19
+      genome2 = list("1" = 249250621,
                     "2" = 243199373,
                     "3" = 198022430,
                     "4" = 191154276,
@@ -1985,13 +1987,15 @@ rNGCircos <- function(moduleList = rNGCircosModuleList(),
     LOLLIPOPMouseOverTooltipsBorderRadius = LOLLIPOPMouseOverTooltipsBorderRadius,
     LOLLIPOPMouseOverTooltipsOpacity = LOLLIPOPMouseOverTooltipsOpacity)
   # create widget
-  htmlwidgets::createWidget(
-    name = "rNGCircos",
+  html2<-htmlwidgets::createWidget(
+    name = 'NGCircos',
     x,
     width = width,
     height = height,
+    package = 'NGCircos',
     elementId = elementId
   )
+  print(html2,browse=TRUE)
 }
 
 #' Shiny bindings for rNGCircos
@@ -2012,7 +2016,7 @@ rNGCircos <- function(moduleList = rNGCircosModuleList(),
 #'
 #' @export
 rNGCircosOutput <- function(outputId, width = '100%', height = '100%'){
-  htmlwidgets::shinyWidgetOutput(outputId, 'rNGCircos', width, height, package = 'rNGCircos')
+  htmlwidgets::shinyWidgetOutput(outputId, 'NGCircos', width, height, package = 'NGCircos')
 }
 
 #' @rdname rNGCircos-shiny

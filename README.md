@@ -32,7 +32,7 @@ By CRAN:
 
 		#Via CRAN
 		install.packages("rNGCircos")
-		
+
 		 # htmlwidgets, RColorBrewer, plyr, jsonlite, grDevices are required !  
 
 ### Document
@@ -45,7 +45,6 @@ Or
 
 - [rNGCircos-pdf](https://github.com/mrcuizhe/rNGCircos/blob/master/doc/rNGCircos_1.0.0.pdf)
 
-        
 ## Contact
 
 Please contact cuizhe@hit.edu.cn or mrcuizhe@gmail.com for help

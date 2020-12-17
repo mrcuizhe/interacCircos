@@ -1,5 +1,10 @@
 # rNGCircos
 
+<!-- badges: start -->
+[![CRAN status](https://www.r-pkg.org/badges/version/rNGCircos)](https://CRAN.R-project.org/package=rNGCircos)
+[![Lifecycle: stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://www.tidyverse.org/lifecycle/#stable)
+<!-- badges: end -->
+
 A R package for Next Generation Circos(NG-Circos)
 
 ## Introduction
@@ -25,7 +30,18 @@ Since R language is much more friendly in data visualization and plot programmin
         
         # htmlwidgets, RColorBrewer, plyr, jsonlite, grDevices are required !  
         
+<<<<<<< Updated upstream
 ## Document
+=======
+By CRAN:
+
+        #Via CRAN
+	install.packages("rNGCircos")
+
+        # htmlwidgets, RColorBrewer, plyr, jsonlite, grDevices are required !  
+
+### Document
+>>>>>>> Stashed changes
 
 Document is available at 
 

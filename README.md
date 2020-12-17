@@ -24,24 +24,24 @@ Since R language is much more friendly in data visualization and plot programmin
 
 ## Installation
 
+By devtools:
+
         # Via devtools
         if (!require('devtools')){install.packages('devtools')}
         devtools::install_github('mrcuizhe/rNGCircos')
         
         # htmlwidgets, RColorBrewer, plyr, jsonlite, grDevices are required !  
         
-<<<<<<< Updated upstream
 ## Document
-=======
+
 By CRAN:
 
         #Via CRAN
-	install.packages("rNGCircos")
+        install.packages("rNGCircos")
 
         # htmlwidgets, RColorBrewer, plyr, jsonlite, grDevices are required !  
 
 ### Document
->>>>>>> Stashed changes
 
 Document is available at 
 

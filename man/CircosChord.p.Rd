@@ -18,13 +18,13 @@ CircosChord.p(
 
 \item{radius}{The radius for chord circle.}
 
+\item{opacity}{The opacity for chord.}
+
+\item{color}{The color for chord}
+
 \item{data}{A list of chord value with relationship details, details could be found on chord.pExample.}
 
 \item{...}{Ignored}
-
-\item{fillOpacity}{The opacity for chord.}
-
-\item{fillColor}{The color for chord}
 }
 \description{
 Display a chord module using a data path. chord.p meaens chord plot based on path.

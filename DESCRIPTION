@@ -1,11 +1,10 @@
 Package: interacCircos
 Type: Package
-Title: A R package for visualization of interactive Circos plot. 
+Title: A R package for visualization of interactive Circos plot 
 Version: 1.0.0
 Author: Zhe Cui
 Maintainer: Zhe Cui <mrcuizhe@gamil.com>
-Description: A R package for visualization of interactive Circos plot. Inspired by BioCircos, NG-Circos and circosJS.
-License: GPL
+License: GPL-3
 Encoding: UTF-8
 LazyData: true
 Depends: R (>= 3.5.0)

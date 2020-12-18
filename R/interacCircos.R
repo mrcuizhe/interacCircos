@@ -2627,10 +2627,11 @@ CircosLink <- function(modulename, compareGroup = 1, radius = 108, fillColor = "
 #' Circos(CircosChord('CHORD', data = chordData,innerRadius= 210,outerRadius= 211,fillOpacity=0.67,
 #' strokeColor="black",strokeWidth= "1px",outerARCText=FALSE),genome=list("C.CK" = 189.51,"C.NPK"=188,
 #' "GC.CK"=186.11, "GC.NPK"=191.51,"Alphaproteobacteria"=70.16,"Betaproteobacteria"=23.51,
-#' "Gammaproteobacteria"=25.51, "Deltaproteobacteria"=23.28,"Acidobacteria"=53.62,"Actinobacteria"=72.33,
-#' "Bacteroidetes"=22.41, "Chloroflexi"=15.08,"Firmicutes"=10.72,"Gemmatimonadetes"=26.37,
-#' "Planctomycetes"=19.26,"Thaumarchaeota"=6.15, "Verrucomicrobia"=8.3,"Ascomycota"=159.41,
-#' "Basidiomycota"=79.73,"Zygomycota"=139.29 ),outerRadius = 217, genomeLabelDisplay = FALSE)
+#' "Gammaproteobacteria"=25.51, "Deltaproteobacteria"=23.28,"Acidobacteria"=53.62,
+#' "Actinobacteria"=72.33, "Bacteroidetes"=22.41, "Chloroflexi"=15.08,"Firmicutes"=10.72,
+#' "Gemmatimonadetes"=26.37, "Planctomycetes"=19.26,"Thaumarchaeota"=6.15, "Verrucomicrobia"=8.3,
+#' "Ascomycota"=159.41, "Basidiomycota"=79.73,"Zygomycota"=139.29 ),outerRadius = 217, 
+#' genomeLabelDisplay = FALSE)
 #'
 #' @export
 CircosChord <- function(modulename, innerRadius = 237, outerRadius = 238, fillOpacity = 0.67, fillStrokeWidth = 1,
@@ -2674,8 +2675,8 @@ CircosChord <- function(modulename, innerRadius = 237, outerRadius = 238, fillOp
 #' @param modulename The name of the new module.
 #'
 #' @param radius The radius for chord circle.
-#' @param fillOpacity The opacity for chord.
-#' @param fillColor The color for chord
+#' @param opacity The opacity for chord.
+#' @param color The color for chord
 #' @param data A list of chord value with relationship details, details could be found on chord.pExample.
 #'
 #' @param ... Ignored

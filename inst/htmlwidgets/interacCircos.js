@@ -1,6 +1,6 @@
 HTMLWidgets.widget({
 
-  name: 'rNGCircos',
+  name: 'interacCircos',
 
   type: 'output',
 
@@ -22,6 +22,18 @@ HTMLWidgets.widget({
         result2.push([piece3[i], piece4[i]])
       }
       var result = [result1,result2]
+      return result;
+    }
+
+    function objToArray2(objectLiteral1,objectLiteral2) {
+      var piece1 = Object.keys(objectLiteral1);
+      var piece2 = Object.values(objectLiteral1);
+      var piece3 = Object.values(objectLiteral2);
+      var result = [];
+      for (var i = 0; i < piece1.length; i++) {
+        result.push({"id":piece1[i], "color":piece3[i],"len":piece2[i]})
+      }
+      // console.log(result)
       return result;
     }
 
@@ -48,7 +60,7 @@ HTMLWidgets.widget({
         //   opts.moduleList[i][1].LinkRadius *= 0.7*maxRadius 
         // }
 
-        NGCircos01 = new NGCircos(... opts.moduleList, NGCircosGenome,{
+        NGCircos01 = new NGCircos(... opts.moduleList_NGCircos, NGCircosGenome,{
           // Main configuration
           target : el.id,
           svgWidth : width,
@@ -849,6 +861,85 @@ HTMLWidgets.widget({
 
         NGCircos01.draw_genome(NGCircos01.genomeLength);
         NGCircos01.draw_genome(NGCircos01.genomeLength2);
+
+        var circosJS = new Circos({
+          container: '#'+el.id,
+          width: width,
+          height: height
+        });
+
+        var data=[
+    {source: {id: "19", start: 22186054, end: 26186054}, target: {id: "17", start: 31478117, end: 35478117}},
+    {source: {id: "4", start: 74807187, end: 78807187}, target: {id: "1", start: 89852878, end: 93852878}},
+    {source: {id: "12", start: 32372614, end: 36372614}, target: {id: "12", start: 125650987, end: 129650987}},
+    {source: {id: "12", start: 32372616, end: 36372616}, target: {id: "2", start: 157440784, end: 161440784}},
+    {source: {id: "2", start: 131012108, end: 135012108}, target: {id: "5", start: 172541752, end: 176541752}},
+    {source: {id: "22", start: 19265412, end: 23265412}, target: {id: "17", start: 31478113, end: 35478113}},
+    {source: {id: "1", start: 89852783, end: 93852783}, target: {id: "2", start: 131036705, end: 135036705}},
+    {source: {id: "21", start: 7827203, end: 11827203}, target: {id: "17", start: 31478116, end: 35478116}},
+    {source: {id: "21", start: 7826936, end: 11826936}, target: {id: "17", start: 31478113, end: 35478113}},
+    {source: {id: "21", start: 7827510, end: 11827510}, target: {id: "17", start: 31478111, end: 35478111}},
+    {source: {id: "1", start: -1431493, end: 2568507}, target: {id: "17", start: 31478117, end: 35478117}},
+    {source: {id: "17", start: 35360418, end: 39360418}, target: {id: "17", start: 31478115, end: 35478115}},
+    {source: {id: "17", start: 31478116, end: 35478116}, target: {id: "X", start: 106297810, end: 110297810}},
+    {source: {id: "17", start: 31478131, end: 35478131}, target: {id: "8", start: 134786084, end: 138786084}},
+    {source: {id: "17", start: 31478111, end: 35478111}, target: {id: "2", start: 86124673, end: 90124673}},
+    {source: {id: "17", start: 31478116, end: 35478116}, target: {id: "1", start: 235766312, end: 239766312}},
+    {source: {id: "17", start: 31478116, end: 35478116}, target: {id: "1", start: 89853039, end: 93853039}},
+    {source: {id: "17", start: 31478117, end: 35478117}, target: {id: "2", start: 131012644, end: 135012644}},
+    {source: {id: "17", start: 31478115, end: 35478115}, target: {id: "11", start: 83194786, end: 87194786}},
+    {source: {id: "17", start: 31478115, end: 35478115}, target: {id: "11", start: 83194786, end: 87194786}},
+    {source: {id: "17", start: 31478117, end: 35478117}, target: {id: "21", start: 33677489, end: 37677489}},
+    {source: {id: "17", start: 31478117, end: 35478117}, target: {id: "1", start: 89852849, end: 93852849}},
+    {source: {id: "17", start: 31478114, end: 35478114}, target: {id: "X", start: 106297713, end: 110297713}}
+    ]
+
+        circosJS.layout(
+            objToArray2(opts.genome,opts.genomeFillColor),
+
+          {
+            innerRadius: opts.innerRadius,
+            outerRadius: opts.outerRadius,
+            labels: {
+              display: false,
+            },
+            ticks: {
+              display: false
+            },
+            events: { },
+            gap:opts.chrPad,
+            cornerRadius:0,
+
+          }
+        );
+
+        
+
+        for (var i=0;i<opts.moduleList_circosJS.length;i++)
+        { 
+            data=opts.moduleList_circosJS[i][1].map(function (d) {
+            return {
+              source: {
+                id: d.source_chr,
+                start: d.source_start,
+                end: d.source_end
+              },
+              target: {
+                id: d.target_chr,
+                start: d.target_start,
+                end: d.target_end
+              }
+            }
+          })
+            circosJS.chords(
+              opts.moduleList_circosJS[i][0],
+              data,
+              opts.moduleList_circosJS[i][2]
+
+            );
+        }
+        
+        circosJS.render();
       },
 
       resize: function(width, height) {

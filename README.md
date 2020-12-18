@@ -16,7 +16,7 @@ circosJS, BioCircos.js and NG-Circos are developed in JavaScript to provide a fr
 
 For these 3 JavaScript library, plot are all drawn through different JS functions(back-end) and displayed through HTML element(front-end), which requires users be familiar with JavaScript language and HTML language very much. Besides, the way of data input in JavaScript is not user-friendly, especially for data with millions of rows.
 
-We integrate the modules of circosJS, BioCircos.js and NG-Circos in this R package: **interacCircos**, based on *htmlwidgets* framework.
+We integrate the modules of circosJS, BioCircos.js and NG-Circos into this R package: **interacCircos**, based on *htmlwidgets* framework.
 
 ## Features
 
@@ -43,7 +43,7 @@ By CRAN:
 
         # htmlwidgets, RColorBrewer, plyr, jsonlite, grDevices are required !  
 
-### Document
+## Document
 
 Document is available at 
 

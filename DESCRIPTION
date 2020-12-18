@@ -1,15 +1,15 @@
-Package: rNGCircos
+Package: interacCircos
 Type: Package
-Title: Next Generation Circos in R 
+Title: A R package for visualization of interactive Circos plot. 
 Version: 1.0.0
 Author: Zhe Cui
 Maintainer: Zhe Cui <mrcuizhe@gamil.com>
-Description: A R package based on NGCircos: Next-generation Circos for data visualization and interpretation
-License: MIT
+Description: A R package for visualization of interactive Circos plot. Inspired by BioCircos, NG-Circos and circosJS.
+License: GPL
 Encoding: UTF-8
 LazyData: true
-Depends: R (>= 3.1.0)
+Depends: R (>= 3.5.0)
 Imports: RColorBrewer, htmlwidgets, jsonlite, plyr, grDevices
-RoxygenNote: 7.1.1
+RoxygenNote: 7.1.0
 Suggests: knitr, rmarkdown
 VignetteBuilder: knitr

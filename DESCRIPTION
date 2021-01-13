@@ -4,7 +4,7 @@ Title: A R package for visualization of interactive Circos plot
 Description: The interacCircos package is inspired by circosJS, BioCircos.js and NG-Circos. We integrate the modules of circosJS, BioCircos.js and NG-Circos into this R package, based on htmlwidgets framework.
 Version: 1.0.0
 Author: Zhe Cui
-Maintainer: Zhe Cui <mrcuizhe@gamil.com>
+Maintainer: Zhe Cui <mrcuizhe@gmail.com>
 License: GPL-3
 Encoding: UTF-8
 LazyData: true

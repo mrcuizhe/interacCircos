@@ -1,6 +1,6 @@
 Package: interacCircos
 Type: Package
-Title: A R package for visualization of interactive Circos plot 
+Title: A R Package for Visualization of Interactive Circos Plot
 Description: The interacCircos package is inspired by circosJS, BioCircos.js and NG-Circos. We integrate the modules of circosJS, BioCircos.js and NG-Circos into this R package, based on htmlwidgets framework.
 Version: 1.0.0
 Author: Zhe Cui

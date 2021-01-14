@@ -10,7 +10,7 @@ The **interacCircos** package is designed for visualization of interactive Circo
 
 ## Introduction
 
-The **interacCircos** package is inspired by [circosJS](https://github.com/nicgirault/circosJS), [BioCircos.js](http://www.ncbi.nlm.nih.gov/pubmed/26819473) and [NG-Circos](https://academic.oup.com/nargab/article/2/3/lqaa069/5901067).
+The **interacCircos** package is inspired by [circosJS](https://github.com/nicgirault/circosJS), [BioCircos.js](https://pubmed.ncbi.nlm.nih.gov/26819473/) and [NG-Circos](https://academic.oup.com/nargab/article/2/3/lqaa069/5901067).
 
 circosJS, BioCircos.js and NG-Circos are developed in JavaScript to provide a framework for displaying the interactive Circos plot in website. 
 

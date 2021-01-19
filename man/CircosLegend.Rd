@@ -37,6 +37,9 @@ lineHeight, text, textSize and textWeight. Details can be found on document.}
 
 \item{...}{Ignored}
 }
+\value{
+The module tracks for legend modules.
+}
 \description{
 Simple legend annotation displayed in the visualization.
 }

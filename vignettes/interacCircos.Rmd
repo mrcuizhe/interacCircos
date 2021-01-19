@@ -1,0 +1,10 @@
+---
+title: "A R Packages for Visualization of Interactive Circos Plot"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{interacCircos: A R Packages for Visualization of Interactive Circos Plot}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\usepackage[utf8]{inputenc}
+date: "`r Sys.Date()`"
+author: "Zhe Cui"
+---

@@ -65,6 +65,9 @@ Details can be found on document.}
 
 \item{...}{Ignored}
 }
+\value{
+The module tracks for snp modules.
+}
 \description{
 SNPs are defined by genomic coordinates and associated with a numerical value
 }

@@ -36,6 +36,9 @@ Details can be found on document.}
 
 \item{...}{Ignored}
 }
+\value{
+The module tracks for arc modules.
+}
 \description{
 Display the CNV without value, Gene domain, Chromosome band in the visualization
 }

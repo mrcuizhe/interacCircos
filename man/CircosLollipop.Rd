@@ -80,6 +80,9 @@ Details can be found on document.}
 
 \item{...}{Ignored}
 }
+\value{
+The module tracks for lollipop modules.
+}
 \description{
 Display a lollipop plot in the visualization
 }

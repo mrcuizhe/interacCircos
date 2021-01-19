@@ -57,6 +57,9 @@ CircosWig(
 
 \item{...}{Ignored}
 }
+\value{
+The module tracks for wig modules.
+}
 \description{
 Display a multi-layer line plot in circos
 }

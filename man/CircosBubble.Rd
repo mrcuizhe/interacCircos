@@ -70,6 +70,9 @@ Details can be found on document.}
 
 \item{...}{Ignored}
 }
+\value{
+The module tracks for bubble modules.
+}
 \description{
 A bubble plot displayed in the visualization
 }

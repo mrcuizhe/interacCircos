@@ -63,6 +63,9 @@ CircosAuxLine(
 
 \item{...}{Ignored}
 }
+\value{
+The module tracks for auxliary line modules.
+}
 \description{
 A auxiliary line displayed in the visualization
 }

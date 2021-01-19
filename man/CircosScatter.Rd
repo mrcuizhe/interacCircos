@@ -62,6 +62,9 @@ Details can be found on document.}
 
 \item{...}{Ignored}
 }
+\value{
+The module tracks for scatter modules.
+}
 \description{
 Display a point plot in circos
 }

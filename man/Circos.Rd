@@ -2304,8 +2304,11 @@ works when genomeTicksDisplay is TRUE and their details are available on documen
 
 \item{...}{Ignored}
 }
+\value{
+The main figure for interacCircos with all tracks.
+}
 \description{
-A R packages for visualization of interactive Circos plot
+Visualization of Interactive Circos Plot
 }
 \examples{
 Circos(genome = "hg19")

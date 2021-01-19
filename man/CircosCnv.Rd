@@ -53,6 +53,9 @@ Details can be found on document.}
 
 \item{...}{Ignored}
 }
+\value{
+The module tracks for cnv modules.
+}
 \description{
 A copy number variance module displayed in the visualization
 }

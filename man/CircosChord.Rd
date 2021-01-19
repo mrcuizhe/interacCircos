@@ -56,6 +56,9 @@ CircosChord(
 
 \item{...}{Ignored}
 }
+\value{
+The module tracks for chord modules of NG-Circos.
+}
 \description{
 Display a chord module using a data matrix.
 }

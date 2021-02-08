@@ -1,10 +1,26 @@
 ---
-title: "A R Packages for Visualization of Interactive Circos Plot"
+title: "A R Packages for Generating of Interactive Circos Plots"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{interacCircos: A R Packages for Visualization of Interactive Circos Plot}
+  %\VignetteIndexEntry{interacCircos: A R Packages for Generating of Interactive Circos Plots}
   %\VignetteEngine{knitr::rmarkdown}
   %\usepackage[utf8]{inputenc}
 date: "`r Sys.Date()`"
 author: "Zhe Cui"
 ---
+
+## Introduction
+
+JavaScript-based Circos libraries have been widely implemented to generate interactive Circos plots on web applications. However, these libraries require either local installation that requires compiling extra libraries or extra data processing procedures to prepare input and configuration for each track of plot, which limits the utility and capability of integration with powerful packages of R. Here, we present interacCircos, an R package for creating interactive Circos plots through the intregra-tion of JavaScript-based libraries. interacCircos can simply and flexibly implement 14 track-plot functions and 7 auxiliary functions for presenting large-scale genomic data in interactive Circos plots. 
+
+## Quick Start
+
+The Quick Start step for interacCircos is available at https://mrcuizhe.github.io/interacCircos_document/html/quick_start.html
+
+## Document
+
+Please visit https://mrcuizhe.github.io/interacCircos_document/index.html for a full document of interacCircos.
+
+## Contact
+
+Please visit https://github.com/mrcuizhe/interacCircos/issues for bug issues or contact cuizhe@hit.edu.cn for helping.

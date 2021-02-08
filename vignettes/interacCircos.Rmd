@@ -11,7 +11,7 @@ author: "Zhe Cui"
 
 ## Introduction
 
-JavaScript-based Circos libraries have been widely implemented to generate interactive Circos plots on web applications. However, these libraries require either local installation that requires compiling extra libraries or extra data processing procedures to prepare input and configuration for each track of plot, which limits the utility and capability of integration with powerful packages of R. Here, we present interacCircos, an R package for creating interactive Circos plots through the intregra-tion of JavaScript-based libraries. interacCircos can simply and flexibly implement 14 track-plot functions and 7 auxiliary functions for presenting large-scale genomic data in interactive Circos plots. 
+JavaScript-based Circos libraries have been widely implemented to generate interactive Circos plots on web applications. However, these libraries require either local installation that requires compiling extra libraries or extra data processing procedures to prepare input and configuration for each track of plot, which limits the utility and capability of integration with powerful packages of R. Here, we present interacCircos, an R package for creating interactive Circos plots through the intregration of JavaScript-based libraries. interacCircos can simply and flexibly implement 14 track-plot functions and 7 auxiliary functions for presenting large-scale genomic data in interactive Circos plots. 
 
 ## Quick Start
 

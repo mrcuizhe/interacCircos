@@ -2159,7 +2159,7 @@ CircosLegend <- function(modulename, x = 20, y = 20, title = "legend", size = 6,
   return(module)
 }
 
-#' Create a AUXILIAYLINE module to a moduleList
+#' Create a AUXILIARYLINE module to a moduleList
 #'
 #' A auxiliary line displayed in the visualization
 #'
@@ -2200,7 +2200,7 @@ CircosAuxLine <- function(modulename, startX = 20, startY = 20, endX = 120, endY
                 AUXILIARYLINEDashArray = dashArray, AUXILIARYLINEMarker = marker, AUXILIARYLINEMarkerType = markerType,
                 AUXILIARYLINEMarkerColor = markerColor, AUXILIARYLINEMarkerHeight = markerHeight,
                 AUXILIARYLINEMarkerWidth = markerWidth, AUXILIARYLINEMarkerPosition = markerPosition,
-                AUXILIARYLINEanimationDisplay = animationDisplay, AUXILIARYLINEAnimationTime = animationTime,
+                AUXILIARYLINEAnimationDisplay = animationDisplay, AUXILIARYLINEAnimationTime = animationTime,
                 AUXILIARYLINEAnimationDelay = animationDelay, AUXILIARYLINEAnimationType = animationType)
   module = CircosModuleList() + list(list(module1, module2))
   return(module)
@@ -2671,7 +2671,6 @@ CircosChord <- function(modulename, innerRadius = 237, outerRadius = 238, fillOp
                 CHORDFillColor = fillColor, CHORDFillStrokeColor = fillStrokeColor, CHORDouterARC = outerARC,
                 CHORDouterARCAutoColor = outerARCAutoColor, CHORDouterARCColor = outerARCColor,
                 CHORDouterARCStrokeColor = outerARCStrokeColor, CHORDouterARCText = outerARCText)
-
 
   module3 = list(colnames(data))
   tmp<-list(as.numeric(unname(data[1,])))

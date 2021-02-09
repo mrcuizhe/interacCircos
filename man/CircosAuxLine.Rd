@@ -2,7 +2,7 @@
 % Please edit documentation in R/interacCircos.R
 \name{CircosAuxLine}
 \alias{CircosAuxLine}
-\title{Create a AUXILIAYLINE module to a moduleList}
+\title{Create a AUXILIARYLINE module to a moduleList}
 \usage{
 CircosAuxLine(
   modulename,

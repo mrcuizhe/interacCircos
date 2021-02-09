@@ -1474,7 +1474,7 @@ var NGCircos;
           "AUXILIARYLINEMarkerHeight":5,
           "AUXILIARYLINEMarkerWidth":5,
           "AUXILIARYLINEMarkerPosition":2,// 0/1 start, 0/2 end, 1 means only start, 3 means all.
-          "AUXILIARYLINEAnimationDispaly":false,
+          "AUXILIARYLINEAnimationDisplay":false,
           "AUXILIARYLINEAnimationDelay":50,
           "AUXILIARYLINEAnimationTime":1000,
           "AUXILIARYLINEAnimationType":"linear",
@@ -2049,7 +2049,7 @@ var NGCircos;
           "AUXILIARYLINEMarkerHeight":5,
           "AUXILIARYLINEMarkerWidth":5,
           "AUXILIARYLINEMarkerPosition":4,// 0/1 start, 0/2 mid, 0/4 end, 1 means only start, 3 means start and mid , 7 means all.
-          "AUXILIARYLINEAnimationDispaly":false,
+          "AUXILIARYLINEAnimationDisplay":false,
           "AUXILIARYLINEAnimationDelay":50,
           "AUXILIARYLINEAnimationTime":1000,
           "AUXILIARYLINEAnimationType":"linear",
@@ -9690,7 +9690,7 @@ var NGCircos;
                 var line_generator = d3.svg.line()
                                       .interpolate("cardinal")
                 
-                if(self.AUXILIARYLINEsettings.AUXILIARYLINEAnimationDispaly == false){
+                if(self.AUXILIARYLINEsettings.AUXILIARYLINEAnimationDisplay == false){
                   var path = paths.selectAll('path')
                   .data(data)
                   .enter()
@@ -9732,7 +9732,7 @@ var NGCircos;
                       }
                       });
                 }
-                if(self.AUXILIARYLINEsettings.AUXILIARYLINEAnimationDispaly == true){
+                if(self.AUXILIARYLINEsettings.AUXILIARYLINEAnimationDisplay == true){
                   var path = paths.selectAll('path')
                   .data(data)
                   .enter()

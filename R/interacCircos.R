@@ -2188,7 +2188,7 @@ CircosAuxLine <- function(modulename, startX = 20, startY = 20, endX = 120, endY
                 AUXILIARYLINEDashArray = dashArray, AUXILIARYLINEMarker = marker, AUXILIARYLINEMarkerType = markerType,
                 AUXILIARYLINEMarkerColor = markerColor, AUXILIARYLINEMarkerHeight = markerHeight,
                 AUXILIARYLINEMarkerWidth = markerWidth, AUXILIARYLINEMarkerPosition = markerPosition,
-                AUXILIARYLINEanimationDisplay = animationDisplay, AUXILIARYLINEAnimationTime = animationTime,
+                AUXILIARYLINEAnimationDisplay = animationDisplay, AUXILIARYLINEAnimationTime = animationTime,
                 AUXILIARYLINEAnimationDelay = animationDelay, AUXILIARYLINEAnimationType = animationType)
   module = CircosModuleList() + list(list(module1, module2))
   return(module)
@@ -2659,12 +2659,30 @@ CircosChord <- function(modulename, innerRadius = 237, outerRadius = 238, fillOp
 }
 
 #' @title Example data of chord plot of NG-Circos
-#' @description The data is in matrix with column names
+#' @description The data is in matrix with column names. The order and number is same as column, representing the same items
 #'
 #' @format A data frame in which each value represents the relationship from a column to a row:
 #' \describe{
-#'   \item{column name}{the name for each arc}
-#'   \item{row}{the order and number is same as column, representing the same items}
+#'   \item{C.CK}{Genome 1, the name for each arc}
+#'   \item{C.NPK}{Genome 2, the name for each arc}
+#'   \item{GC.CK}{Genome 2, the name for each arc}
+#'   \item{GC.NPK}{Genome 2, the name for each arc}
+#'   \item{Alphaproteobacteria}{Genome 2, the name for each arc}
+#'   \item{Betaproteobacteria}{Genome 2, the name for each arc}
+#'   \item{Gammaproteobacteria}{Genome 2, the name for each arc}
+#'   \item{Deltaproteobacteria}{Genome 8, the name for each arc}
+#'   \item{Acidobacteria}{Genome 9, the name for each arc}
+#'   \item{Actinobacteria}{Genome 10, the name for each arc}
+#'   \item{Bacteroidetes}{Genome 11, the name for each arc}
+#'   \item{Chloroflexi}{Genome 12, the name for each arc}
+#'   \item{Firmicutes}{Genome 13, the name for each arc}
+#'   \item{Gemmatimonadetes}{Genome 14, the name for each arc}
+#'   \item{Planctomycetes}{Genome 15, the name for each arc}
+#'   \item{Thaumarchaeota}{Genome 16, the name for each arc}
+#'   \item{Verrucomicrobia}{Genome 17, the name for each arc}
+#'   \item{Ascomycota}{Genome 18, the name for each arc}
+#'   \item{Basidiomycota}{Genome 19, the name for each arc}
+#'   \item{Zygomycota}{Genome 20, the name for each arc}
 #' }
 "chordExample"
 

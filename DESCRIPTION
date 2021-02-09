@@ -1,9 +1,10 @@
 Package: interacCircos
 Type: Package
-Title: A R package for visualization of interactive Circos plot 
-Version: 1.0.0
+Title: The Visualization of Interactive Circos Plot
+Description: Implement in an efficient approach to display the genomic data, relationship, information in an interactive circular genome(Circos) plot. 'interacCircos' are inspired by 'circosJS', 'BioCircos.js' and 'NG-Circos' and we integrate the modules of 'circosJS', 'BioCircos.js' and 'NG-Circos' into this R package, based on 'htmlwidgets' framework.
+Version: 0.99.1
 Author: Zhe Cui
-Maintainer: Zhe Cui <mrcuizhe@gamil.com>
+Maintainer: Zhe Cui <mrcuizhe@gmail.com>
 License: GPL-3
 Encoding: UTF-8
 LazyData: true

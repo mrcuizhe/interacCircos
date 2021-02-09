@@ -41,6 +41,9 @@ CircosHistogram(
 
 \item{...}{Ignored}
 }
+\value{
+The module tracks for histogram modules.
+}
 \description{
 Display a multi-layer histogram in circos
 }

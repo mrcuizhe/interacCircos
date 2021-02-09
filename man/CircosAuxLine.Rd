@@ -2,7 +2,7 @@
 % Please edit documentation in R/interacCircos.R
 \name{CircosAuxLine}
 \alias{CircosAuxLine}
-\title{Create a AUXILIAYLINE module to a moduleList}
+\title{Create a AUXILIARYLINE module to a moduleList}
 \usage{
 CircosAuxLine(
   modulename,
@@ -62,6 +62,9 @@ CircosAuxLine(
 \item{animationTime, animationDelay, animationType}{The time, delay and display type for animation}
 
 \item{...}{Ignored}
+}
+\value{
+The module tracks for auxliary line modules.
 }
 \description{
 A auxiliary line displayed in the visualization

@@ -1,8 +1,8 @@
 ---
-title: "A R Packages for Generating of Interactive Circos Plots"
+title: "interacCircos: A R Packages for the Generation of Interactive Circos Plots"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{interacCircos: A R Packages for Generating of Interactive Circos Plots}
+  %\VignetteIndexEntry{interacCircos: A R Packages for the Generation of Interactive Circos Plots}
   %\VignetteEngine{knitr::rmarkdown}
   %\usepackage[utf8]{inputenc}
 date: "`r Sys.Date()`"

@@ -47,6 +47,9 @@ CircosBackground(
 
 \item{...}{Ignored}
 }
+\value{
+The module tracks for background modules.
+}
 \description{
 Simple background to display behind another module
 }

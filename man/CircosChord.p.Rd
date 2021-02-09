@@ -26,6 +26,9 @@ CircosChord.p(
 
 \item{...}{Ignored}
 }
+\value{
+The module tracks for chord modules of circosJS.
+}
 \description{
 Display a chord module using a data path. chord.p meaens chord plot based on path.
 }

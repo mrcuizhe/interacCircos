@@ -51,6 +51,9 @@ CircosLine(
 
 \item{...}{Ignored}
 }
+\value{
+The module tracks for line modules.
+}
 \description{
 Display a multi-layer line plot in circos
 }

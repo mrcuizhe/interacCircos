@@ -17,6 +17,9 @@ CircosModuleList()
 
 \item{...}{The modules to add (as moduleLists) or to remove (as module names).}
 }
+\value{
+The list of all tracks of modules.
+}
 \description{
 This allows the use of the '+' and '-' operator on these lists
 }

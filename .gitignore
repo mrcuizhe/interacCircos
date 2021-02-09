@@ -6,3 +6,5 @@ doc/.DS_Store
 .Rproj.user/*
 .Rbuildignore
 .DS_Store
+doc
+Meta

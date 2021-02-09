@@ -58,6 +58,9 @@ Details can be found on document.}
 
 \item{...}{Ignored}
 }
+\value{
+The module tracks for gene modules.
+}
 \description{
 A number of genes with different functional region displayed in the visualization
 }

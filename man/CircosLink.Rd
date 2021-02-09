@@ -68,6 +68,9 @@ fusion, link and html. Details can be found on document.}
 
 \item{...}{Ignored}
 }
+\value{
+The module tracks for link modules.
+}
 \description{
 Link two specific region in genome.
 }

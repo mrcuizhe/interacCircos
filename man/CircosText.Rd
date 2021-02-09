@@ -63,6 +63,9 @@ CircosText(
 
 \item{...}{Ignored}
 }
+\value{
+The module tracks for text modules.
+}
 \description{
 Simple text annotation displayed in the visualization
 }

@@ -55,6 +55,9 @@ Details can be found on document.}
 
 \item{...}{Ignored}
 }
+\value{
+The module tracks for heatmap modules.
+}
 \description{
 A heatmap plot displayed in the visualization
 }

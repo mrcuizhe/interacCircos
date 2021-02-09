@@ -1,6 +1,6 @@
 #' @title interacCircos
 #'
-#' @description A R packages for visualization of interactive Circos plot
+#' @description Visualization of Interactive Circos Plot
 #'
 #' @import htmlwidgets
 #' @import RColorBrewer
@@ -779,6 +779,8 @@
 #' @param elementId the name of the HTML id to be used to contain the visualization.
 #'
 #' @param ... Ignored
+#'
+#' @return The main figure for interacCircos with all tracks.
 #'
 #' @examples
 #' Circos(genome = "hg19")
@@ -2016,6 +2018,8 @@ Circos <- function(moduleList = CircosModuleList(),
 #' @param quoted Is \code{expr} a quoted expression (with \code{quote()})? This
 #'   is useful if you want to save an expression in a variable.
 #'
+#' @return The output and render functions for shiny
+#'
 #' @name Circos-shiny
 #'
 #' @export
@@ -2046,6 +2050,8 @@ renderCircos <- function(expr, env = parent.frame(), quoted = FALSE) {
 #' @param animationTime,animationDelay,animationType The time, delay and display type for animation
 #'
 #' @param ... Ignored
+#'
+#' @return The module tracks for background modules.
 #'
 #' @examples
 #' Circos(CircosBackground('bg01', fillColors="#FFEEEE", borderSize = 1))
@@ -2091,6 +2097,8 @@ CircosBackground <- function(modulename,compareGroup = 1, fillColors = "#EEEEFF"
 #'
 #' @param ... Ignored
 #'
+#' @return The module tracks for text modules.
+#'
 #' @examples
 #' Circos(CircosText('text01', 'Annotation', color = '#DD2222', x = -40))
 #'
@@ -2131,6 +2139,8 @@ CircosText <- function(modulename, text,
 #'
 #' @param ... Ignored
 #'
+#' @return The module tracks for legend modules.
+#' 
 #' @examples
 #' legend1 <- list(type= "circle", color="#1E77B4",opacity="1.0",circleSize="8",text= "C.CK", 
 #' textSize= "14",textWeight="normal")
@@ -2149,7 +2159,7 @@ CircosLegend <- function(modulename, x = 20, y = 20, title = "legend", size = 6,
   return(module)
 }
 
-#' Create a AUXILIAYLINE module to a moduleList
+#' Create a AUXILIARYLINE module to a moduleList
 #'
 #' A auxiliary line displayed in the visualization
 #'
@@ -2171,6 +2181,8 @@ CircosLegend <- function(modulename, x = 20, y = 20, title = "legend", size = 6,
 #' @param animationTime,animationDelay,animationType The time, delay and display type for animation
 #'
 #' @param ... Ignored
+#'
+#' @return The module tracks for auxliary line modules.
 #'
 #' @examples
 #' Circos(CircosAuxLine('AuxLine01'))
@@ -2214,6 +2226,8 @@ CircosAuxLine <- function(modulename, startX = 20, startY = 20, endX = 120, endY
 #'             Details can be found on document.
 #'
 #' @param ... Ignored
+#'
+#' @return The module tracks for cnv modules.
 #'
 #' @examples
 #' cnvData<-cnvExample
@@ -2273,6 +2287,8 @@ CircosCnv <- function(modulename, compareGroup = 1, maxRadius = 200, minRadius =
 #'             Details can be found on document.
 #'
 #' @param ... Ignored
+#'
+#' @return The module tracks for heatmap modules.
 #'
 #' @examples
 #' heatmapData<-heatmapExample
@@ -2340,6 +2356,8 @@ CircosHeatmap <- function(modulename, compareGroup = 1, maxRadius = 180, minRadi
 #'
 #' @param ... Ignored
 #'
+#' @return The module tracks for bubble modules.
+#'
 #' @examples
 #' bubbleData<-bubbleExample
 #' Circos(CircosBubble('Bubble01', maxRadius = 230, minRadius = 170, data=bubbleData, 
@@ -2406,6 +2424,8 @@ CircosBubble <- function(modulename, compareGroup = 1, maxRadius = 200, minRadiu
 #'
 #' @param ... Ignored
 #'
+#' @return The module tracks for gene modules.
+#' 
 #' @examples
 #' geneData<-geneExample
 #' Circos(CircosGene('Gene01', outerRadius = 195, innerRadius = 180, data=geneData,arrowGap = 10,
@@ -2473,6 +2493,8 @@ CircosGene <- function(modulename, compareGroup = 1, outerRadius = 180, innerRad
 #'             Details can be found on document.
 #'
 #' @param ... Ignored
+#'
+#' @return The module tracks for snp modules.
 #'
 #' @examples
 #' snpData<-snpExample
@@ -2551,6 +2573,8 @@ CircosSnp <- function(modulename, compareGroup = 1, minRadius = 153, maxRadius =
 #'
 #' @param ... Ignored
 #'
+#' @return The module tracks for link modules.
+#'
 #' @examples
 #' linkData<-linkExample
 #' Circos(CircosLink('LINK', data = linkData,LinkRadius= 140,fillColor= "#9e9ac6",width= 2,
@@ -2621,6 +2645,8 @@ CircosLink <- function(modulename, compareGroup = 1, radius = 108, fillColor = "
 #'
 #' @param ... Ignored
 #'
+#' @return The module tracks for chord modules of NG-Circos.
+#'
 #' @examples
 #'
 #' chordData<-chordExample
@@ -2645,7 +2671,6 @@ CircosChord <- function(modulename, innerRadius = 237, outerRadius = 238, fillOp
                 CHORDFillColor = fillColor, CHORDFillStrokeColor = fillStrokeColor, CHORDouterARC = outerARC,
                 CHORDouterARCAutoColor = outerARCAutoColor, CHORDouterARCColor = outerARCColor,
                 CHORDouterARCStrokeColor = outerARCStrokeColor, CHORDouterARCText = outerARCText)
-
 
   module3 = list(colnames(data))
   tmp<-list(as.numeric(unname(data[1,])))
@@ -2699,6 +2724,8 @@ CircosChord <- function(modulename, innerRadius = 237, outerRadius = 238, fillOp
 #'
 #' @param ... Ignored
 #'
+#' @return The module tracks for chord modules of circosJS.
+#'
 #' @examples
 #'
 #' chord.pData<-chord.pExample
@@ -2748,6 +2775,8 @@ CircosChord.p <- function(modulename, radius = 216, opacity = 0.67, color = "#B8
 #' @param data A list of value with details including chr, start, end, name, link, value and html. Details can be found on document.
 #'
 #' @param ... Ignored
+#'
+#' @return The module tracks for histogram modules.
 #'
 #' @examples
 #'
@@ -2811,6 +2840,8 @@ CircosHistogram <- function(modulename, compareGroup = 1, maxRadius = 108, minRa
 #'
 #' @param ... Ignored
 #'
+#' @return The module tracks for line modules.
+#'
 #' @examples
 #'
 #' lineData<-lineExample
@@ -2872,6 +2903,8 @@ CircosLine <- function(modulename, compareGroup = 1, maxRadius = 108, minRadius 
 #' @param data A list of value with details including chr, pos, des, value and html. Details can be found on document.
 #'
 #' @param ... Ignored
+#'
+#' @return The module tracks for wig modules.
 #'
 #' @examples
 #'
@@ -2936,6 +2969,8 @@ CircosWig <- function(modulename, compareGroup = 1, maxRadius = 108, minRadius =
 #'             Details can be found on document.
 #'
 #' @param ... Ignored
+#' 
+#' @return The module tracks for scatter modules.
 #'
 #' @examples
 #'
@@ -2999,6 +3034,8 @@ CircosScatter <- function(modulename, compareGroup = 1, radius = 140, innerCircl
 #'             Details can be found on document.
 #'
 #' @param ... Ignored
+#' 
+#' @return The module tracks for arc modules.
 #'
 #' @examples
 #' arcData<-arcExample
@@ -3064,6 +3101,8 @@ CircosArc <- function(modulename, compareGroup = 1, outerRadius = 150, innerRadi
 #'
 #' @param ... Ignored
 #'
+#' @return The module tracks for lollipop modules.
+#'
 #' @examples
 #' lollipopData<-lollipopExample
 #' arcData<-arcExample
@@ -3126,6 +3165,8 @@ CircosLollipop <- function(modulename, compareGroup = 1, fillColor = "#9400D3", 
 #'
 #' @param x The moduleList on which other modules should be added or removed.
 #' @param ... The modules to add (as moduleLists) or to remove (as module names).
+#'
+#' @return The list of all tracks of modules.
 #'
 #' @export
 CircosModuleList <- function(){

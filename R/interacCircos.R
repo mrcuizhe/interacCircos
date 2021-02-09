@@ -3070,6 +3070,17 @@ CircosArc <- function(modulename, compareGroup = 1, outerRadius = 150, innerRadi
 #' }
 "arcExample"
 
+#' @title Ideogram for hg19
+#' @description The ideogram for human hg19 reference including the color for each region.
+#'
+#' @format A data frame with 4 columns:
+#' \describe{
+#'   \item{chr}{chromosome}
+#'   \item{start}{start position}
+#'   \item{end}{end position}
+#'   \item{color}{color}
+#' }
+"hg19_ideogram"
 
 #' @title Create a LOLLIPOP module to a moduleList
 #'

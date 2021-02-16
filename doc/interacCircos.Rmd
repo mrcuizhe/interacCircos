@@ -23,4 +23,4 @@ Please visit https://mrcuizhe.github.io/interacCircos_document/index.html for a 
 
 ## Contact
 
-Please visit https://github.com/mrcuizhe/interacCircos/issues for bug issues or contact cuizhe@hit.edu.cn for helping.
+Please visit https://github.com/mrcuizhe/interacCircos/issues for bug issues or contact cuizhet[at]hit.edu.cn for helping.

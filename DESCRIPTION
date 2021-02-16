@@ -8,8 +8,9 @@ Maintainer: Zhe Cui <mrcuizhe@gmail.com>
 License: GPL-3
 Encoding: UTF-8
 LazyData: true
-Depends: R (>= 3.5.0)
-Imports: RColorBrewer, htmlwidgets, jsonlite, plyr, grDevices
+Depends: R (>= 4.0)
+Imports: RColorBrewer, htmlwidgets, jsonlite, plyr, grDevices, methods
 RoxygenNote: 7.1.0
 Suggests: knitr, rmarkdown
 VignetteBuilder: knitr
+biocViews:Visualization

@@ -7,6 +7,7 @@
 #' @import plyr
 #' @import jsonlite
 #' @import grDevices
+#' @import methods
 #' 
 #' @export
 
@@ -1135,7 +1136,7 @@ Circos <- function(moduleList = CircosModuleList(),
                       elementId = NULL, ...) {
 
   # If genome is a string, convert to corresponding chromosome lengths
-  if(class(genome) == "character"){
+  if(is(genome)[1] == "character"){
     if(genome == "hg19"){
       genome = list("1" = 249250621,
                     "2" = 243199373,
@@ -1167,7 +1168,7 @@ Circos <- function(moduleList = CircosModuleList(),
     }
   }
 
-  if(class(genome2) == "character"){
+  if(is(genome2)[1] == "character"){
     if(genome2 == "hg19"){
       genome2 = list("1" = 249250621,
                     "2" = 243199373,
@@ -3190,7 +3191,7 @@ CircosModuleList <- function(){
 #' @export
 "+.CircosModuleList" <- function(x,...) {
   x <- append(x,...)
-  if(class(x) != "CircosModuleList"){
+  if(is(x)[1] != "CircosModuleList"){
     class(x) <- c("CircosModuleList")
   }
   return(x)
@@ -3200,7 +3201,7 @@ CircosModuleList <- function(){
 #' @export
 "-.CircosModuleList" <- function(x,...) {
   indicesToDelete = list()
-  for (i in 1:length(x)){
+  for (i in seq_len(length(x))){
     if(paste(strsplit(x[[i]][[1]], '_')[[1]][-1], collapse = "_") %in% ...){
       indicesToDelete = append(indicesToDelete, i)
     }
@@ -3211,10 +3212,9 @@ CircosModuleList <- function(){
 }
 
 .CircosColorCheck <- function(colVar, colLength, varName = "Color") {
-  # If genomeFillColor is a string, create corresponding palette
   colorError = paste0("\'", varName,
                       "\' parameter should be either a vector of chromosome colors or the name of a RColorBrewer brewer.")
-  if(class(colVar) == "character"){
+  if(is(colVar)[1] == "character"){
     if(all(colVar %in% rownames(RColorBrewer::brewer.pal.info))&(length(colVar) == 1)) { # RColorBrewer's brewer
       colVar = grDevices::colorRampPalette(RColorBrewer::brewer.pal(8, colVar))(colLength)
       # colVar =list(colVar)

@@ -2,7 +2,7 @@
 % Please edit documentation in R/interacCircos.R
 \name{CircosChord.p}
 \alias{CircosChord.p}
-\title{Create a CHORD module of circosJS to a moduleList}
+\title{CHORD module of circosJS}
 \usage{
 CircosChord.p(
   modulename,
@@ -14,23 +14,23 @@ CircosChord.p(
 )
 }
 \arguments{
-\item{modulename}{The name of the new module.}
+\item{modulename}{The name of the new module}
 
-\item{radius}{The radius for chord circle.}
+\item{radius}{The radius for chord circle}
 
-\item{opacity}{The opacity for chord.}
+\item{opacity}{The opacity for chord}
 
 \item{color}{The color for chord}
 
-\item{data}{A list of chord value with relationship details, details could be found on chord.pExample.}
+\item{data}{A list of chord value with relationship details, details could be found on chord.pExample}
 
 \item{...}{Ignored}
 }
 \value{
-The module tracks for chord modules of circosJS.
+The module tracks for chord modules of circosJS
 }
 \description{
-Display a chord module using a data path. chord.p meaens chord plot based on path.
+Create a chord module using a data path. chord.p meaens chord plot based on path
 }
 \examples{
 

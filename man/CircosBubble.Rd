@@ -2,7 +2,7 @@
 % Please edit documentation in R/interacCircos.R
 \name{CircosBubble}
 \alias{CircosBubble}
-\title{Create a BUBBLE module to a moduleList}
+\title{BUBBLE module}
 \usage{
 CircosBubble(
   modulename,
@@ -31,11 +31,11 @@ CircosBubble(
 )
 }
 \arguments{
-\item{modulename}{The name of the new module.}
+\item{modulename}{The name of the new module}
 
 \item{compareGroup}{The group number of this module in compare module}
 
-\item{maxRadius, minRadius}{Where the module should begin and end.}
+\item{maxRadius, minRadius}{The outer and inner ring range of module}
 
 \item{blockStroke}{Whether display the stroke between each bubble block}
 
@@ -51,9 +51,9 @@ CircosBubble(
 
 \item{bubbleMinSize}{The min size for bubble}
 
-\item{minColor}{The color the bubble with min value}
+\item{minColor}{The color the bubble of min value}
 
-\item{maxColor}{The color the bubble with max value}
+\item{maxColor}{The color the bubble of max value}
 
 \item{ValueAxisManualScale}{Whether manually control the scale of value}
 
@@ -66,15 +66,15 @@ CircosBubble(
 \item{animationTime, animationDelay, animationType}{The time, delay and display type for animation}
 
 \item{data}{A list of value in bubble plot with details including chr, start, end, value, name, layer, color and html.
-Details can be found on document.}
+Details can be found on document}
 
 \item{...}{Ignored}
 }
 \value{
-The module tracks for bubble modules.
+The module tracks for bubble modules
 }
 \description{
-A bubble plot displayed in the visualization
+Create a bubble plot
 }
 \examples{
 bubbleData<-bubbleExample

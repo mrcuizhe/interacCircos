@@ -2,7 +2,7 @@
 % Please edit documentation in R/interacCircos.R
 \name{CircosLollipop}
 \alias{CircosLollipop}
-\title{Create a LOLLIPOP module to a moduleList}
+\title{LOLLIPOP module}
 \usage{
 CircosLollipop(
   modulename,
@@ -36,7 +36,7 @@ CircosLollipop(
 )
 }
 \arguments{
-\item{modulename}{The name of the new module.}
+\item{modulename}{The name of the new module}
 
 \item{compareGroup}{The group number of this module in compare module}
 
@@ -64,7 +64,7 @@ CircosLollipop(
 
 \item{lineWidth, lineColor}{The width and color for the line of lollipop}
 
-\item{realStart}{The real start position for data in genome.}
+\item{realStart}{The real start position for data in genome}
 
 \item{ValueAxisManualScale}{Whether manually control the scale of value}
 
@@ -76,7 +76,7 @@ CircosLollipop(
 
 \item{data}{A list of lollipop value with details including protein, chr, pos, strand, CancerTypeNumber, color, link,
 Consequence, AA_pos, AA_change, type, link and html.
-Details can be found on document.}
+Details can be found on document}
 
 \item{...}{Ignored}
 }
@@ -84,7 +84,7 @@ Details can be found on document.}
 The module tracks for lollipop modules.
 }
 \description{
-Display a lollipop plot in the visualization
+Create a lollipop plot
 }
 \examples{
 lollipopData<-lollipopExample

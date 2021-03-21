@@ -2,7 +2,7 @@
 % Please edit documentation in R/interacCircos.R
 \name{CircosLegend}
 \alias{CircosLegend}
-\title{Create a LEGEND module to a moduleList}
+\title{LEGEND module}
 \usage{
 CircosLegend(
   modulename,
@@ -18,22 +18,22 @@ CircosLegend(
 )
 }
 \arguments{
-\item{modulename}{The name of the new module.}
+\item{modulename}{The name of the new module}
 
-\item{x, y}{Coordinates of the lower left corner of the annotation}
+\item{x, y}{The coordinates if legend}
 
 \item{title}{The title for legend}
 
-\item{size}{Font size for title, with units specified (such as em or px).}
+\item{size}{Font size for title}
 
-\item{weight}{Font weight for title. Can be "normal", "bold", "bolder" or "lighter".}
+\item{weight}{Font weight for title. Should be either "normal", "bold", "bolder" or "lighter"}
 
-\item{GapBetweenGraphicText}{Gap between icon and text in legend.}
+\item{GapBetweenGraphicText}{Gap between icon and text in legend}
 
 \item{GapBetweenLines}{Gap between each two lines in legend}
 
 \item{data}{A list of legend with details including type, color, opacity, circleSize, rectSize, lineWidth,
-lineHeight, text, textSize and textWeight. Details can be found on document.}
+lineHeight, text, textSize and textWeight. Details can be found on document}
 
 \item{...}{Ignored}
 }
@@ -41,7 +41,7 @@ lineHeight, text, textSize and textWeight. Details can be found on document.}
 The module tracks for legend modules.
 }
 \description{
-Simple legend annotation displayed in the visualization.
+Simple legend annotation displayed in the visualization
 }
 \examples{
 legend1 <- list(type= "circle", color="#1E77B4",opacity="1.0",circleSize="8",text= "C.CK", 

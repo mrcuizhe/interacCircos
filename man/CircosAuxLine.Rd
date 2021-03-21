@@ -2,7 +2,7 @@
 % Please edit documentation in R/interacCircos.R
 \name{CircosAuxLine}
 \alias{CircosAuxLine}
-\title{Create a AUXILIARYLINE module to a moduleList}
+\title{AUXILIARYLINE module}
 \usage{
 CircosAuxLine(
   modulename,
@@ -31,11 +31,11 @@ CircosAuxLine(
 )
 }
 \arguments{
-\item{modulename}{The name of the new module.}
+\item{modulename}{The name of the new module}
 
-\item{startX, startY}{Start coordinates for auxiliary line.}
+\item{startX, startY}{Start coordinates for auxiliary line}
 
-\item{endX, endY}{End coordinates for auxiliary line.}
+\item{endX, endY}{End coordinates for auxiliary line}
 
 \item{color}{Color for auxiliary line}
 
@@ -64,10 +64,10 @@ CircosAuxLine(
 \item{...}{Ignored}
 }
 \value{
-The module tracks for auxliary line modules.
+The module tracks for auxliary line modules
 }
 \description{
-A auxiliary line displayed in the visualization
+A auxiliary line for better explaination of the visualization
 }
 \examples{
 Circos(CircosAuxLine('AuxLine01'))

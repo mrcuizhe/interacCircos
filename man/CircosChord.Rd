@@ -2,7 +2,7 @@
 % Please edit documentation in R/interacCircos.R
 \name{CircosChord}
 \alias{CircosChord}
-\title{Create a CHORD module of NG-Circos to a moduleList}
+\title{CHORD module of NG-Circos}
 \usage{
 CircosChord(
   modulename,
@@ -24,15 +24,15 @@ CircosChord(
 )
 }
 \arguments{
-\item{modulename}{The name of the new module.}
+\item{modulename}{The name of the new module}
 
 \item{innerRadius}{The inner radius for chord circle}
 
 \item{outerRadius}{The outer radius for chord circle}
 
-\item{fillOpacity}{The opacity for filling color.}
+\item{fillOpacity}{The opacity for filling color}
 
-\item{fillStrokeWidth}{The stroke width for chord.}
+\item{fillStrokeWidth}{The stroke width for chord}
 
 \item{padding}{The pad of chord}
 
@@ -52,15 +52,15 @@ CircosChord(
 
 \item{outerARCText}{Whether display text for arc or not}
 
-\item{data}{A matrix-list of chord value with relationship details.}
+\item{data}{A matrix-list of chord value with relationship details}
 
 \item{...}{Ignored}
 }
 \value{
-The module tracks for chord modules of NG-Circos.
+The module tracks for chord modules of NG-Circos
 }
 \description{
-Display a chord module using a data matrix.
+Create a chord module using a data matrix
 }
 \examples{
 

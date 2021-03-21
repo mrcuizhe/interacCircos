@@ -2,7 +2,7 @@
 % Please edit documentation in R/interacCircos.R
 \name{CircosLink}
 \alias{CircosLink}
-\title{Create a LINK module to a moduleList}
+\title{LINK module}
 \usage{
 CircosLink(
   modulename,
@@ -29,15 +29,15 @@ CircosLink(
 )
 }
 \arguments{
-\item{modulename}{The name of the new module.}
+\item{modulename}{The name of the new module}
 
 \item{compareGroup}{The group number of thic module in compare module}
 
-\item{radius}{Radius of link circle.}
+\item{radius}{Radius of link circle}
 
-\item{fillColor}{Color for link.}
+\item{fillColor}{Color for link}
 
-\item{width}{Width for link.}
+\item{width}{Width for link}
 
 \item{type}{Type of link, could be Q/S/T}
 
@@ -64,15 +64,15 @@ CircosLink(
 \item{animationTime, animationDelay, animationType}{The time, delay and display type for animation}
 
 \item{data}{A list of link with details including g1chr, g1start, g1end, g2chr, g2start, g2end, g1name, g2name,
-fusion, link and html. Details can be found on document.}
+fusion, link and html. Details can be found on document}
 
 \item{...}{Ignored}
 }
 \value{
-The module tracks for link modules.
+The module tracks for link modules
 }
 \description{
-Link two specific region in genome.
+Create a link of two specific region in genome
 }
 \examples{
 linkData<-linkExample

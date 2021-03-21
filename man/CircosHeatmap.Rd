@@ -2,7 +2,7 @@
 % Please edit documentation in R/interacCircos.R
 \name{CircosHeatmap}
 \alias{CircosHeatmap}
-\title{Create a HEATMAP module to a moduleList}
+\title{HEATMAP module}
 \usage{
 CircosHeatmap(
   modulename,
@@ -26,15 +26,15 @@ CircosHeatmap(
 )
 }
 \arguments{
-\item{modulename}{The name of the new module.}
+\item{modulename}{The name of the new module}
 
 \item{compareGroup}{The group number of this module in compare module}
 
-\item{maxRadius, minRadius}{Where the module should begin and end.}
+\item{maxRadius, minRadius}{Where the module should begin and end}
 
-\item{minColor}{The color for heatmap with min value}
+\item{minColor}{The color for heatmap of min value}
 
-\item{maxColor}{The color for heatmap with max value}
+\item{maxColor}{The color for heatmap of max value}
 
 \item{ValueAxisManualScale}{Whether manually control the scale of value}
 
@@ -51,7 +51,7 @@ CircosHeatmap(
 \item{animationTime, animationDelay, animationType}{The time, delay and display type for animation}
 
 \item{data}{A list of value in heatmap plot with details including chr, start, end, value, name, layer and html.
-Details can be found on document.}
+Details can be found on document}
 
 \item{...}{Ignored}
 }
@@ -59,7 +59,7 @@ Details can be found on document.}
 The module tracks for heatmap modules.
 }
 \description{
-A heatmap plot displayed in the visualization
+Create a heatmap plot
 }
 \examples{
 heatmapData<-heatmapExample

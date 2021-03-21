@@ -2,7 +2,7 @@
 % Please edit documentation in R/interacCircos.R
 \name{CircosText}
 \alias{CircosText}
-\title{Create Text module to be added to a moduleList}
+\title{Text module}
 \usage{
 CircosText(
   modulename,
@@ -29,23 +29,23 @@ CircosText(
 )
 }
 \arguments{
-\item{modulename}{The name of the new module.}
+\item{modulename}{The name of the new module}
 
-\item{text}{The text to be displayed.}
+\item{text}{The details of text}
 
-\item{x, y}{Coordinates of the lower left corner of the annotation}
+\item{x, y}{The coordinates of the text}
 
-\item{size}{Font size, with units specified (such as em or px).}
+\item{size}{Font size}
 
-\item{weight}{Font weight. Can be "normal", "bold", "bolder" or "lighter".}
+\item{weight}{Font weight. Should be either "normal", "bold", "bolder" or "lighter"}
 
-\item{opacity}{Font opacity.}
+\item{opacity}{Font opacity}
 
-\item{color}{Font color, in hexadecimal RGB format.}
+\item{color}{Font color}
 
 \item{rotateRate}{ratate rate for text}
 
-\item{animationDisplay}{Whether display a animation or not}
+\item{animationDisplay}{Whether display animation or not}
 
 \item{animationInitialSize}{Initial text size in animation}
 
@@ -67,7 +67,7 @@ CircosText(
 The module tracks for text modules.
 }
 \description{
-Simple text annotation displayed in the visualization
+Text for better explaination of other modules
 }
 \examples{
 Circos(CircosText('text01', 'Annotation', color = '#DD2222', x = -40))

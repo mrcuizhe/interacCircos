@@ -17,6 +17,6 @@ A data frame with 4 columns:
 hg19_ideogram
 }
 \description{
-The ideogram for human hg19 reference including the color for each region.
+The ideogram for human hg19 reference including the color for each region
 }
 \keyword{datasets}

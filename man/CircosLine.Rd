@@ -2,7 +2,7 @@
 % Please edit documentation in R/interacCircos.R
 \name{CircosLine}
 \alias{CircosLine}
-\title{Create a LINE module to a moduleList}
+\title{LINE module}
 \usage{
 CircosLine(
   modulename,
@@ -25,7 +25,7 @@ CircosLine(
 )
 }
 \arguments{
-\item{modulename}{The name of the new module.}
+\item{modulename}{The name of the new module}
 
 \item{compareGroup}{The group number of this module in compare module}
 
@@ -47,15 +47,15 @@ CircosLine(
 
 \item{animationTime, animationDelay, animationType}{The time, delay and display type for animation}
 
-\item{data}{A list of value with details including chr, pos, des, value and html. Details can be found on document.}
+\item{data}{A list of value with details including chr, pos, des, value and html. Details can be found on document}
 
 \item{...}{Ignored}
 }
 \value{
-The module tracks for line modules.
+The module tracks for line modules
 }
 \description{
-Display a multi-layer line plot in circos
+Create a multi-layer line plot
 }
 \examples{
 

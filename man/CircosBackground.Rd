@@ -2,7 +2,7 @@
 % Please edit documentation in R/interacCircos.R
 \name{CircosBackground}
 \alias{CircosBackground}
-\title{Create a BACKGROUND module to be added to a moduleList}
+\title{BACKGROUND module}
 \usage{
 CircosBackground(
   modulename,
@@ -25,23 +25,23 @@ CircosBackground(
 )
 }
 \arguments{
-\item{modulename}{The name of the new module.}
+\item{modulename}{The name of the new module}
 
 \item{compareGroup}{The group number of this module in compare module}
 
-\item{fillColors}{The color of the background element, in hexadecimal RGB format.}
+\item{fillColors}{The filling color of the module}
 
-\item{borderColors}{The color of the background borders, in hexadecimal RGB format.}
+\item{borderColors}{The border color of the module}
 
 \item{axisShow}{Whether show a axis or not}
 
 \item{axisWidth, axisColor, axisOpacity, axisNum}{The color, opacity value and number of line for axis}
 
-\item{minRadius, maxRadius}{Where the module should begin and end}
+\item{minRadius, maxRadius}{The outer and inner ring range of module}
 
-\item{borderSize}{The thickness of the background borders.}
+\item{borderSize}{The thickness of the border}
 
-\item{animationDisplay}{Whether display a animation or not}
+\item{animationDisplay}{Whether display animation or not}
 
 \item{animationTime, animationDelay, animationType}{The time, delay and display type for animation}
 
@@ -51,7 +51,7 @@ CircosBackground(
 The module tracks for background modules.
 }
 \description{
-Simple background to display behind another module
+Background for better display of other modules
 }
 \examples{
 Circos(CircosBackground('bg01', fillColors="#FFEEEE", borderSize = 1))

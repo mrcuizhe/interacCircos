@@ -2,7 +2,7 @@
 % Please edit documentation in R/interacCircos.R
 \name{CircosScatter}
 \alias{CircosScatter}
-\title{Create a SCATTER module to a moduleList}
+\title{SCATTER module}
 \usage{
 CircosScatter(
   modulename,
@@ -31,7 +31,7 @@ CircosScatter(
 )
 }
 \arguments{
-\item{modulename}{The name of the new module.}
+\item{modulename}{The name of the new module}
 
 \item{compareGroup}{The group number of this module in compare module}
 
@@ -58,15 +58,15 @@ CircosScatter(
 \item{animationTime, animationDelay, animationType}{The time, delay and display type for animation}
 
 \item{data}{A list of value with details including chr, start, end, name, des, link and html.
-Details can be found on document.}
+Details can be found on document}
 
 \item{...}{Ignored}
 }
 \value{
-The module tracks for scatter modules.
+The module tracks for scatter modules
 }
 \description{
-Display a point plot in circos
+Create a point plot
 }
 \examples{
 

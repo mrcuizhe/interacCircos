@@ -2,7 +2,7 @@
 % Please edit documentation in R/interacCircos.R
 \name{CircosSnp}
 \alias{CircosSnp}
-\title{Create a module with SNPs to be added to a moduleList}
+\title{SNP module}
 \usage{
 CircosSnp(
   modulename,
@@ -30,7 +30,7 @@ CircosSnp(
 )
 }
 \arguments{
-\item{modulename}{The name of the new module.}
+\item{modulename}{The name of the new module}
 
 \item{compareGroup}{The group number of this module in compare module}
 
@@ -61,15 +61,15 @@ CircosSnp(
 \item{animationTime, animationDelay, animationType}{The time, delay and display type for animation}
 
 \item{data}{A list of SNP value with details including chr, pos, value, des, color, r2value, link, index, image and html.
-Details can be found on document.}
+Details can be found on document}
 
 \item{...}{Ignored}
 }
 \value{
-The module tracks for snp modules.
+The module tracks for snp modules
 }
 \description{
-SNPs are defined by genomic coordinates and associated with a numerical value
+Create SNPs are defined by genomic coordinates and associated with a numerical value
 }
 \examples{
 snpData<-snpExample

@@ -13,9 +13,9 @@ CircosModuleList()
 \method{-}{CircosModuleList}(x, ...)
 }
 \arguments{
-\item{x}{The moduleList on which other modules should be added or removed.}
+\item{x}{The moduleList on which other modules should be added or removed}
 
-\item{...}{The modules to add (as moduleLists) or to remove (as module names).}
+\item{...}{The modules to add (as moduleLists) or to remove (as module names)}
 }
 \value{
 The list of all tracks of modules.

@@ -2,7 +2,7 @@
 % Please edit documentation in R/interacCircos.R
 \name{CircosGene}
 \alias{CircosGene}
-\title{Create a GENE module to a moduleList}
+\title{GENE module}
 \usage{
 CircosGene(
   modulename,
@@ -31,11 +31,11 @@ CircosGene(
 )
 }
 \arguments{
-\item{modulename}{The name of the new module.}
+\item{modulename}{The name of the new module}
 
 \item{compareGroup}{The group number of this module in compare module}
 
-\item{outerRadius, innerRadius}{Where the module should begin and end.}
+\item{outerRadius, innerRadius}{Where the module should begin and end}
 
 \item{pathColor}{The color for path between gene elements}
 
@@ -54,15 +54,15 @@ CircosGene(
 \item{animationTime, animationDelay, animationType}{The time, delay and display type for animation}
 
 \item{data}{A list of gene with details including chr, strand, start, end, type, name, link and html.
-Details can be found on document.}
+Details can be found on document}
 
 \item{...}{Ignored}
 }
 \value{
-The module tracks for gene modules.
+The module tracks for gene modules
 }
 \description{
-A number of genes with different functional region displayed in the visualization
+Create a number of genes with different functional region
 }
 \examples{
 geneData<-geneExample

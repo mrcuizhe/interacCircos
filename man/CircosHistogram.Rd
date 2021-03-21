@@ -2,7 +2,7 @@
 % Please edit documentation in R/interacCircos.R
 \name{CircosHistogram}
 \alias{CircosHistogram}
-\title{Create a HISTOGRAM module to a moduleList}
+\title{HISTOGRAM module}
 \usage{
 CircosHistogram(
   modulename,
@@ -21,7 +21,7 @@ CircosHistogram(
 )
 }
 \arguments{
-\item{modulename}{The name of the new module.}
+\item{modulename}{The name of the new module}
 
 \item{compareGroup}{The group number of this module in compare module}
 
@@ -31,21 +31,21 @@ CircosHistogram(
 
 \item{ValueAxisMaxScale, ValueAxisMinScale}{The max and min scale value for manually control}
 
-\item{fillColor}{The color for histgram.}
+\item{fillColor}{The color for histgram}
 
 \item{animationDisplay}{Whether display animation}
 
 \item{animationTime, animationDelay}{The time and delay for animation}
 
-\item{data}{A list of value with details including chr, start, end, name, link, value and html. Details can be found on document.}
+\item{data}{A list of value with details including chr, start, end, name, link, value and html. Details can be found on document}
 
 \item{...}{Ignored}
 }
 \value{
-The module tracks for histogram modules.
+The module tracks for histogram modules
 }
 \description{
-Display a multi-layer histogram in circos
+Create a multi-layer histogram plot
 }
 \examples{
 

@@ -2,7 +2,7 @@
 % Please edit documentation in R/interacCircos.R
 \name{CircosWig}
 \alias{CircosWig}
-\title{Create a WIG module to a moduleList}
+\title{WIG module}
 \usage{
 CircosWig(
   modulename,
@@ -27,7 +27,7 @@ CircosWig(
 )
 }
 \arguments{
-\item{modulename}{The name of the new module.}
+\item{modulename}{The name of the new module}
 
 \item{compareGroup}{The group number of this module in compare module}
 
@@ -53,15 +53,15 @@ CircosWig(
 
 \item{animationTime, animationDelay, animationType}{The time, delay and display type for animation}
 
-\item{data}{A list of value with details including chr, pos, des, value and html. Details can be found on document.}
+\item{data}{A list of value with details including chr, pos, des, value and html. Details can be found on document}
 
 \item{...}{Ignored}
 }
 \value{
-The module tracks for wig modules.
+The module tracks for wig modules
 }
 \description{
-Display a multi-layer line plot in circos
+Create a multi-layer line plot
 }
 \examples{
 

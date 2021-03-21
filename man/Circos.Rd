@@ -796,9 +796,9 @@ Circos(
 )
 }
 \arguments{
-\item{moduleList}{Module list displayed in plot.}
+\item{moduleList}{Module list displayed in plot}
 
-\item{genome}{Could be either 'hg19', which is defaultly set to use chromosomes of hg19, or a list of chromosomes with length, for example, list("chr1"=100,"chr2"=200).}
+\item{genome}{Could be either 'hg19', which is defaultly set to use chromosomes of hg19, or a list of chromosomes with length, for example, list("chr1"=100,"chr2"=200)}
 
 \item{genome2}{Second genome when compare module is applied, format is same as genome}
 
@@ -806,7 +806,7 @@ Circos(
 
 \item{chrPad}{Distance between each chromosome, default is 0.04}
 
-\item{width, height}{The width and height for svg element, could be px or percent or auto.}
+\item{width, height}{The width and height for svg element, could be px or percent or auto}
 
 \item{innerRadius}{Default 216, Inner radius of chromosome}
 
@@ -814,13 +814,14 @@ Circos(
 
 \item{svgClassName}{The svg class name}
 
-\item{displayGenomeBorder, genomeBorderColor, genomeBorderSize}{Should the reference genome have borders?}
+\item{displayGenomeBorder}{Whether display a border for genome track or not}
 
-\item{genomeTicksDisplay, genomeTicksLen, genomeTicksColor, genomeTicksTextSize, genomeTicksTextColor, genomeTicksScale, genomeTicksRealLength, genomeTicksOffset}{Whether display
-the ticks for chromosome panel. Other parameters only works when genomeTicksDisplay is TRUE and their details are available on document.}
+\item{genomeBorderColor, genomeBorderSize}{The color and size for border of genome}
+
+\item{genomeTicksDisplay}{Whether display the ticks for genome track}
 
 \item{genomeLabelDisplay, genomeLabelTextSize, genomeLabelTextColor, genomeLabelDx, genomeLabelDy}{Whether display the label for chromosome panel. Other parameters only
-works when genomeTicksDisplay is TRUE and their details are available on document.}
+works when genomeTicksDisplay is TRUE and their details are available on document}
 
 \item{compareEvent}{Default False, open/not COMPARE module}
 
@@ -836,7 +837,7 @@ works when genomeTicksDisplay is TRUE and their details are available on documen
 
 \item{CNVMouseEvent}{Default True, open/not open mouse event of CNV module}
 
-\item{CNVMouseClickDisplay}{Default False, show/not the tooltip when mouse click on a CNV point.}
+\item{CNVMouseClickDisplay}{Default False, show/not the tooltip when mouse click on a CNV point}
 
 \item{CNVMouseClickColor}{Color when mouse clicking}
 
@@ -858,7 +859,7 @@ works when genomeTicksDisplay is TRUE and their details are available on documen
 
 \item{CNVMouseClickTextDrag}{Whether text is draggable when mouse clicking the element}
 
-\item{CNVMouseDownDisplay}{Default False, show/not the tooltip when mouse click down a CNV point.}
+\item{CNVMouseDownDisplay}{Default False, show/not the tooltip when mouse click down a CNV point}
 
 \item{CNVMouseDownColor}{Color when mouse moving down the element}
 
@@ -868,7 +869,7 @@ works when genomeTicksDisplay is TRUE and their details are available on documen
 
 \item{CNVMouseDownArcStrokeWidth}{Arc stroke width when mouse moving down the element}
 
-\item{CNVMouseEnterDisplay}{Default False, show/not the tooltip when mouse mover over a CNV point.}
+\item{CNVMouseEnterDisplay}{Default False, show/not the tooltip when mouse mover over a CNV point}
 
 \item{CNVMouseEnterColor}{Color when mouse entering the element}
 
@@ -878,7 +879,7 @@ works when genomeTicksDisplay is TRUE and their details are available on documen
 
 \item{CNVMouseEnterArcStrokeWidth}{Arc stroke width when mouse entering the element}
 
-\item{CNVMouseLeaveDisplay}{Default False, show/not the tooltip when mouse mover leave a CNV point.}
+\item{CNVMouseLeaveDisplay}{Default False, show/not the tooltip when mouse mover leave a CNV point}
 
 \item{CNVMouseLeaveColor}{Color when mouse leaving the element}
 
@@ -888,7 +889,7 @@ works when genomeTicksDisplay is TRUE and their details are available on documen
 
 \item{CNVMouseLeaveArcStrokeWidth}{Arc stroke width when mouse leaving the element}
 
-\item{CNVMouseMoveDisplay}{Default False, show/not the tooltip when mouse move into a CNV point.}
+\item{CNVMouseMoveDisplay}{Default False, show/not the tooltip when mouse move into a CNV point}
 
 \item{CNVMouseMoveColor}{Color when mouse moving in the element}
 
@@ -898,7 +899,7 @@ works when genomeTicksDisplay is TRUE and their details are available on documen
 
 \item{CNVMouseMoveArcStrokeWidth}{Arc stroke width when mouse moving in the element}
 
-\item{CNVMouseOutDisplay}{Defalut False, hide/not tooltip when mouse is not hovering a CNV point anymore.}
+\item{CNVMouseOutDisplay}{Defalut False, hide/not tooltip when mouse is not hovering a CNV point anymore}
 
 \item{CNVMouseOutAnimationTime}{Animation time when mouse moving out the element}
 
@@ -910,7 +911,7 @@ works when genomeTicksDisplay is TRUE and their details are available on documen
 
 \item{CNVMouseOutArcStrokeWidth}{Arc stroke width when mouse moving out the element}
 
-\item{CNVMouseUpDisplay}{Default False, show/not the tooltip when mouse click up a CNV point.}
+\item{CNVMouseUpDisplay}{Default False, show/not the tooltip when mouse click up a CNV point}
 
 \item{CNVMouseUpColor}{Color when mouse moving up the element}
 
@@ -920,7 +921,7 @@ works when genomeTicksDisplay is TRUE and their details are available on documen
 
 \item{CNVMouseUpArcStrokeWidth}{Arc stroke width when mouse clicking the element}
 
-\item{CNVMouseOverDisplay}{Default False, show/not the tooltip when mouse hover on a CNV point.}
+\item{CNVMouseOverDisplay}{Default False, show/not the tooltip when mouse hover on a CNV point}
 
 \item{CNVMouseOverColor}{Color when mouse moving over the element}
 
@@ -950,7 +951,7 @@ works when genomeTicksDisplay is TRUE and their details are available on documen
 
 \item{HEATMAPMouseEvent}{Default True, open/not open mouse event of HEATMAP module}
 
-\item{HEATMAPMouseClickDisplay}{Default False, show/not the tooltip when mouse click on a HEATMAP point.}
+\item{HEATMAPMouseClickDisplay}{Default False, show/not the tooltip when mouse click on a HEATMAP point}
 
 \item{HEATMAPMouseClickColor}{Color when mouse clicking}
 
@@ -960,7 +961,7 @@ works when genomeTicksDisplay is TRUE and their details are available on documen
 
 \item{HEATMAPMouseClickStrokeWidth}{Stroke width when mouse clicking}
 
-\item{HEATMAPMouseDownDisplay}{Default False, show/not the tooltip when mouse click down a HEATMAP point.}
+\item{HEATMAPMouseDownDisplay}{Default False, show/not the tooltip when mouse click down a HEATMAP point}
 
 \item{HEATMAPMouseDownColor}{Color when mouse moving down the element}
 
@@ -970,7 +971,7 @@ works when genomeTicksDisplay is TRUE and their details are available on documen
 
 \item{HEATMAPMouseDownStrokeWidth}{Stroke width when mouse moving down the element}
 
-\item{HEATMAPMouseEnterDisplay}{Default False, show/not the tooltip when mouse mover over a HEATMAP point.}
+\item{HEATMAPMouseEnterDisplay}{Default False, show/not the tooltip when mouse mover over a HEATMAP point}
 
 \item{HEATMAPMouseEnterColor}{Color when mouse entering the element}
 
@@ -980,7 +981,7 @@ works when genomeTicksDisplay is TRUE and their details are available on documen
 
 \item{HEATMAPMouseEnterStrokeWidth}{Stroke width when mouse entering the element}
 
-\item{HEATMAPMouseLeaveDisplay}{Default False, show/not the tooltip when mouse mover leave a HEATMAP point.}
+\item{HEATMAPMouseLeaveDisplay}{Default False, show/not the tooltip when mouse mover leave a HEATMAP point}
 
 \item{HEATMAPMouseLeaveColor}{Color when mouse leaving the element}
 
@@ -990,7 +991,7 @@ works when genomeTicksDisplay is TRUE and their details are available on documen
 
 \item{HEATMAPMouseLeaveStrokeWidth}{Stroke width when mouse leaving the element}
 
-\item{HEATMAPMouseMoveDisplay}{Default False, show/not the tooltip when mouse move into a HEATMAP point.}
+\item{HEATMAPMouseMoveDisplay}{Default False, show/not the tooltip when mouse move into a HEATMAP point}
 
 \item{HEATMAPMouseMoveColor}{Color when mouse moving in the element}
 
@@ -1000,7 +1001,7 @@ works when genomeTicksDisplay is TRUE and their details are available on documen
 
 \item{HEATMAPMouseMoveStrokeWidth}{Stroke width when mouse moving in the element}
 
-\item{HEATMAPMouseOutDisplay}{Defalut False, hide/not tooltip when mouse is not hovering a HEATMAP point anymore.}
+\item{HEATMAPMouseOutDisplay}{Defalut False, hide/not tooltip when mouse is not hovering a HEATMAP point anymore}
 
 \item{HEATMAPMouseOutAnimationTime}{Animation time when mouse moving out the element}
 
@@ -1012,7 +1013,7 @@ works when genomeTicksDisplay is TRUE and their details are available on documen
 
 \item{HEATMAPMouseOutStrokeWidth}{Stroke width when mouse moving out the element}
 
-\item{HEATMAPMouseUpDisplay}{Default False, show/not the tooltip when mouse click up a HEATMAP point.}
+\item{HEATMAPMouseUpDisplay}{Default False, show/not the tooltip when mouse click up a HEATMAP point}
 
 \item{HEATMAPMouseUpColor}{Color when mouse moving up the element}
 
@@ -1022,7 +1023,7 @@ works when genomeTicksDisplay is TRUE and their details are available on documen
 
 \item{HEATMAPMouseUpStrokeWidth}{Stroke width when mouse moving up the element}
 
-\item{HEATMAPMouseOverDisplay}{Default False, show/not the tooltip when mouse hover on a HEATMAP point.}
+\item{HEATMAPMouseOverDisplay}{Default False, show/not the tooltip when mouse hover on a HEATMAP point}
 
 \item{HEATMAPMouseOverColor}{Color when mouse moving over the element}
 
@@ -1054,7 +1055,7 @@ works when genomeTicksDisplay is TRUE and their details are available on documen
 
 \item{BUBBLEMouseEvent}{Default True, open/not open mouse event of BUBBLE module}
 
-\item{BUBBLEMouseClickDisplay}{Default False, show/not the tooltip when mouse click on a BUBBLE point.}
+\item{BUBBLEMouseClickDisplay}{Default False, show/not the tooltip when mouse click on a BUBBLE point}
 
 \item{BUBBLEMouseClickColor}{Color when mouse clicking}
 
@@ -1064,7 +1065,7 @@ works when genomeTicksDisplay is TRUE and their details are available on documen
 
 \item{BUBBLEMouseClickStrokeWidth}{Stroke width when mouse clicking}
 
-\item{BUBBLEMouseDownDisplay}{Default False, show/not the tooltip when mouse click down a BUBBLE point.}
+\item{BUBBLEMouseDownDisplay}{Default False, show/not the tooltip when mouse click down a BUBBLE point}
 
 \item{BUBBLEMouseDownColor}{Color when mouse moving down the element}
 
@@ -1074,7 +1075,7 @@ works when genomeTicksDisplay is TRUE and their details are available on documen
 
 \item{BUBBLEMouseDownStrokeWidth}{Stroke width when mouse moving down the element}
 
-\item{BUBBLEMouseEnterDisplay}{Default False, show/not the tooltip when mouse mover over a BUBBLE point.}
+\item{BUBBLEMouseEnterDisplay}{Default False, show/not the tooltip when mouse mover over a BUBBLE point}
 
 \item{BUBBLEMouseEnterColor}{Color when mouse entering the element}
 
@@ -1084,7 +1085,7 @@ works when genomeTicksDisplay is TRUE and their details are available on documen
 
 \item{BUBBLEMouseEnterStrokeWidth}{Stroke width when mouse entering the element}
 
-\item{BUBBLEMouseLeaveDisplay}{Default False, show/not the tooltip when mouse mover leave a BUBBLE point.}
+\item{BUBBLEMouseLeaveDisplay}{Default False, show/not the tooltip when mouse mover leave a BUBBLE point}
 
 \item{BUBBLEMouseLeaveColor}{Color when mouse leaving the element}
 
@@ -1094,7 +1095,7 @@ works when genomeTicksDisplay is TRUE and their details are available on documen
 
 \item{BUBBLEMouseLeaveStrokeWidth}{Stroke width when mouse leaving the element}
 
-\item{BUBBLEMouseMoveDisplay}{Default False, show/not the tooltip when mouse move into a BUBBLE point.}
+\item{BUBBLEMouseMoveDisplay}{Default False, show/not the tooltip when mouse move into a BUBBLE point}
 
 \item{BUBBLEMouseMoveColor}{Color when mouse moving in the element}
 
@@ -1104,7 +1105,7 @@ works when genomeTicksDisplay is TRUE and their details are available on documen
 
 \item{BUBBLEMouseMoveStrokeWidth}{Stroke width when mouse moving in the element}
 
-\item{BUBBLEMouseOutDisplay}{Defalut False, hide/not tooltip when mouse is not hovering a BUBBLE point anymore.}
+\item{BUBBLEMouseOutDisplay}{Defalut False, hide/not tooltip when mouse is not hovering a BUBBLE point anymore}
 
 \item{BUBBLEMouseOutAnimationTime}{Animation time when mouse moving out the element}
 
@@ -1116,7 +1117,7 @@ works when genomeTicksDisplay is TRUE and their details are available on documen
 
 \item{BUBBLEMouseOutStrokeWidth}{Stroke width when mouse moving out the element}
 
-\item{BUBBLEMouseUpDisplay}{Default False, show/not the tooltip when mouse click up a BUBBLE point.}
+\item{BUBBLEMouseUpDisplay}{Default False, show/not the tooltip when mouse click up a BUBBLE point}
 
 \item{BUBBLEMouseUpColor}{Color when mouse moving up the element}
 
@@ -1126,7 +1127,7 @@ works when genomeTicksDisplay is TRUE and their details are available on documen
 
 \item{BUBBLEMouseUpStrokeWidth}{Stroke width when mouse moving up the element}
 
-\item{BUBBLEMouseOverDisplay}{Default False, show/not the tooltip when mouse hover on a BUBBLE point.}
+\item{BUBBLEMouseOverDisplay}{Default False, show/not the tooltip when mouse hover on a BUBBLE point}
 
 \item{BUBBLEMouseOverColor}{Color when mouse moving over the element}
 
@@ -1224,7 +1225,7 @@ works when genomeTicksDisplay is TRUE and their details are available on documen
 
 \item{SNPMouseCombinationTextPositionCorrectX, SNPMouseCombinationTextPositionCorrectY}{The coordinates for text}
 
-\item{SNPMouseClickDisplay}{Default False, show/not the tooltip when mouse click on a SNP point.}
+\item{SNPMouseClickDisplay}{Default False, show/not the tooltip when mouse click on a SNP point}
 
 \item{SNPMouseClickColor}{Color after clicking the element}
 
@@ -1248,7 +1249,7 @@ works when genomeTicksDisplay is TRUE and their details are available on documen
 
 \item{SNPMouseClickTextDrag}{Whether text is draggable for element}
 
-\item{SNPMouseDownDisplay}{Default False, show/not the tooltip when mouse click down a SNP point.}
+\item{SNPMouseDownDisplay}{Default False, show/not the tooltip when mouse click down a SNP point}
 
 \item{SNPMouseDownColor}{Color after mouse moving down the element}
 
@@ -1260,7 +1261,7 @@ works when genomeTicksDisplay is TRUE and their details are available on documen
 
 \item{SNPMouseDownCircleStrokeWidth}{Circle stroke width after mouse moving down the element}
 
-\item{SNPMouseEnterDisplay}{Default False, show/not the tooltip when mouse mover over a SNP point.}
+\item{SNPMouseEnterDisplay}{Default False, show/not the tooltip when mouse mover over a SNP point}
 
 \item{SNPMouseEnterColor}{Color after mouse entering enter the element}
 
@@ -1272,7 +1273,7 @@ works when genomeTicksDisplay is TRUE and their details are available on documen
 
 \item{SNPMouseEnterCircleStrokeWidth}{Circle stroke width after mouse entering the element}
 
-\item{SNPMouseLeaveDisplay}{Default False, show/not the tooltip when mouse mover leave a SNP point.}
+\item{SNPMouseLeaveDisplay}{Default False, show/not the tooltip when mouse mover leave a SNP point}
 
 \item{SNPMouseLeaveColor}{Color after mouse leaving the element}
 
@@ -1284,7 +1285,7 @@ works when genomeTicksDisplay is TRUE and their details are available on documen
 
 \item{SNPMouseLeaveCircleStrokeWidth}{Circle stroke width after mouse leaving the element}
 
-\item{SNPMouseMoveDisplay}{Default False, show/not the tooltip when mouse move into a SNP point.}
+\item{SNPMouseMoveDisplay}{Default False, show/not the tooltip when mouse move into a SNP point}
 
 \item{SNPMouseMoveColor}{Color after mouse moving in the element}
 
@@ -1296,7 +1297,7 @@ works when genomeTicksDisplay is TRUE and their details are available on documen
 
 \item{SNPMouseMoveCircleStrokeWidth}{Circle stroke width after mouse moving in the element}
 
-\item{SNPMouseOutDisplay}{Defalut False, hide/not tooltip when mouse is not hovering a SNP point anymore.}
+\item{SNPMouseOutDisplay}{Defalut False, hide/not tooltip when mouse is not hovering a SNP point anymore}
 
 \item{SNPMouseOutAnimationTime}{Animation time when mouse moving over the element}
 
@@ -1310,7 +1311,7 @@ works when genomeTicksDisplay is TRUE and their details are available on documen
 
 \item{SNPMouseOutCircleStrokeWidth}{Stroke width when mouse moving over the element}
 
-\item{SNPMouseUpDisplay}{Default False, show/not the tooltip when mouse click up a SNP point.}
+\item{SNPMouseUpDisplay}{Default False, show/not the tooltip when mouse click up a SNP point}
 
 \item{SNPMouseUpColor}{Color after mouse moving up the element}
 
@@ -1322,7 +1323,7 @@ works when genomeTicksDisplay is TRUE and their details are available on documen
 
 \item{SNPMouseUpCircleStrokeWidth}{Circle stroke width after mouse moving up the element}
 
-\item{SNPMouseOverDisplay}{Default False, show/not the tooltip when mouse hover on a SNP point.}
+\item{SNPMouseOverDisplay}{Default False, show/not the tooltip when mouse hover on a SNP point}
 
 \item{SNPMouseOverColor}{Color after mouse moving over the element}
 
@@ -1356,7 +1357,7 @@ works when genomeTicksDisplay is TRUE and their details are available on documen
 
 \item{LINKMouseEvent}{Default True, open/not open mouse event of LINK module}
 
-\item{LINKMouseClickDisplay}{Default False, show/not the tooltip when mouse click on a LINK point.}
+\item{LINKMouseClickDisplay}{Default False, show/not the tooltip when mouse click on a LINK point}
 
 \item{LINKMouseClickOpacity}{Opacity when mouse clicking}
 
@@ -1364,7 +1365,7 @@ works when genomeTicksDisplay is TRUE and their details are available on documen
 
 \item{LINKMouseClickStrokeWidth}{Stroke width when mouse clicking}
 
-\item{LINKMouseDownDisplay}{Default False, show/not the tooltip when mouse click down a LINK point.}
+\item{LINKMouseDownDisplay}{Default False, show/not the tooltip when mouse click down a LINK point}
 
 \item{LINKMouseDownOpacity}{Opacity when mouse moving down the element}
 
@@ -1372,7 +1373,7 @@ works when genomeTicksDisplay is TRUE and their details are available on documen
 
 \item{LINKMouseDownStrokeWidth}{Stroke width when mouse moving down the element}
 
-\item{LINKMouseEnterDisplay}{Default False, show/not the tooltip when mouse mover over a LINK point.}
+\item{LINKMouseEnterDisplay}{Default False, show/not the tooltip when mouse mover over a LINK point}
 
 \item{LINKMouseEnterOpacity}{Opacity when mouse entering the element}
 
@@ -1380,7 +1381,7 @@ works when genomeTicksDisplay is TRUE and their details are available on documen
 
 \item{LINKMouseEnterStrokeWidth}{Stroke width when mouse entering the element}
 
-\item{LINKMouseLeaveDisplay}{Default False, show/not the tooltip when mouse mover leave a LINK point.}
+\item{LINKMouseLeaveDisplay}{Default False, show/not the tooltip when mouse mover leave a LINK point}
 
 \item{LINKMouseLeaveOpacity}{Opacity when mouse leaving the element}
 
@@ -1388,7 +1389,7 @@ works when genomeTicksDisplay is TRUE and their details are available on documen
 
 \item{LINKMouseLeaveStrokeWidth}{Stroke width when mouse leaving the element}
 
-\item{LINKMouseMoveDisplay}{Default False, show/not the tooltip when mouse move into a LINK point.}
+\item{LINKMouseMoveDisplay}{Default False, show/not the tooltip when mouse move into a LINK point}
 
 \item{LINKMouseMoveOpacity}{Opacity when mouse moving in the element}
 
@@ -1396,7 +1397,7 @@ works when genomeTicksDisplay is TRUE and their details are available on documen
 
 \item{LINKMouseMoveStrokeWidth}{Stroke width when mouse moving in the element}
 
-\item{LINKMouseOutDisplay}{Defalut False, hide/not tooltip when mouse is not hovering a LINK point anymore.}
+\item{LINKMouseOutDisplay}{Defalut False, hide/not tooltip when mouse is not hovering a LINK point anymore}
 
 \item{LINKMouseOutAnimationTime}{Animation time when mouse moving out the element}
 
@@ -1406,7 +1407,7 @@ works when genomeTicksDisplay is TRUE and their details are available on documen
 
 \item{LINKMouseOutStrokeWidth}{Stroke width when mouse moving out the element}
 
-\item{LINKMouseUpDisplay}{Default False, show/not the tooltip when mouse click up a LINK point.}
+\item{LINKMouseUpDisplay}{Default False, show/not the tooltip when mouse click up a LINK point}
 
 \item{LINKMouseUpOpacity}{Opacity when mouse moving up the element}
 
@@ -1414,7 +1415,7 @@ works when genomeTicksDisplay is TRUE and their details are available on documen
 
 \item{LINKMouseUpStrokeWidth}{Stroke width when mouse moving up the element}
 
-\item{LINKMouseOverDisplay}{Default False, show/not the tooltip when mouse hover on a LINK point.}
+\item{LINKMouseOverDisplay}{Default False, show/not the tooltip when mouse hover on a LINK point}
 
 \item{LINKMouseOverOpacity}{Opacity when mouse moving over the element}
 
@@ -1442,11 +1443,11 @@ works when genomeTicksDisplay is TRUE and their details are available on documen
 
 \item{LINKLabelDragEvent}{Defalut False, draggable for the label of LINK module}
 
-\item{CHORDMouseEvent}{Default True, open/not open mouse event of CHORD module from NG-Circos.}
+\item{CHORDMouseEvent}{Default True, open/not open mouse event of CHORD module from NG-Circos}
 
 \item{CHORDMouseFillColorExcluded}{A type of color in character, chord in this color will be hided}
 
-\item{CHORDMouseClickDisplay}{Default False, show/not the tooltip when mouse click on a CHORD point.}
+\item{CHORDMouseClickDisplay}{Default False, show/not the tooltip when mouse click on a CHORD point}
 
 \item{CHORDMouseClickOpacity}{Opacity when mouse clicking}
 
@@ -1454,7 +1455,7 @@ works when genomeTicksDisplay is TRUE and their details are available on documen
 
 \item{CHORDMouseClickStrokeWidth}{Stroke width when mouse clicking}
 
-\item{CHORDMouseDownDisplay}{Default False, show/not the tooltip when mouse click down a CHORD point.}
+\item{CHORDMouseDownDisplay}{Default False, show/not the tooltip when mouse click down a CHORD point}
 
 \item{CHORDMouseDownOpacity}{Opacity when mouse moving down the element}
 
@@ -1462,7 +1463,7 @@ works when genomeTicksDisplay is TRUE and their details are available on documen
 
 \item{CHORDMouseDownStrokeWidth}{Stroke width when mouse moving down the element}
 
-\item{CHORDMouseEnterDisplay}{Default False, show/not the tooltip when mouse mover over a CHORD point.}
+\item{CHORDMouseEnterDisplay}{Default False, show/not the tooltip when mouse mover over a CHORD point}
 
 \item{CHORDMouseEnterOpacity}{Opacity when mouse entering the element}
 
@@ -1470,7 +1471,7 @@ works when genomeTicksDisplay is TRUE and their details are available on documen
 
 \item{CHORDMouseEnterStrokeWidth}{Stroke width when mouse entering the element}
 
-\item{CHORDMouseLeaveDisplay}{Default False, show/not the tooltip when mouse mover leave a CHORD point.}
+\item{CHORDMouseLeaveDisplay}{Default False, show/not the tooltip when mouse mover leave a CHORD point}
 
 \item{CHORDMouseLeaveOpacity}{Opacity when mouse leaving the element}
 
@@ -1478,7 +1479,7 @@ works when genomeTicksDisplay is TRUE and their details are available on documen
 
 \item{CHORDMouseLeaveStrokeWidth}{Stroke width when mouse leaving the element}
 
-\item{CHORDMouseMoveDisplay}{Default False, show/not the tooltip when mouse move into a CHORD point.}
+\item{CHORDMouseMoveDisplay}{Default False, show/not the tooltip when mouse move into a CHORD point}
 
 \item{CHORDMouseMoveOpacity}{Opacity when mouse moving in the element}
 
@@ -1486,7 +1487,7 @@ works when genomeTicksDisplay is TRUE and their details are available on documen
 
 \item{CHORDMouseMoveStrokeWidth}{Stroke width when mouse moving in the element}
 
-\item{CHORDMouseOutDisplay}{Defalut False, hide/not tooltip when mouse is not hovering a CHORD point anymore.}
+\item{CHORDMouseOutDisplay}{Defalut False, hide/not tooltip when mouse is not hovering a CHORD point anymore}
 
 \item{CHORDMouseOutAnimationTime}{Animation time when mouse moving out the element}
 
@@ -1496,7 +1497,7 @@ works when genomeTicksDisplay is TRUE and their details are available on documen
 
 \item{CHORDMouseOutStrokeWidth}{Stroke width when mouse moving out the element}
 
-\item{CHORDMouseUpDisplay}{Default False, show/not the tooltip when mouse click up a CHORD point.}
+\item{CHORDMouseUpDisplay}{Default False, show/not the tooltip when mouse click up a CHORD point}
 
 \item{CHORDMouseUpOpacity}{Opacity when mouse moving up the element}
 
@@ -1504,7 +1505,7 @@ works when genomeTicksDisplay is TRUE and their details are available on documen
 
 \item{CHORDMouseUpStrokeWidth}{Stroke width when mouse moving up the element}
 
-\item{CHORDMouseOverDisplay}{Default False, show/not the tooltip when mouse hover on a CHORD point.}
+\item{CHORDMouseOverDisplay}{Default False, show/not the tooltip when mouse hover on a CHORD point}
 
 \item{CHORDMouseOverOpacity}{Opacity when mouse moving over the element}
 
@@ -1516,7 +1517,7 @@ works when genomeTicksDisplay is TRUE and their details are available on documen
 
 \item{HISTOGRAMMouseEvent}{Default True, open/not open mouse event of HISTOGRAM module}
 
-\item{HISTOGRAMMouseClickDisplay}{Default False, show/not the tooltip when mouse click on a HISTOGRAM point.}
+\item{HISTOGRAMMouseClickDisplay}{Default False, show/not the tooltip when mouse click on a HISTOGRAM point}
 
 \item{HISTOGRAMMouseClickColor}{Color when mouse clicking}
 
@@ -1526,7 +1527,7 @@ works when genomeTicksDisplay is TRUE and their details are available on documen
 
 \item{HISTOGRAMMouseClickStrokeWidth}{Stroke width when mouse clicking}
 
-\item{HISTOGRAMMouseDownDisplay}{Default False, show/not the tooltip when mouse click down a HISTOGRAM point.}
+\item{HISTOGRAMMouseDownDisplay}{Default False, show/not the tooltip when mouse click down a HISTOGRAM point}
 
 \item{HISTOGRAMMouseDownColor}{Color when mouse moving down the element}
 
@@ -1536,7 +1537,7 @@ works when genomeTicksDisplay is TRUE and their details are available on documen
 
 \item{HISTOGRAMMouseDownStrokeWidth}{Stroke width when mouse moving up the element}
 
-\item{HISTOGRAMMouseEnterDisplay}{Default False, show/not the tooltip when mouse mover over a HISTOGRAM point.}
+\item{HISTOGRAMMouseEnterDisplay}{Default False, show/not the tooltip when mouse mover over a HISTOGRAM point}
 
 \item{HISTOGRAMMouseEnterColor}{Color when mouse entering the element}
 
@@ -1546,7 +1547,7 @@ works when genomeTicksDisplay is TRUE and their details are available on documen
 
 \item{HISTOGRAMMouseEnterStrokeWidth}{Stroke width when mouse entering the element}
 
-\item{HISTOGRAMMouseLeaveDisplay}{Default False, show/not the tooltip when mouse mover leave a HISTOGRAM point.}
+\item{HISTOGRAMMouseLeaveDisplay}{Default False, show/not the tooltip when mouse mover leave a HISTOGRAM point}
 
 \item{HISTOGRAMMouseLeaveColor}{Color when mouse leaving the element}
 
@@ -1556,7 +1557,7 @@ works when genomeTicksDisplay is TRUE and their details are available on documen
 
 \item{HISTOGRAMMouseLeaveStrokeWidth}{Stroke width when mouse leaving the element}
 
-\item{HISTOGRAMMouseMoveDisplay}{Default False, show/not the tooltip when mouse move into a HISTOGRAM point.}
+\item{HISTOGRAMMouseMoveDisplay}{Default False, show/not the tooltip when mouse move into a HISTOGRAM point}
 
 \item{HISTOGRAMMouseMoveColor}{Color when mouse moving in the element}
 
@@ -1566,7 +1567,7 @@ works when genomeTicksDisplay is TRUE and their details are available on documen
 
 \item{HISTOGRAMMouseMoveStrokeWidth}{Stroke width when mouse moving in the element}
 
-\item{HISTOGRAMMouseOutDisplay}{Defalut False, hide/not tooltip when mouse is not hovering a HISTOGRAM point anymore.}
+\item{HISTOGRAMMouseOutDisplay}{Defalut False, hide/not tooltip when mouse is not hovering a HISTOGRAM point anymore}
 
 \item{HISTOGRAMMouseOutAnimationTime}{Animation time when mouse moving out the element}
 
@@ -1578,7 +1579,7 @@ works when genomeTicksDisplay is TRUE and their details are available on documen
 
 \item{HISTOGRAMMouseOutStrokeWidth}{Stroke width when mouse moving out the element}
 
-\item{HISTOGRAMMouseUpDisplay}{Default False, show/not the tooltip when mouse click up a HISTOGRAM point.}
+\item{HISTOGRAMMouseUpDisplay}{Default False, show/not the tooltip when mouse click up a HISTOGRAM point}
 
 \item{HISTOGRAMMouseUpColor}{Color when mouse moving up the element}
 
@@ -1588,7 +1589,7 @@ works when genomeTicksDisplay is TRUE and their details are available on documen
 
 \item{HISTOGRAMMouseUpStrokeWidth}{Stroke width when mouse moving up the element}
 
-\item{HISTOGRAMMouseOverDisplay}{Default False, show/not the tooltip when mouse hover on a HISTOGRAM point.}
+\item{HISTOGRAMMouseOverDisplay}{Default False, show/not the tooltip when mouse hover on a HISTOGRAM point}
 
 \item{HISTOGRAMMouseOverColor}{Color when mouse moving over the element}
 
@@ -1618,7 +1619,7 @@ works when genomeTicksDisplay is TRUE and their details are available on documen
 
 \item{LINEMouseEvent}{Default True, open/not open mouse event of LINE module}
 
-\item{LINEMouseClickDisplay}{Default False, show/not the tooltip when mouse click on a LINE point.}
+\item{LINEMouseClickDisplay}{Default False, show/not the tooltip when mouse click on a LINE point}
 
 \item{LINEMouseClickLineOpacity}{Line opacity when mouse clicking the element}
 
@@ -1626,7 +1627,7 @@ works when genomeTicksDisplay is TRUE and their details are available on documen
 
 \item{LINEMouseClickLineStrokeWidth}{Stroke width when mouse clicking the element}
 
-\item{LINEMouseDownDisplay}{Default False, show/not the tooltip when mouse click down a LINE point.}
+\item{LINEMouseDownDisplay}{Default False, show/not the tooltip when mouse click down a LINE point}
 
 \item{LINEMouseDownLineOpacity}{Line opacity when mouse moving down the element}
 
@@ -1634,7 +1635,7 @@ works when genomeTicksDisplay is TRUE and their details are available on documen
 
 \item{LINEMouseDownLineStrokeWidth}{Stroke width when mouse moving down the element}
 
-\item{LINEMouseEnterDisplay}{Default False, show/not the tooltip when mouse mover over a LINE point.}
+\item{LINEMouseEnterDisplay}{Default False, show/not the tooltip when mouse mover over a LINE point}
 
 \item{LINEMouseEnterLineOpacity}{Line opacity when mouse entering the element}
 
@@ -1642,7 +1643,7 @@ works when genomeTicksDisplay is TRUE and their details are available on documen
 
 \item{LINEMouseEnterLineStrokeWidth}{Stroke width when mouse entering the element}
 
-\item{LINEMouseLeaveDisplay}{Default False, show/not the tooltip when mouse mover leave a LINE point.}
+\item{LINEMouseLeaveDisplay}{Default False, show/not the tooltip when mouse mover leave a LINE point}
 
 \item{LINEMouseLeaveLineOpacity}{Line opacity when mouse leaving the element}
 
@@ -1650,7 +1651,7 @@ works when genomeTicksDisplay is TRUE and their details are available on documen
 
 \item{LINEMouseLeaveLineStrokeWidth}{Stroke width when mouse leaving the element}
 
-\item{LINEMouseMoveDisplay}{Default False, show/not the tooltip when mouse move into a LINE point.}
+\item{LINEMouseMoveDisplay}{Default False, show/not the tooltip when mouse move into a LINE point}
 
 \item{LINEMouseMoveLineOpacity}{Line opacity when mouse moving in the element}
 
@@ -1658,7 +1659,7 @@ works when genomeTicksDisplay is TRUE and their details are available on documen
 
 \item{LINEMouseMoveLineStrokeWidth}{Stroke width when mouse moving in the element}
 
-\item{LINEMouseOutDisplay}{Defalut False, hide/not tooltip when mouse is not hovering a LINE point anymore.}
+\item{LINEMouseOutDisplay}{Defalut False, hide/not tooltip when mouse is not hovering a LINE point anymore}
 
 \item{LINEMouseOutAnimationTime}{Animation time when mouse moving out the element}
 
@@ -1668,7 +1669,7 @@ works when genomeTicksDisplay is TRUE and their details are available on documen
 
 \item{LINEMouseOutLineStrokeWidth}{Stroke width when mouse moving out the element}
 
-\item{LINEMouseUpDisplay}{Default False, show/not the tooltip when mouse click up a LINE point.}
+\item{LINEMouseUpDisplay}{Default False, show/not the tooltip when mouse click up a LINE point}
 
 \item{LINEMouseUpLineOpacity}{Line opacity when mouse moving up the element}
 
@@ -1676,7 +1677,7 @@ works when genomeTicksDisplay is TRUE and their details are available on documen
 
 \item{LINEMouseUpLineStrokeWidth}{Stroke width when mouse moving up the element}
 
-\item{LINEMouseOverDisplay}{Default False, show/not the tooltip when mouse hover on a LINE point.}
+\item{LINEMouseOverDisplay}{Default False, show/not the tooltip when mouse hover on a LINE point}
 
 \item{LINEMouseOverLineOpacity}{Line opacity when mouse moving over the element}
 
@@ -1704,7 +1705,7 @@ works when genomeTicksDisplay is TRUE and their details are available on documen
 
 \item{WIGMouseEvent}{Default True, open/not open mouse event of WIG module}
 
-\item{WIGMouseClickDisplay}{Default False, show/not the tooltip when mouse click on a WIG point.}
+\item{WIGMouseClickDisplay}{Default False, show/not the tooltip when mouse click on a WIG point}
 
 \item{WIGMouseClickLineOpacity}{Line opacity when mouse clicking the element}
 
@@ -1714,7 +1715,7 @@ works when genomeTicksDisplay is TRUE and their details are available on documen
 
 \item{WIGMouseClickFillColor}{Filling color when mouse clicking the element}
 
-\item{WIGMouseDownDisplay}{Default False, show/not the tooltip when mouse click down a WIG point.}
+\item{WIGMouseDownDisplay}{Default False, show/not the tooltip when mouse click down a WIG point}
 
 \item{WIGMouseDownLineOpacity}{Line opacity when mouse moving down the element}
 
@@ -1724,7 +1725,7 @@ works when genomeTicksDisplay is TRUE and their details are available on documen
 
 \item{WIGMouseDownFillColor}{Filling color when mouse moving down the element}
 
-\item{WIGMouseEnterDisplay}{Default False, show/not the tooltip when mouse mover over a WIG point.}
+\item{WIGMouseEnterDisplay}{Default False, show/not the tooltip when mouse mover over a WIG point}
 
 \item{WIGMouseEnterLineOpacity}{Line opacity when mouse entering the element}
 
@@ -1734,7 +1735,7 @@ works when genomeTicksDisplay is TRUE and their details are available on documen
 
 \item{WIGMouseEnterFillColor}{Filling color when mouse entering the element}
 
-\item{WIGMouseLeaveDisplay}{Default False, show/not the tooltip when mouse mover leave a WIG point.}
+\item{WIGMouseLeaveDisplay}{Default False, show/not the tooltip when mouse mover leave a WIG point}
 
 \item{WIGMouseLeaveLineOpacity}{Line opacity when mouse leaving the element}
 
@@ -1744,7 +1745,7 @@ works when genomeTicksDisplay is TRUE and their details are available on documen
 
 \item{WIGMouseLeaveFillColor}{Filling color when mouse leaving the element}
 
-\item{WIGMouseMoveDisplay}{Default False, show/not the tooltip when mouse move into a WIG point.}
+\item{WIGMouseMoveDisplay}{Default False, show/not the tooltip when mouse move into a WIG point}
 
 \item{WIGMouseMoveLineOpacity}{Line opacity when mouse moving in the element}
 
@@ -1754,7 +1755,7 @@ works when genomeTicksDisplay is TRUE and their details are available on documen
 
 \item{WIGMouseMoveFillColor}{Filling color when mouse leaving the element}
 
-\item{WIGMouseOutDisplay}{Defalut False, hide/not tooltip when mouse is not hovering a WIG point anymore.}
+\item{WIGMouseOutDisplay}{Defalut False, hide/not tooltip when mouse is not hovering a WIG point anymore}
 
 \item{WIGMouseOutAnimationTime}{Animation time when mouse moving out the element}
 
@@ -1766,7 +1767,7 @@ works when genomeTicksDisplay is TRUE and their details are available on documen
 
 \item{WIGMouseOutFillColor}{Filling color when mouse moving out the element}
 
-\item{WIGMouseUpDisplay}{Default False, show/not the tooltip when mouse click up a WIG point.}
+\item{WIGMouseUpDisplay}{Default False, show/not the tooltip when mouse click up a WIG point}
 
 \item{WIGMouseUpLineOpacity}{Line opacity when mouse moving up the element}
 
@@ -1776,7 +1777,7 @@ works when genomeTicksDisplay is TRUE and their details are available on documen
 
 \item{WIGMouseUpFillColor}{Filling color when mouse moving up the element}
 
-\item{WIGMouseOverDisplay}{Default False, show/not the tooltip when mouse hover on a WIG point.}
+\item{WIGMouseOverDisplay}{Default False, show/not the tooltip when mouse hover on a WIG point}
 
 \item{WIGMouseOverLineOpacity}{Line opacity when mouse moving over the element}
 
@@ -1808,7 +1809,7 @@ works when genomeTicksDisplay is TRUE and their details are available on documen
 
 \item{SCATTERMouseEvent}{Default True, open/not open mouse event of SCATTER module}
 
-\item{SCATTERMouseClickDisplay}{Default False, show/not the tooltip when mouse click on a SCATTER point.}
+\item{SCATTERMouseClickDisplay}{Default False, show/not the tooltip when mouse click on a SCATTER point}
 
 \item{SCATTERMouseClickColor}{Color when mouse clicking  the element}
 
@@ -1832,7 +1833,7 @@ works when genomeTicksDisplay is TRUE and their details are available on documen
 
 \item{SCATTERMouseClickTextDrag}{Whether text is draggable when clicing element}
 
-\item{SCATTERMouseDownDisplay}{Default False, show/not the tooltip when mouse click down a SCATTER point.}
+\item{SCATTERMouseDownDisplay}{Default False, show/not the tooltip when mouse click down a SCATTER point}
 
 \item{SCATTERMouseDownColor}{Color when mouse moving down the element}
 
@@ -1844,7 +1845,7 @@ works when genomeTicksDisplay is TRUE and their details are available on documen
 
 \item{SCATTERMouseDownCircleStrokeWidth}{Circle stroke width when mouse moving down the element}
 
-\item{SCATTERMouseEnterDisplay}{Default False, show/not the tooltip when mouse mover over a SCATTER point.}
+\item{SCATTERMouseEnterDisplay}{Default False, show/not the tooltip when mouse mover over a SCATTER point}
 
 \item{SCATTERMouseEnterColor}{Color when mouse entering the element}
 
@@ -1856,7 +1857,7 @@ works when genomeTicksDisplay is TRUE and their details are available on documen
 
 \item{SCATTERMouseEnterCircleStrokeWidth}{Circle stroke width when mouse entering the element}
 
-\item{SCATTERMouseLeaveDisplay}{Default False, show/not the tooltip when mouse mover leave a SCATTER point.}
+\item{SCATTERMouseLeaveDisplay}{Default False, show/not the tooltip when mouse mover leave a SCATTER point}
 
 \item{SCATTERMouseLeaveColor}{Color when mouse leaving the element}
 
@@ -1868,7 +1869,7 @@ works when genomeTicksDisplay is TRUE and their details are available on documen
 
 \item{SCATTERMouseLeaveCircleStrokeWidth}{Circle stroke width when mouse leaving the element}
 
-\item{SCATTERMouseMoveDisplay}{Default False, show/not the tooltip when mouse move into a SCATTER point.}
+\item{SCATTERMouseMoveDisplay}{Default False, show/not the tooltip when mouse move into a SCATTER point}
 
 \item{SCATTERMouseMoveColor}{Color when mouse moving in the element}
 
@@ -1880,7 +1881,7 @@ works when genomeTicksDisplay is TRUE and their details are available on documen
 
 \item{SCATTERMouseMoveCircleStrokeWidth}{Circle stroke width when mouse moving in the element}
 
-\item{SCATTERMouseOutDisplay}{Defalut False, hide/not tooltip when mouse is not hovering a SCATTER point anymore.}
+\item{SCATTERMouseOutDisplay}{Defalut False, hide/not tooltip when mouse is not hovering a SCATTER point anymore}
 
 \item{SCATTERMouseOutAnimationTime}{Animation time when mouse moving out the element}
 
@@ -1894,7 +1895,7 @@ works when genomeTicksDisplay is TRUE and their details are available on documen
 
 \item{SCATTERMouseOutCircleStrokeWidth}{Circle stroke width when mouse moving out the element}
 
-\item{SCATTERMouseUpDisplay}{Default False, show/not the tooltip when mouse click up a SCATTER point.}
+\item{SCATTERMouseUpDisplay}{Default False, show/not the tooltip when mouse click up a SCATTER point}
 
 \item{SCATTERMouseUpColor}{Color when mouse moving up the element}
 
@@ -1906,7 +1907,7 @@ works when genomeTicksDisplay is TRUE and their details are available on documen
 
 \item{SCATTERMouseUpCircleStrokeWidth}{Circle stroke width when mouse moving up the element}
 
-\item{SCATTERMouseOverDisplay}{Default False, show/not the tooltip when mouse hover on a SCATTER point.}
+\item{SCATTERMouseOverDisplay}{Default False, show/not the tooltip when mouse hover on a SCATTER point}
 
 \item{SCATTERMouseOverColor}{Color when mouse moving over the element}
 
@@ -1940,7 +1941,7 @@ works when genomeTicksDisplay is TRUE and their details are available on documen
 
 \item{ARCMouseEvent}{Default True, open/not open mouse event of ARC module}
 
-\item{ARCMouseClickDisplay}{Default False, show/not the tooltip when mouse click on a ARC point.}
+\item{ARCMouseClickDisplay}{Default False, show/not the tooltip when mouse click on a ARC point}
 
 \item{ARCMouseClickColor}{Color when mouse clicking the element}
 
@@ -1962,7 +1963,7 @@ works when genomeTicksDisplay is TRUE and their details are available on documen
 
 \item{ARCMouseClickTextDrag}{Whether text is draggable when mouse clicking the element}
 
-\item{ARCMouseDownDisplay}{Default False, show/not the tooltip when mouse click down a ARC point.}
+\item{ARCMouseDownDisplay}{Default False, show/not the tooltip when mouse click down a ARC point}
 
 \item{ARCMouseDownColor}{Color when mouse moving down the element}
 
@@ -1972,7 +1973,7 @@ works when genomeTicksDisplay is TRUE and their details are available on documen
 
 \item{ARCMouseDownArcStrokeWidth}{Arc stroke width when mouse moving down the element}
 
-\item{ARCMouseEnterDisplay}{Default False, show/not the tooltip when mouse mover over a ARC point.}
+\item{ARCMouseEnterDisplay}{Default False, show/not the tooltip when mouse mover over a ARC point}
 
 \item{ARCMouseEnterColor}{Color when mouse entering the element}
 
@@ -1982,7 +1983,7 @@ works when genomeTicksDisplay is TRUE and their details are available on documen
 
 \item{ARCMouseEnterArcStrokeWidth}{Arc stroke width when mouse entering the element}
 
-\item{ARCMouseLeaveDisplay}{Default False, show/not the tooltip when mouse mover leave a ARC point.}
+\item{ARCMouseLeaveDisplay}{Default False, show/not the tooltip when mouse mover leave a ARC point}
 
 \item{ARCMouseLeaveColor}{Color when mouse leaving the element}
 
@@ -1992,7 +1993,7 @@ works when genomeTicksDisplay is TRUE and their details are available on documen
 
 \item{ARCMouseLeaveArcStrokeWidth}{Arc stroke width when mouse leaving the element}
 
-\item{ARCMouseMoveDisplay}{Default False, show/not the tooltip when mouse move into a ARC point.}
+\item{ARCMouseMoveDisplay}{Default False, show/not the tooltip when mouse move into a ARC point}
 
 \item{ARCMouseMoveColor}{Color when mouse moving in the element}
 
@@ -2002,7 +2003,7 @@ works when genomeTicksDisplay is TRUE and their details are available on documen
 
 \item{ARCMouseMoveArcStrokeWidth}{Arc stroke width when mouse moving in the element}
 
-\item{ARCMouseOutDisplay}{Defalut False, hide/not tooltip when mouse is not hovering a ARC point anymore.}
+\item{ARCMouseOutDisplay}{Defalut False, hide/not tooltip when mouse is not hovering a ARC point anymore}
 
 \item{ARCMouseOutAnimationTime}{Animation time when mouse moving out the element}
 
@@ -2014,7 +2015,7 @@ works when genomeTicksDisplay is TRUE and their details are available on documen
 
 \item{ARCMouseOutArcStrokeWidth}{Arc stroke width when mouse moving out the element}
 
-\item{ARCMouseUpDisplay}{Default False, show/not the tooltip when mouse click up a ARC point.}
+\item{ARCMouseUpDisplay}{Default False, show/not the tooltip when mouse click up a ARC point}
 
 \item{ARCMouseUpColor}{Color when mouse moving up the element}
 
@@ -2024,7 +2025,7 @@ works when genomeTicksDisplay is TRUE and their details are available on documen
 
 \item{ARCMouseUpArcStrokeWidth}{Arc stroke width when mouse moving up the element}
 
-\item{ARCMouseOverDisplay}{Default False, show/not the tooltip when mouse hover on a ARC point.}
+\item{ARCMouseOverDisplay}{Default False, show/not the tooltip when mouse hover on a ARC point}
 
 \item{ARCMouseOverColor}{Color when mouse moving over the element}
 
@@ -2056,7 +2057,7 @@ works when genomeTicksDisplay is TRUE and their details are available on documen
 
 \item{GENEMouseEvent}{Default True, open/not open mouse event of GENE module}
 
-\item{GENEMouseClickDisplay}{Default False, show/not the tooltip when mouse click on a GENE point.}
+\item{GENEMouseClickDisplay}{Default False, show/not the tooltip when mouse click on a GENE point}
 
 \item{GENEMouseClickColor}{Color when mouse clicking the element}
 
@@ -2078,7 +2079,7 @@ works when genomeTicksDisplay is TRUE and their details are available on documen
 
 \item{GENEMouseClickTextDrag}{Whether text is draggable when mouse clicking the element}
 
-\item{GENEMouseDownDisplay}{Default False, show/not the tooltip when mouse click down a GENE point.}
+\item{GENEMouseDownDisplay}{Default False, show/not the tooltip when mouse click down a GENE point}
 
 \item{GENEMouseDownColor}{Color when mouse moving down the element}
 
@@ -2088,7 +2089,7 @@ works when genomeTicksDisplay is TRUE and their details are available on documen
 
 \item{GENEMouseDownArcStrokeWidth}{Arc stroke width when mouse moving down the element}
 
-\item{GENEMouseEnterDisplay}{Default False, show/not the tooltip when mouse mover over a GENE point.}
+\item{GENEMouseEnterDisplay}{Default False, show/not the tooltip when mouse mover over a GENE point}
 
 \item{GENEMouseEnterColor}{Color when mouse entering the element}
 
@@ -2098,7 +2099,7 @@ works when genomeTicksDisplay is TRUE and their details are available on documen
 
 \item{GENEMouseEnterArcStrokeWidth}{Arc stroke width when mouse entering the element}
 
-\item{GENEMouseLeaveDisplay}{Default False, show/not the tooltip when mouse mover leave a GENE point.}
+\item{GENEMouseLeaveDisplay}{Default False, show/not the tooltip when mouse mover leave a GENE point}
 
 \item{GENEMouseLeaveColor}{Color when mouse leaving the element}
 
@@ -2108,7 +2109,7 @@ works when genomeTicksDisplay is TRUE and their details are available on documen
 
 \item{GENEMouseLeaveArcStrokeWidth}{Arc stroke width when mouse leaving the element}
 
-\item{GENEMouseMoveDisplay}{Default False, show/not the tooltip when mouse move into a GENE point.}
+\item{GENEMouseMoveDisplay}{Default False, show/not the tooltip when mouse move into a GENE point}
 
 \item{GENEMouseMoveColor}{Color when mouse moving in the element}
 
@@ -2118,7 +2119,7 @@ works when genomeTicksDisplay is TRUE and their details are available on documen
 
 \item{GENEMouseMoveArcStrokeWidth}{Arc stroke width when mouse moving in the element}
 
-\item{GENEMouseOutDisplay}{Defalut False, hide/not tooltip when mouse is not hovering a GENE point anymore.}
+\item{GENEMouseOutDisplay}{Defalut False, hide/not tooltip when mouse is not hovering a GENE point anymore}
 
 \item{GENEMouseOutAnimationTime}{Animation time when mouse moving out the element}
 
@@ -2130,7 +2131,7 @@ works when genomeTicksDisplay is TRUE and their details are available on documen
 
 \item{GENEMouseOutArcStrokeWidth}{Arc stroke width when mouse moving out the element}
 
-\item{GENEMouseUpDisplay}{Default False, show/not the tooltip when mouse click up a GENE point.}
+\item{GENEMouseUpDisplay}{Default False, show/not the tooltip when mouse click up a GENE point}
 
 \item{GENEMouseUpColor}{Color when mouse moving up the element}
 
@@ -2140,7 +2141,7 @@ works when genomeTicksDisplay is TRUE and their details are available on documen
 
 \item{GENEMouseUpArcStrokeWidth}{Arc stroke width when mouse moving up the element}
 
-\item{GENEMouseOverDisplay}{Default False, show/not the tooltip when mouse hover on a GENE point.}
+\item{GENEMouseOverDisplay}{Default False, show/not the tooltip when mouse hover on a GENE point}
 
 \item{GENEMouseOverColor}{Color when mouse moving over the element}
 
@@ -2172,7 +2173,7 @@ works when genomeTicksDisplay is TRUE and their details are available on documen
 
 \item{LOLLIPOPMouseEvent}{Default True, open/not open mouse event of LOLLIPOP module}
 
-\item{LOLLIPOPMouseClickDisplay}{Default False, show/not the tooltip when mouse click on a LOLLIPOP point.}
+\item{LOLLIPOPMouseClickDisplay}{Default False, show/not the tooltip when mouse click on a LOLLIPOP point}
 
 \item{LOLLIPOPMouseClickColor}{Color when mouse clicking}
 
@@ -2196,7 +2197,7 @@ works when genomeTicksDisplay is TRUE and their details are available on documen
 
 \item{LOLLIPOPMouseClickTextDrag}{Whether text is draggable when mouse clicking the element}
 
-\item{LOLLIPOPMouseDownDisplay}{Default False, show/not the tooltip when mouse click down a LOLLIPOP point.}
+\item{LOLLIPOPMouseDownDisplay}{Default False, show/not the tooltip when mouse click down a LOLLIPOP point}
 
 \item{LOLLIPOPMouseDownColor}{Color when mouse moving down the element}
 
@@ -2208,7 +2209,7 @@ works when genomeTicksDisplay is TRUE and their details are available on documen
 
 \item{LOLLIPOPMouseDownCircleStrokeWidth}{Circle stroke width when mouse moving down the element}
 
-\item{LOLLIPOPMouseEnterDisplay}{Default False, show/not the tooltip when mouse mover over a LOLLIPOP point.}
+\item{LOLLIPOPMouseEnterDisplay}{Default False, show/not the tooltip when mouse mover over a LOLLIPOP point}
 
 \item{LOLLIPOPMouseEnterColor}{Color when mouse entering the element}
 
@@ -2220,7 +2221,7 @@ works when genomeTicksDisplay is TRUE and their details are available on documen
 
 \item{LOLLIPOPMouseEnterCircleStrokeWidth}{Circle stroke width when mouse entering the element}
 
-\item{LOLLIPOPMouseLeaveDisplay}{Default False, show/not the tooltip when mouse mover leave a LOLLIPOP point.}
+\item{LOLLIPOPMouseLeaveDisplay}{Default False, show/not the tooltip when mouse mover leave a LOLLIPOP point}
 
 \item{LOLLIPOPMouseLeaveColor}{Color when mouse leaving the element}
 
@@ -2232,7 +2233,7 @@ works when genomeTicksDisplay is TRUE and their details are available on documen
 
 \item{LOLLIPOPMouseLeaveCircleStrokeWidth}{Circle stroke width when mouse leaving the element}
 
-\item{LOLLIPOPMouseMoveDisplay}{Default False, show/not the tooltip when mouse move into a LOLLIPOP point.}
+\item{LOLLIPOPMouseMoveDisplay}{Default False, show/not the tooltip when mouse move into a LOLLIPOP point}
 
 \item{LOLLIPOPMouseMoveColor}{Color when mouse moving in the element}
 
@@ -2244,7 +2245,7 @@ works when genomeTicksDisplay is TRUE and their details are available on documen
 
 \item{LOLLIPOPMouseMoveCircleStrokeWidth}{Circle stroke width when mouse moving in the element}
 
-\item{LOLLIPOPMouseOutDisplay}{Defalut False, hide/not tooltip when mouse is not hovering a LOLLIPOP point anymore.}
+\item{LOLLIPOPMouseOutDisplay}{Defalut False, hide/not tooltip when mouse is not hovering a LOLLIPOP point anymore}
 
 \item{LOLLIPOPMouseOutAnimationTime}{Animation time when mouse moving out the element}
 
@@ -2258,7 +2259,7 @@ works when genomeTicksDisplay is TRUE and their details are available on documen
 
 \item{LOLLIPOPMouseOutCircleStrokeWidth}{Circle stroke width when mouse moving out the element}
 
-\item{LOLLIPOPMouseUpDisplay}{Default False, show/not the tooltip when mouse click up a LOLLIPOP point.}
+\item{LOLLIPOPMouseUpDisplay}{Default False, show/not the tooltip when mouse click up a LOLLIPOP point}
 
 \item{LOLLIPOPMouseUpColor}{Color when mouse moving up the element}
 
@@ -2270,7 +2271,7 @@ works when genomeTicksDisplay is TRUE and their details are available on documen
 
 \item{LOLLIPOPMouseUpCircleStrokeWidth}{Circle stroke width when mouse moving up the element}
 
-\item{LOLLIPOPMouseOverDisplay}{Default False, show/not the tooltip when mouse hover on a LOLLIPOP point.}
+\item{LOLLIPOPMouseOverDisplay}{Default False, show/not the tooltip when mouse hover on a LOLLIPOP point}
 
 \item{LOLLIPOPMouseOverColor}{Color when mouse moving over the element}
 
@@ -2300,12 +2301,14 @@ works when genomeTicksDisplay is TRUE and their details are available on documen
 
 \item{LOLLIPOPMouseOverTooltipsOpacity}{Default 0.8}
 
-\item{elementId}{the name of the HTML id to be used to contain the visualization.}
+\item{elementId}{the name of the HTML id to be used to contain the visualization}
 
 \item{...}{Ignored}
+
+\item{genomeTicksDisplay, genomeTicksLen, genomeTicksColor, genomeTicksTextSize, genomeTicksTextColor, genomeTicksScale, genomeTicksRealLength, genomeTicksOffset}{arameters only works when genomeTicksDisplay is TRUE and their details are available on document}
 }
 \value{
-The main figure for interacCircos with all tracks.
+The main figure for interacCircos with all tracks
 }
 \description{
 Visualization of Interactive Circos Plot

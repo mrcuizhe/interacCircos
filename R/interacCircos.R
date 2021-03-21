@@ -5,26 +5,25 @@
 #' @import htmlwidgets
 #' @import RColorBrewer
 #' @import plyr
-#' @import jsonlite
-#' @import grDevices
 #' @import methods
 #' 
 #' @export
 
-#' @param moduleList Module list displayed in plot.
-#' @param genome Could be either 'hg19', which is defaultly set to use chromosomes of hg19, or a list of chromosomes with length, for example, list("chr1"=100,"chr2"=200).
+#' @param moduleList Module list displayed in plot
+#' @param genome Could be either 'hg19', which is defaultly set to use chromosomes of hg19, or a list of chromosomes with length, for example, list("chr1"=100,"chr2"=200)
 #' @param genome2 Second genome when compare module is applied, format is same as genome
 #' @param genomeFillColor Could be either a color palette from RColorBrewer, or a list of color name, for example, list("yellow","rgb(1,255,255)")
 #' @param chrPad Distance between each chromosome, default is 0.04
-#' @param width,height The width and height for svg element, could be px or percent or auto.
+#' @param width,height The width and height for svg element, could be px or percent or auto
 #' @param svgClassName The svg class name
 #' @param innerRadius Default 216, Inner radius of chromosome
 #' @param outerRadius Default 240, Outer radius of chromosome
-#' @param displayGenomeBorder,genomeBorderColor,genomeBorderSize Should the reference genome have borders?
-#' @param genomeTicksDisplay,genomeTicksLen,genomeTicksColor,genomeTicksTextSize,genomeTicksTextColor,genomeTicksScale,genomeTicksRealLength,genomeTicksOffset Whether display
-#' the ticks for chromosome panel. Other parameters only works when genomeTicksDisplay is TRUE and their details are available on document.
+#' @param displayGenomeBorder Whether display a border for genome track or not
+#' @param genomeBorderColor,genomeBorderSize The color and size for border of genome
+#' @param genomeTicksDisplay Whether display the ticks for genome track
+#' @param genomeTicksDisplay,genomeTicksLen,genomeTicksColor,genomeTicksTextSize,genomeTicksTextColor,genomeTicksScale,genomeTicksRealLength,genomeTicksOffset arameters only works when genomeTicksDisplay is TRUE and their details are available on document
 #' @param genomeLabelDisplay,genomeLabelTextSize,genomeLabelTextColor,genomeLabelDx,genomeLabelDy Whether display the label for chromosome panel. Other parameters only
-#'  works when genomeTicksDisplay is TRUE and their details are available on document.
+#'  works when genomeTicksDisplay is TRUE and their details are available on document
 #' @param compareEvent  Default False, open/not COMPARE module
 #' @param compareEventGroupGapRate Default 0.1, control the two-side gap rate on each group of genome
 #' @param compareEventGroupDistance Default 0, distance between two groups of genome
@@ -65,7 +64,7 @@
 #' @param SNPMouseCombinationTextDisplay Defalut False, open/not text display in COMBINATION module for SNP module
 #' @param SNPMouseCombinationTextColor,SNPMouseCombinationTextSize,SNPMouseCombinationTextWeight The color, size and weight for text
 #' @param SNPMouseCombinationTextPositionCorrectX,SNPMouseCombinationTextPositionCorrectY The coordinates for text
-#' @param SNPMouseClickDisplay Default False, show/not the tooltip when mouse click on a SNP point.
+#' @param SNPMouseClickDisplay Default False, show/not the tooltip when mouse click on a SNP point
 #' @param SNPMouseClickColor Color after clicking the element
 #' @param SNPMouseClickCircleSize Circle size after clicking the element
 #' @param SNPMouseClickCircleOpacity Opacity after clicking the element
@@ -77,37 +76,37 @@
 #' @param SNPMouseClickTextSize Text size after clicking the element
 #' @param SNPMouseClickTextPostionX,SNPMouseClickTextPostionY Text coordinate after clicking the element
 #' @param SNPMouseClickTextDrag Whether text is draggable for element
-#' @param SNPMouseUpDisplay Default False, show/not the tooltip when mouse click up a SNP point.
+#' @param SNPMouseUpDisplay Default False, show/not the tooltip when mouse click up a SNP point
 #' @param SNPMouseUpColor Color after mouse moving up the element
 #' @param SNPMouseUpCircleSize Circle size after mouse moving up the element
 #' @param SNPMouseUpCircleOpacity Circle opacity after mouse moving up the element
 #' @param SNPMouseUpCircleStrokeColor Circle stroke color after mouse moving up the element
 #' @param SNPMouseUpCircleStrokeWidth Circle stroke width after mouse moving up the element
-#' @param SNPMouseDownDisplay Default False, show/not the tooltip when mouse click down a SNP point.
+#' @param SNPMouseDownDisplay Default False, show/not the tooltip when mouse click down a SNP point
 #' @param SNPMouseDownColor Color after mouse moving down the element
 #' @param SNPMouseDownCircleSize Circle size after mouse moving down the element
 #' @param SNPMouseDownCircleOpacity Circle opacity after mouse moving down the element
 #' @param SNPMouseDownCircleStrokeColor Circle stroke color after mouse moving down the element
 #' @param SNPMouseDownCircleStrokeWidth Circle stroke width after mouse moving down the element
-#' @param SNPMouseEnterDisplay Default False, show/not the tooltip when mouse mover over a SNP point.
+#' @param SNPMouseEnterDisplay Default False, show/not the tooltip when mouse mover over a SNP point
 #' @param SNPMouseEnterColor Color after mouse entering enter the element
 #' @param SNPMouseEnterCircleSize Circle size after mouse entering the element
 #' @param SNPMouseEnterCircleOpacity Circle opacity after mouse entering the element
 #' @param SNPMouseEnterCircleStrokeColor Circle stroke color after mouse entering the element
 #' @param SNPMouseEnterCircleStrokeWidth Circle stroke width after mouse entering the element
-#' @param SNPMouseLeaveDisplay Default False, show/not the tooltip when mouse mover leave a SNP point.
+#' @param SNPMouseLeaveDisplay Default False, show/not the tooltip when mouse mover leave a SNP point
 #' @param SNPMouseLeaveColor Color after mouse leaving the element
 #' @param SNPMouseLeaveCircleSize Circle size after mouse leaving the element
 #' @param SNPMouseLeaveCircleOpacity Circle opacity after mouse leaving the element
 #' @param SNPMouseLeaveCircleStrokeColor Circle stroke color after mouse leaving the element
 #' @param SNPMouseLeaveCircleStrokeWidth Circle stroke width after mouse leaving the element
-#' @param SNPMouseMoveDisplay Default False, show/not the tooltip when mouse move into a SNP point.
+#' @param SNPMouseMoveDisplay Default False, show/not the tooltip when mouse move into a SNP point
 #' @param SNPMouseMoveColor Color after mouse moving in the element
 #' @param SNPMouseMoveCircleSize Circle size after mouse moving in the element
 #' @param SNPMouseMoveCircleOpacity Circle opacity after mouse moving in the element
 #' @param SNPMouseMoveCircleStrokeColor Circle stroke color after mouse moving in the element
 #' @param SNPMouseMoveCircleStrokeWidth Circle stroke width after mouse moving in the element
-#' @param SNPMouseOverDisplay Default False, show/not the tooltip when mouse hover on a SNP point.
+#' @param SNPMouseOverDisplay Default False, show/not the tooltip when mouse hover on a SNP point
 #' @param SNPMouseOverColor Color after mouse moving over the element
 #' @param SNPMouseOverCircleSize Circle size after mouse moving over the element
 #' @param SNPMouseOverCircleOpacity Circle opacity after mouse moving over the element
@@ -122,7 +121,7 @@
 #' @param SNPMouseOverTooltipsPadding Padding for tooltips when mouse moving over
 #' @param SNPMouseOverTooltipsBorderRadius Border radius for tooltips when mouse moving over
 #' @param SNPMouseOverTooltipsOpacity Opacity for tooltips when mouse moving over
-#' @param SNPMouseOutDisplay Defalut False, hide/not tooltip when mouse is not hovering a SNP point anymore.
+#' @param SNPMouseOutDisplay Defalut False, hide/not tooltip when mouse is not hovering a SNP point anymore
 #' @param SNPMouseOutAnimationTime Animation time when mouse moving over the element
 #' @param SNPMouseOutColor Color when mouse moving over the element
 #' @param SNPMouseOutCircleSize Circle size when mouse moving over the element
@@ -132,31 +131,31 @@
 #'
 #' @param LINKxlink Default False, add/not xlink for LINK module
 #' @param LINKMouseEvent Default True, open/not open mouse event of LINK module
-#' @param LINKMouseClickDisplay Default False, show/not the tooltip when mouse click on a LINK point.
+#' @param LINKMouseClickDisplay Default False, show/not the tooltip when mouse click on a LINK point
 #' @param LINKMouseClickOpacity Opacity when mouse clicking
 #' @param LINKMouseClickStrokeColor Stroke color when mouse clicking
 #' @param LINKMouseClickStrokeWidth Stroke width when mouse clicking
-#' @param LINKMouseUpDisplay Default False, show/not the tooltip when mouse click up a LINK point.
+#' @param LINKMouseUpDisplay Default False, show/not the tooltip when mouse click up a LINK point
 #' @param LINKMouseUpOpacity Opacity when mouse moving up the element
 #' @param LINKMouseUpStrokeColor Stroke color when mouse moving up the element
 #' @param LINKMouseUpStrokeWidth Stroke width when mouse moving up the element
-#' @param LINKMouseDownDisplay Default False, show/not the tooltip when mouse click down a LINK point.
+#' @param LINKMouseDownDisplay Default False, show/not the tooltip when mouse click down a LINK point
 #' @param LINKMouseDownOpacity Opacity when mouse moving down the element
 #' @param LINKMouseDownStrokeColor Stroke color when mouse moving down the element
 #' @param LINKMouseDownStrokeWidth Stroke width when mouse moving down the element
-#' @param LINKMouseEnterDisplay Default False, show/not the tooltip when mouse mover over a LINK point.
+#' @param LINKMouseEnterDisplay Default False, show/not the tooltip when mouse mover over a LINK point
 #' @param LINKMouseEnterOpacity Opacity when mouse entering the element
 #' @param LINKMouseEnterStrokeColor Stroke color when mouse entering the element
 #' @param LINKMouseEnterStrokeWidth Stroke width when mouse entering the element
-#' @param LINKMouseLeaveDisplay Default False, show/not the tooltip when mouse mover leave a LINK point.
+#' @param LINKMouseLeaveDisplay Default False, show/not the tooltip when mouse mover leave a LINK point
 #' @param LINKMouseLeaveOpacity Opacity when mouse leaving the element
 #' @param LINKMouseLeaveStrokeColor Stroke color when mouse leaving the element
 #' @param LINKMouseLeaveStrokeWidth Stroke width when mouse leaving the element
-#' @param LINKMouseMoveDisplay Default False, show/not the tooltip when mouse move into a LINK point.
+#' @param LINKMouseMoveDisplay Default False, show/not the tooltip when mouse move into a LINK point
 #' @param LINKMouseMoveOpacity Opacity when mouse moving in the element
 #' @param LINKMouseMoveStrokeColor Stroke color when mouse moving in the element
 #' @param LINKMouseMoveStrokeWidth Stroke width when mouse moving in the element
-#' @param LINKMouseOverDisplay Default False, show/not the tooltip when mouse hover on a LINK point.
+#' @param LINKMouseOverDisplay Default False, show/not the tooltip when mouse hover on a LINK point
 #' @param LINKMouseOverOpacity Opacity when mouse moving over the element
 #' @param LINKMouseOverStrokeColor Stroke color when mouse moving over the element
 #' @param LINKMouseOverStrokeWidth Stroke width when mouse moving over the element
@@ -169,82 +168,82 @@
 #' @param LINKMouseOverTooltipsPadding Default "3px"
 #' @param LINKMouseOverTooltipsBorderRadius Default "3px"
 #' @param LINKMouseOverTooltipsOpacity Default 0.8
-#' @param LINKMouseOutDisplay Defalut False, hide/not tooltip when mouse is not hovering a LINK point anymore.
+#' @param LINKMouseOutDisplay Defalut False, hide/not tooltip when mouse is not hovering a LINK point anymore
 #' @param LINKMouseOutAnimationTime Animation time when mouse moving out the element
 #' @param LINKMouseOutOpacity Opacity when mouse moving out the element
 #' @param LINKMouseOutStrokeColor Stroke color when mouse moving out the element
 #' @param LINKMouseOutStrokeWidth Stroke width when mouse moving out the element
 #' @param LINKLabelDragEvent Defalut False, draggable for the label of LINK module
 #'
-#' @param CHORDMouseEvent Default True, open/not open mouse event of CHORD module from NG-Circos.
+#' @param CHORDMouseEvent Default True, open/not open mouse event of CHORD module from NG-Circos
 #' @param CHORDMouseFillColorExcluded A type of color in character, chord in this color will be hided
-#' @param CHORDMouseClickDisplay Default False, show/not the tooltip when mouse click on a CHORD point.
+#' @param CHORDMouseClickDisplay Default False, show/not the tooltip when mouse click on a CHORD point
 #' @param CHORDMouseClickOpacity Opacity when mouse clicking
 #' @param CHORDMouseClickStrokeColor Stroke color when mouse clicking
 #' @param CHORDMouseClickStrokeWidth Stroke width when mouse clicking
-#' @param CHORDMouseDownDisplay Default False, show/not the tooltip when mouse click down a CHORD point.
+#' @param CHORDMouseDownDisplay Default False, show/not the tooltip when mouse click down a CHORD point
 #' @param CHORDMouseDownOpacity Opacity when mouse moving down the element
 #' @param CHORDMouseDownStrokeColor Stroke color when mouse moving down the element
 #' @param CHORDMouseDownStrokeWidth Stroke width when mouse moving down the element
-#' @param CHORDMouseEnterDisplay Default False, show/not the tooltip when mouse mover over a CHORD point.
+#' @param CHORDMouseEnterDisplay Default False, show/not the tooltip when mouse mover over a CHORD point
 #' @param CHORDMouseEnterOpacity Opacity when mouse entering the element
 #' @param CHORDMouseEnterStrokeColor Stroke color when mouse entering the element
 #' @param CHORDMouseEnterStrokeWidth Stroke width when mouse entering the element
-#' @param CHORDMouseLeaveDisplay Default False, show/not the tooltip when mouse mover leave a CHORD point.
+#' @param CHORDMouseLeaveDisplay Default False, show/not the tooltip when mouse mover leave a CHORD point
 #' @param CHORDMouseLeaveOpacity Opacity when mouse leaving the element
 #' @param CHORDMouseLeaveStrokeColor Stroke color when mouse leaving the element
 #' @param CHORDMouseLeaveStrokeWidth Stroke width when mouse leaving the element
-#' @param CHORDMouseMoveDisplay Default False, show/not the tooltip when mouse move into a CHORD point.
+#' @param CHORDMouseMoveDisplay Default False, show/not the tooltip when mouse move into a CHORD point
 #' @param CHORDMouseMoveOpacity Opacity when mouse moving in the element
 #' @param CHORDMouseMoveStrokeColor Stroke color when mouse moving in the element
 #' @param CHORDMouseMoveStrokeWidth Stroke width when mouse moving in the element
-#' @param CHORDMouseOutDisplay Defalut False, hide/not tooltip when mouse is not hovering a CHORD point anymore.
+#' @param CHORDMouseOutDisplay Defalut False, hide/not tooltip when mouse is not hovering a CHORD point anymore
 #' @param CHORDMouseOutAnimationTime Animation time when mouse moving out the element
 #' @param CHORDMouseOutOpacity Opacity when mouse moving out the element
 #' @param CHORDMouseOutStrokeColor Stroke color when mouse moving out the element
 #' @param CHORDMouseOutStrokeWidth Stroke width when mouse moving out the element
-#' @param CHORDMouseUpDisplay Default False, show/not the tooltip when mouse click up a CHORD point.
+#' @param CHORDMouseUpDisplay Default False, show/not the tooltip when mouse click up a CHORD point
 #' @param CHORDMouseUpOpacity Opacity when mouse moving up the element
 #' @param CHORDMouseUpStrokeColor Stroke color when mouse moving up the element
 #' @param CHORDMouseUpStrokeWidth Stroke width when mouse moving up the element
-#' @param CHORDMouseOverDisplay Default False, show/not the tooltip when mouse hover on a CHORD point.
+#' @param CHORDMouseOverDisplay Default False, show/not the tooltip when mouse hover on a CHORD point
 #' @param CHORDMouseOverOpacity Opacity when mouse moving over the element
 #' @param CHORDMouseOverStrokeColor Stroke color when mouse moving over the element
 #' @param CHORDMouseOverStrokeWidth Stroke width when mouse moving over the element
 #'
 #' @param HISTOGRAMxlink Default False, add/not xlink for HISTOGRAM module
 #' @param HISTOGRAMMouseEvent Default True, open/not open mouse event of HISTOGRAM module
-#' @param HISTOGRAMMouseClickDisplay Default False, show/not the tooltip when mouse click on a HISTOGRAM point.
+#' @param HISTOGRAMMouseClickDisplay Default False, show/not the tooltip when mouse click on a HISTOGRAM point
 #' @param HISTOGRAMMouseClickColor Color when mouse clicking
 #' @param HISTOGRAMMouseClickOpacity Opacity when mouse clicking
 #' @param HISTOGRAMMouseClickStrokeColor Stroke color when mouse clicking
 #' @param HISTOGRAMMouseClickStrokeWidth Stroke width when mouse clicking
-#' @param HISTOGRAMMouseUpDisplay Default False, show/not the tooltip when mouse click up a HISTOGRAM point.
+#' @param HISTOGRAMMouseUpDisplay Default False, show/not the tooltip when mouse click up a HISTOGRAM point
 #' @param HISTOGRAMMouseUpColor Color when mouse moving up the element
 #' @param HISTOGRAMMouseUpOpacity Opacity when mouse moving up the element
 #' @param HISTOGRAMMouseUpStrokeColor Stroke color when mouse moving up the element
 #' @param HISTOGRAMMouseUpStrokeWidth Stroke width when mouse moving up the element
-#' @param HISTOGRAMMouseDownDisplay Default False, show/not the tooltip when mouse click down a HISTOGRAM point.
+#' @param HISTOGRAMMouseDownDisplay Default False, show/not the tooltip when mouse click down a HISTOGRAM point
 #' @param HISTOGRAMMouseDownColor Color when mouse moving down the element
 #' @param HISTOGRAMMouseDownOpacity Opacity when mouse moving up the element
 #' @param HISTOGRAMMouseDownStrokeColor Stroke color when mouse moving up the element
 #' @param HISTOGRAMMouseDownStrokeWidth Stroke width when mouse moving up the element
-#' @param HISTOGRAMMouseEnterDisplay Default False, show/not the tooltip when mouse mover over a HISTOGRAM point.
+#' @param HISTOGRAMMouseEnterDisplay Default False, show/not the tooltip when mouse mover over a HISTOGRAM point
 #' @param HISTOGRAMMouseEnterColor Color when mouse entering the element
 #' @param HISTOGRAMMouseEnterOpacity Opacity when mouse entering the element
 #' @param HISTOGRAMMouseEnterStrokeColor Stroke color when mouse entering the element
 #' @param HISTOGRAMMouseEnterStrokeWidth Stroke width when mouse entering the element
-#' @param HISTOGRAMMouseLeaveDisplay Default False, show/not the tooltip when mouse mover leave a HISTOGRAM point.
+#' @param HISTOGRAMMouseLeaveDisplay Default False, show/not the tooltip when mouse mover leave a HISTOGRAM point
 #' @param HISTOGRAMMouseLeaveColor Color when mouse leaving the element
 #' @param HISTOGRAMMouseLeaveOpacity Opacity when mouse leaving the element
 #' @param HISTOGRAMMouseLeaveStrokeColor Stroke color when mouse leaving the element
 #' @param HISTOGRAMMouseLeaveStrokeWidth Stroke width when mouse leaving the element
-#' @param HISTOGRAMMouseMoveDisplay Default False, show/not the tooltip when mouse move into a HISTOGRAM point.
+#' @param HISTOGRAMMouseMoveDisplay Default False, show/not the tooltip when mouse move into a HISTOGRAM point
 #' @param HISTOGRAMMouseMoveColor Color when mouse moving in the element
 #' @param HISTOGRAMMouseMoveOpacity Opacity when mouse moving in the element
 #' @param HISTOGRAMMouseMoveStrokeColor Stroke color when mouse moving in the element
 #' @param HISTOGRAMMouseMoveStrokeWidth Stroke width when mouse moving in the element
-#' @param HISTOGRAMMouseOverDisplay Default False, show/not the tooltip when mouse hover on a HISTOGRAM point.
+#' @param HISTOGRAMMouseOverDisplay Default False, show/not the tooltip when mouse hover on a HISTOGRAM point
 #' @param HISTOGRAMMouseOverColor Color when mouse moving over the element
 #' @param HISTOGRAMMouseOverOpacity Opacity when mouse moving over the element
 #' @param HISTOGRAMMouseOverStrokeColor Stroke color when mouse moving over the element
@@ -258,7 +257,7 @@
 #' @param HISTOGRAMMouseOverTooltipsPadding Default "3px"
 #' @param HISTOGRAMMouseOverTooltipsBorderRadius Default "3px"
 #' @param HISTOGRAMMouseOverTooltipsOpacity Default 0.8
-#' @param HISTOGRAMMouseOutDisplay Defalut False, hide/not tooltip when mouse is not hovering a HISTOGRAM point anymore.
+#' @param HISTOGRAMMouseOutDisplay Defalut False, hide/not tooltip when mouse is not hovering a HISTOGRAM point anymore
 #' @param HISTOGRAMMouseOutAnimationTime Animation time when mouse moving out the element
 #' @param HISTOGRAMMouseOutColor Color when mouse moving out the element
 #' @param HISTOGRAMMouseOutOpacity Opacity when mouse moving out the element
@@ -266,36 +265,36 @@
 #' @param HISTOGRAMMouseOutStrokeWidth Stroke width when mouse moving out the element
 #'
 #' @param LINEMouseEvent Default True, open/not open mouse event of LINE module
-#' @param LINEMouseClickDisplay Default False, show/not the tooltip when mouse click on a LINE point.
+#' @param LINEMouseClickDisplay Default False, show/not the tooltip when mouse click on a LINE point
 #' @param LINEMouseClickLineOpacity Line opacity when mouse clicking the element
 #' @param LINEMouseClickLineStrokeColor Stroke color when mouse clicking the element
 #' @param LINEMouseClickLineStrokeWidth Stroke width when mouse clicking the element
-#' @param LINEMouseDownDisplay Default False, show/not the tooltip when mouse click down a LINE point.
+#' @param LINEMouseDownDisplay Default False, show/not the tooltip when mouse click down a LINE point
 #' @param LINEMouseDownLineOpacity Line opacity when mouse moving down the element
 #' @param LINEMouseDownLineStrokeColor Stroke color when mouse moving down the element
 #' @param LINEMouseDownLineStrokeWidth Stroke width when mouse moving down the element
-#' @param LINEMouseEnterDisplay Default False, show/not the tooltip when mouse mover over a LINE point.
+#' @param LINEMouseEnterDisplay Default False, show/not the tooltip when mouse mover over a LINE point
 #' @param LINEMouseEnterLineOpacity Line opacity when mouse entering the element
 #' @param LINEMouseEnterLineStrokeColor Stroke color when mouse entering the element
 #' @param LINEMouseEnterLineStrokeWidth Stroke width when mouse entering the element
-#' @param LINEMouseLeaveDisplay Default False, show/not the tooltip when mouse mover leave a LINE point.
+#' @param LINEMouseLeaveDisplay Default False, show/not the tooltip when mouse mover leave a LINE point
 #' @param LINEMouseLeaveLineOpacity Line opacity when mouse leaving the element
 #' @param LINEMouseLeaveLineStrokeColor Stroke color when mouse leaving the element
 #' @param LINEMouseLeaveLineStrokeWidth Stroke width when mouse leaving the element
-#' @param LINEMouseMoveDisplay Default False, show/not the tooltip when mouse move into a LINE point.
+#' @param LINEMouseMoveDisplay Default False, show/not the tooltip when mouse move into a LINE point
 #' @param LINEMouseMoveLineOpacity Line opacity when mouse moving in the element
 #' @param LINEMouseMoveLineStrokeColor Stroke color when mouse moving in the element
 #' @param LINEMouseMoveLineStrokeWidth Stroke width when mouse moving in the element
-#' @param LINEMouseOutDisplay Defalut False, hide/not tooltip when mouse is not hovering a LINE point anymore.
+#' @param LINEMouseOutDisplay Defalut False, hide/not tooltip when mouse is not hovering a LINE point anymore
 #' @param LINEMouseOutAnimationTime Animation time when mouse moving out the element
 #' @param LINEMouseOutLineOpacity Line opacity when mouse moving out the element
 #' @param LINEMouseOutLineStrokeColor Stroke color when mouse moving out the element
 #' @param LINEMouseOutLineStrokeWidth Stroke width when mouse moving out the element
-#' @param LINEMouseUpDisplay Default False, show/not the tooltip when mouse click up a LINE point.
+#' @param LINEMouseUpDisplay Default False, show/not the tooltip when mouse click up a LINE point
 #' @param LINEMouseUpLineOpacity Line opacity when mouse moving up the element
 #' @param LINEMouseUpLineStrokeColor Stroke color when mouse moving up the element
 #' @param LINEMouseUpLineStrokeWidth Stroke width when mouse moving up the element
-#' @param LINEMouseOverDisplay Default False, show/not the tooltip when mouse hover on a LINE point.
+#' @param LINEMouseOverDisplay Default False, show/not the tooltip when mouse hover on a LINE point
 #' @param LINEMouseOverLineOpacity  Line opacity when mouse moving over the element
 #' @param LINEMouseOverLineStrokeColor Stroke color when mouse moving over the element
 #' @param LINEMouseOverLineStrokeWidth Stroke width when mouse moving over the element
@@ -310,43 +309,43 @@
 #' @param LINEMouseOverTooltipsOpacity Default 0.8
 #'
 #' @param WIGMouseEvent Default True, open/not open mouse event of WIG module
-#' @param WIGMouseClickDisplay Default False, show/not the tooltip when mouse click on a WIG point.
+#' @param WIGMouseClickDisplay Default False, show/not the tooltip when mouse click on a WIG point
 #' @param WIGMouseClickLineOpacity Line opacity when mouse clicking the element
 #' @param WIGMouseClickLineStrokeColor Stroke color when mouse clicking the element
 #' @param WIGMouseClickLineStrokeWidth Stroke width when mouse clicking the element
 #' @param WIGMouseClickFillColor Filling color when mouse clicking the element
-#' @param WIGMouseDownDisplay Default False, show/not the tooltip when mouse click down a WIG point.
+#' @param WIGMouseDownDisplay Default False, show/not the tooltip when mouse click down a WIG point
 #' @param WIGMouseDownLineOpacity Line opacity when mouse moving down the element
 #' @param WIGMouseDownLineStrokeColor Stroke color when mouse moving down the element
 #' @param WIGMouseDownLineStrokeWidth Stroke width when mouse moving down the element
 #' @param WIGMouseDownFillColor Filling color when mouse moving down the element
-#' @param WIGMouseEnterDisplay Default False, show/not the tooltip when mouse mover over a WIG point.
+#' @param WIGMouseEnterDisplay Default False, show/not the tooltip when mouse mover over a WIG point
 #' @param WIGMouseEnterLineOpacity Line opacity when mouse entering the element
 #' @param WIGMouseEnterLineStrokeColor Stroke color when mouse entering the element
 #' @param WIGMouseEnterLineStrokeWidth Stroke width when mouse entering the element
 #' @param WIGMouseEnterFillColor Filling color when mouse entering the element
-#' @param WIGMouseLeaveDisplay Default False, show/not the tooltip when mouse mover leave a WIG point.
+#' @param WIGMouseLeaveDisplay Default False, show/not the tooltip when mouse mover leave a WIG point
 #' @param WIGMouseLeaveLineOpacity Line opacity when mouse leaving the element
 #' @param WIGMouseLeaveLineStrokeColor Stroke color when mouse leaving the element
 #' @param WIGMouseLeaveLineStrokeWidth Stroke width when mouse leaving the element
 #' @param WIGMouseLeaveFillColor Filling color when mouse leaving the element
-#' @param WIGMouseMoveDisplay Default False, show/not the tooltip when mouse move into a WIG point.
+#' @param WIGMouseMoveDisplay Default False, show/not the tooltip when mouse move into a WIG point
 #' @param WIGMouseMoveLineOpacity Line opacity when mouse moving in the element
 #' @param WIGMouseMoveLineStrokeColor Stroke color when mouse moving in the element
 #' @param WIGMouseMoveLineStrokeWidth Stroke width when mouse moving in the element
 #' @param WIGMouseMoveFillColor Filling color when mouse leaving the element
-#' @param WIGMouseOutDisplay Defalut False, hide/not tooltip when mouse is not hovering a WIG point anymore.
+#' @param WIGMouseOutDisplay Defalut False, hide/not tooltip when mouse is not hovering a WIG point anymore
 #' @param WIGMouseOutAnimationTime Animation time when mouse moving out the element
 #' @param WIGMouseOutLineOpacity Line opacity when mouse moving out the element
 #' @param WIGMouseOutLineStrokeColor Stroke color when mouse moving out the element
 #' @param WIGMouseOutLineStrokeWidth Stroke width when mouse moving out the element
 #' @param WIGMouseOutFillColor Filling color when mouse moving out the element
-#' @param WIGMouseUpDisplay Default False, show/not the tooltip when mouse click up a WIG point.
+#' @param WIGMouseUpDisplay Default False, show/not the tooltip when mouse click up a WIG point
 #' @param WIGMouseUpLineOpacity Line opacity when mouse moving up the element
 #' @param WIGMouseUpLineStrokeColor Stroke color when mouse moving up the element
 #' @param WIGMouseUpLineStrokeWidth Stroke width when mouse moving up the element
 #' @param WIGMouseUpFillColor Filling color when mouse moving up the element
-#' @param WIGMouseOverDisplay Default False, show/not the tooltip when mouse hover on a WIG point.
+#' @param WIGMouseOverDisplay Default False, show/not the tooltip when mouse hover on a WIG point
 #' @param WIGMouseOverLineOpacity Line opacity when mouse moving over the element
 #' @param WIGMouseOverLineStrokeColor Stroke color when mouse moving over the element
 #' @param WIGMouseOverLineStrokeWidth Stroke width when mouse moving over the element
@@ -363,7 +362,7 @@
 #'
 #' @param SCATTERxlink Default False, add/not xlink for SCATTER module
 #' @param SCATTERMouseEvent Default True, open/not open mouse event of SCATTER module
-#' @param SCATTERMouseClickDisplay Default False, show/not the tooltip when mouse click on a SCATTER point.
+#' @param SCATTERMouseClickDisplay Default False, show/not the tooltip when mouse click on a SCATTER point
 #' @param SCATTERMouseClickColor Color when mouse clicking  the element
 #' @param SCATTERMouseClickCircleSize Circle size when mouse clicking the element
 #' @param SCATTERMouseClickCircleOpacity Circle opacity when mouse clicking the element
@@ -375,37 +374,37 @@
 #' @param SCATTERMouseClickTextSize Text size when mouse clicking the element
 #' @param SCATTERMouseClickTextPostionX,SCATTERMouseClickTextPostionY Text coordinates when mouse clicking the element
 #' @param SCATTERMouseClickTextDrag Whether text is draggable when clicing element
-#' @param SCATTERMouseUpDisplay Default False, show/not the tooltip when mouse click up a SCATTER point.
+#' @param SCATTERMouseUpDisplay Default False, show/not the tooltip when mouse click up a SCATTER point
 #' @param SCATTERMouseUpColor Color when mouse moving up the element
 #' @param SCATTERMouseUpCircleSize Circle size when mouse moving up the element
 #' @param SCATTERMouseUpCircleOpacity Circle opacity when mouse moving up the element
 #' @param SCATTERMouseUpCircleStrokeColor Circle stroke color when mouse moving up the element
 #' @param SCATTERMouseUpCircleStrokeWidth Circle stroke width when mouse moving up the element
-#' @param SCATTERMouseDownDisplay Default False, show/not the tooltip when mouse click down a SCATTER point.
+#' @param SCATTERMouseDownDisplay Default False, show/not the tooltip when mouse click down a SCATTER point
 #' @param SCATTERMouseDownColor Color when mouse moving down the element
 #' @param SCATTERMouseDownCircleSize Circle size when mouse moving down the element
 #' @param SCATTERMouseDownCircleOpacity Circle opacity when mouse moving down the element
 #' @param SCATTERMouseDownCircleStrokeColor Circle stroke color when mouse moving down the element
 #' @param SCATTERMouseDownCircleStrokeWidth Circle stroke width when mouse moving down the element
-#' @param SCATTERMouseEnterDisplay Default False, show/not the tooltip when mouse mover over a SCATTER point.
+#' @param SCATTERMouseEnterDisplay Default False, show/not the tooltip when mouse mover over a SCATTER point
 #' @param SCATTERMouseEnterColor Color when mouse entering the element
 #' @param SCATTERMouseEnterCircleSize Circle size when mouse entering the element
 #' @param SCATTERMouseEnterCircleOpacity Circle opacity when mouse entering the element
 #' @param SCATTERMouseEnterCircleStrokeColor Circle stroke color when mouse entering the element
 #' @param SCATTERMouseEnterCircleStrokeWidth Circle stroke width when mouse entering the element
-#' @param SCATTERMouseLeaveDisplay Default False, show/not the tooltip when mouse mover leave a SCATTER point.
+#' @param SCATTERMouseLeaveDisplay Default False, show/not the tooltip when mouse mover leave a SCATTER point
 #' @param SCATTERMouseLeaveColor Color when mouse leaving the element
 #' @param SCATTERMouseLeaveCircleSize Circle size when mouse leaving the element
 #' @param SCATTERMouseLeaveCircleOpacity Circle opacity when mouse leaving the element
 #' @param SCATTERMouseLeaveCircleStrokeColor Circle stroke color when mouse leaving the element
 #' @param SCATTERMouseLeaveCircleStrokeWidth Circle stroke width when mouse leaving the element
-#' @param SCATTERMouseMoveDisplay Default False, show/not the tooltip when mouse move into a SCATTER point.
+#' @param SCATTERMouseMoveDisplay Default False, show/not the tooltip when mouse move into a SCATTER point
 #' @param SCATTERMouseMoveColor Color when mouse moving in the element
 #' @param SCATTERMouseMoveCircleSize Circle size when mouse moving in the element
 #' @param SCATTERMouseMoveCircleOpacity Circle opacity when mouse moving in the element
 #' @param SCATTERMouseMoveCircleStrokeColor Circle stroke color when mouse moving in the element
 #' @param SCATTERMouseMoveCircleStrokeWidth Circle stroke width when mouse moving in the element
-#' @param SCATTERMouseOverDisplay Default False, show/not the tooltip when mouse hover on a SCATTER point.
+#' @param SCATTERMouseOverDisplay Default False, show/not the tooltip when mouse hover on a SCATTER point
 #' @param SCATTERMouseOverColor Color when mouse moving over the element
 #' @param SCATTERMouseOverCircleSize Circle size when mouse moving over the element
 #' @param SCATTERMouseOverCircleOpacity Circle opacity when mouse moving over the element
@@ -420,7 +419,7 @@
 #' @param SCATTERMouseOverTooltipsPadding Default "3px"
 #' @param SCATTERMouseOverTooltipsBorderRadius Default "3px"
 #' @param SCATTERMouseOverTooltipsOpacity Default 0.8
-#' @param SCATTERMouseOutDisplay Defalut False, hide/not tooltip when mouse is not hovering a SCATTER point anymore.
+#' @param SCATTERMouseOutDisplay Defalut False, hide/not tooltip when mouse is not hovering a SCATTER point anymore
 #' @param SCATTERMouseOutAnimationTime Animation time when mouse moving out the element
 #' @param SCATTERMouseOutColor Color when mouse moving out the element
 #' @param SCATTERMouseOutCircleSize Circle size when mouse moving out the element
@@ -430,7 +429,7 @@
 #'
 #' @param ARCxlink Default False, add/not xlink for ARC module
 #' @param ARCMouseEvent Default True, open/not open mouse event of ARC module
-#' @param ARCMouseClickDisplay Default False, show/not the tooltip when mouse click on a ARC point.
+#' @param ARCMouseClickDisplay Default False, show/not the tooltip when mouse click on a ARC point
 #' @param ARCMouseClickColor Color when mouse clicking the element
 #' @param ARCMouseClickArcOpacity Arc opacity when mouse clicking the element
 #' @param ARCMouseClickArcStrokeColor Arc stroke color when mouse clicking the element
@@ -441,32 +440,32 @@
 #' @param ARCMouseClickTextSize Text size when mouse clicking the element
 #' @param ARCMouseClickTextPostionX,ARCMouseClickTextPostionY Text coordinates when mouse clicking the element
 #' @param ARCMouseClickTextDrag Whether text is draggable when mouse clicking the element
-#' @param ARCMouseUpDisplay Default False, show/not the tooltip when mouse click up a ARC point.
+#' @param ARCMouseUpDisplay Default False, show/not the tooltip when mouse click up a ARC point
 #' @param ARCMouseUpColor Color when mouse moving up the element
 #' @param ARCMouseUpArcOpacity Arc opacity when mouse moving up the element
 #' @param ARCMouseUpArcStrokeColor Arc stroke color when mouse moving up the element
 #' @param ARCMouseUpArcStrokeWidth Arc stroke width when mouse moving up the element
-#' @param ARCMouseDownDisplay Default False, show/not the tooltip when mouse click down a ARC point.
+#' @param ARCMouseDownDisplay Default False, show/not the tooltip when mouse click down a ARC point
 #' @param ARCMouseDownColor Color when mouse moving down the element
 #' @param ARCMouseDownArcOpacity Arc opacity when mouse moving down the element
 #' @param ARCMouseDownArcStrokeColor Arc stroke color when mouse moving down the element
 #' @param ARCMouseDownArcStrokeWidth Arc stroke width when mouse moving down the element
-#' @param ARCMouseEnterDisplay Default False, show/not the tooltip when mouse mover over a ARC point.
+#' @param ARCMouseEnterDisplay Default False, show/not the tooltip when mouse mover over a ARC point
 #' @param ARCMouseEnterColor Color when mouse entering the element
 #' @param ARCMouseEnterArcOpacity Arc opacity when mouse entering the element
 #' @param ARCMouseEnterArcStrokeColor Arc stroke color when mouse entering the element
 #' @param ARCMouseEnterArcStrokeWidth Arc stroke width when mouse entering the element
-#' @param ARCMouseLeaveDisplay Default False, show/not the tooltip when mouse mover leave a ARC point.
+#' @param ARCMouseLeaveDisplay Default False, show/not the tooltip when mouse mover leave a ARC point
 #' @param ARCMouseLeaveColor Color when mouse leaving the element
 #' @param ARCMouseLeaveArcOpacity Arc opacity when mouse leaving the element
 #' @param ARCMouseLeaveArcStrokeColor Arc stroke color when mouse leaving the element
 #' @param ARCMouseLeaveArcStrokeWidth Arc stroke width when mouse leaving the element
-#' @param ARCMouseMoveDisplay Default False, show/not the tooltip when mouse move into a ARC point.
+#' @param ARCMouseMoveDisplay Default False, show/not the tooltip when mouse move into a ARC point
 #' @param ARCMouseMoveColor Color when mouse moving in the element
 #' @param ARCMouseMoveArcOpacity Arc opacity when mouse moving in the element
 #' @param ARCMouseMoveArcStrokeColor Arc stroke color when mouse moving in the element
 #' @param ARCMouseMoveArcStrokeWidth Arc stroke width when mouse moving in the element
-#' @param ARCMouseOverDisplay Default False, show/not the tooltip when mouse hover on a ARC point.
+#' @param ARCMouseOverDisplay Default False, show/not the tooltip when mouse hover on a ARC point
 #' @param ARCMouseOverColor Color when mouse moving over the element
 #' @param ARCMouseOverArcOpacity Arc opacity when mouse moving over the element
 #' @param ARCMouseOverArcStrokeColor Arc stroke color when mouse moving over the element
@@ -480,7 +479,7 @@
 #' @param ARCMouseOverTooltipsPadding Default "3px"
 #' @param ARCMouseOverTooltipsBorderRadius Default "3px"
 #' @param ARCMouseOverTooltipsOpacity Default 0.8
-#' @param ARCMouseOutDisplay Defalut False, hide/not tooltip when mouse is not hovering a ARC point anymore.
+#' @param ARCMouseOutDisplay Defalut False, hide/not tooltip when mouse is not hovering a ARC point anymore
 #' @param ARCMouseOutAnimationTime Animation time when mouse moving out the element
 #' @param ARCMouseOutColor Color when mouse moving out the element
 #' @param ARCMouseOutArcOpacity Arc opacity when mouse moving out the element
@@ -489,7 +488,7 @@
 #'
 #' @param GENExlink Default False, add/not xlink for GENE module
 #' @param GENEMouseEvent Default True, open/not open mouse event of GENE module
-#' @param GENEMouseClickDisplay Default False, show/not the tooltip when mouse click on a GENE point.
+#' @param GENEMouseClickDisplay Default False, show/not the tooltip when mouse click on a GENE point
 #' @param GENEMouseClickColor Color when mouse clicking the element
 #' @param GENEMouseClickArcOpacity Arc opacity when mouse clicking the element
 #' @param GENEMouseClickArcStrokeColor Arc stroke color when mouse clicking the element
@@ -500,32 +499,32 @@
 #' @param GENEMouseClickTextSize Text size when mouse clicking the element
 #' @param GENEMouseClickTextPostionX,GENEMouseClickTextPostionY Text coordinates when mouse clicking the element
 #' @param GENEMouseClickTextDrag Whether text is draggable when mouse clicking the element
-#' @param GENEMouseUpDisplay Default False, show/not the tooltip when mouse click up a GENE point.
+#' @param GENEMouseUpDisplay Default False, show/not the tooltip when mouse click up a GENE point
 #' @param GENEMouseUpColor Color when mouse moving up the element
 #' @param GENEMouseUpArcOpacity Arc opacity when mouse moving up the element
 #' @param GENEMouseUpArcStrokeColor Arc stroke color when mouse moving up the element
 #' @param GENEMouseUpArcStrokeWidth Arc stroke width when mouse moving up the element
-#' @param GENEMouseDownDisplay Default False, show/not the tooltip when mouse click down a GENE point.
+#' @param GENEMouseDownDisplay Default False, show/not the tooltip when mouse click down a GENE point
 #' @param GENEMouseDownColor Color when mouse moving down the element
 #' @param GENEMouseDownArcOpacity Arc opacity when mouse moving down the element
 #' @param GENEMouseDownArcStrokeColor Arc stroke color when mouse moving down the element
 #' @param GENEMouseDownArcStrokeWidth Arc stroke width when mouse moving down the element
-#' @param GENEMouseEnterDisplay Default False, show/not the tooltip when mouse mover over a GENE point.
+#' @param GENEMouseEnterDisplay Default False, show/not the tooltip when mouse mover over a GENE point
 #' @param GENEMouseEnterColor Color when mouse entering the element
 #' @param GENEMouseEnterArcOpacity Arc opacity when mouse entering the element
 #' @param GENEMouseEnterArcStrokeColor Arc stroke color when mouse entering the element
 #' @param GENEMouseEnterArcStrokeWidth Arc stroke width when mouse entering the element
-#' @param GENEMouseLeaveDisplay Default False, show/not the tooltip when mouse mover leave a GENE point.
+#' @param GENEMouseLeaveDisplay Default False, show/not the tooltip when mouse mover leave a GENE point
 #' @param GENEMouseLeaveColor Color when mouse leaving the element
 #' @param GENEMouseLeaveArcOpacity Arc opacity when mouse leaving the element
 #' @param GENEMouseLeaveArcStrokeColor Arc stroke color when mouse leaving the element
 #' @param GENEMouseLeaveArcStrokeWidth Arc stroke width when mouse leaving the element
-#' @param GENEMouseMoveDisplay Default False, show/not the tooltip when mouse move into a GENE point.
+#' @param GENEMouseMoveDisplay Default False, show/not the tooltip when mouse move into a GENE point
 #' @param GENEMouseMoveColor Color when mouse moving in the element
 #' @param GENEMouseMoveArcOpacity Arc opacity when mouse moving in the element
 #' @param GENEMouseMoveArcStrokeColor Arc stroke color when mouse moving in the element
 #' @param GENEMouseMoveArcStrokeWidth Arc stroke width when mouse moving in the element
-#' @param GENEMouseOverDisplay Default False, show/not the tooltip when mouse hover on a GENE point.
+#' @param GENEMouseOverDisplay Default False, show/not the tooltip when mouse hover on a GENE point
 #' @param GENEMouseOverColor Color when mouse moving over the element
 #' @param GENEMouseOverArcOpacity Arc opacity when mouse moving over the element
 #' @param GENEMouseOverArcStrokeColor Arc stroke color when mouse moving over the element
@@ -539,7 +538,7 @@
 #' @param GENEMouseOverTooltipsPadding Default "3px"
 #' @param GENEMouseOverTooltipsBorderRadius Default "3px"
 #' @param GENEMouseOverTooltipsOpacity Default 0.8
-#' @param GENEMouseOutDisplay Defalut False, hide/not tooltip when mouse is not hovering a GENE point anymore.
+#' @param GENEMouseOutDisplay Defalut False, hide/not tooltip when mouse is not hovering a GENE point anymore
 #' @param GENEMouseOutAnimationTime Animation time when mouse moving out the element
 #' @param GENEMouseOutColor Color when mouse moving out the element
 #' @param GENEMouseOutArcOpacity Arc opacity when mouse moving out the element
@@ -548,7 +547,7 @@
 #'
 #' @param LOLLIPOPxlink Default False, add/not xlink for LOLLIPOP module
 #' @param LOLLIPOPMouseEvent Default True, open/not open mouse event of LOLLIPOP module
-#' @param LOLLIPOPMouseClickDisplay Default False, show/not the tooltip when mouse click on a LOLLIPOP point.
+#' @param LOLLIPOPMouseClickDisplay Default False, show/not the tooltip when mouse click on a LOLLIPOP point
 #' @param LOLLIPOPMouseClickColor Color when mouse clicking
 #' @param LOLLIPOPMouseClickCircleSize Circle size when mouse clicking the element
 #' @param LOLLIPOPMouseClickCircleOpacity Circle opacity when mouse clicking the element
@@ -560,37 +559,37 @@
 #' @param LOLLIPOPMouseClickTextSize Text size when mouse clicking the element
 #' @param LOLLIPOPMouseClickTextPostionX,LOLLIPOPMouseClickTextPostionY Text coordinates when mouse clicking the element
 #' @param LOLLIPOPMouseClickTextDrag Whether text is draggable when mouse clicking the element
-#' @param LOLLIPOPMouseUpDisplay Default False, show/not the tooltip when mouse click up a LOLLIPOP point.
+#' @param LOLLIPOPMouseUpDisplay Default False, show/not the tooltip when mouse click up a LOLLIPOP point
 #' @param LOLLIPOPMouseUpColor Color when mouse moving up the element
 #' @param LOLLIPOPMouseUpCircleSize Circle size when mouse moving up the element
 #' @param LOLLIPOPMouseUpCircleOpacity Circle opacity when mouse moving up the element
 #' @param LOLLIPOPMouseUpCircleStrokeColor Circle stroke color when mouse moving up the element
 #' @param LOLLIPOPMouseUpCircleStrokeWidth Circle stroke width when mouse moving up the element
-#' @param LOLLIPOPMouseDownDisplay Default False, show/not the tooltip when mouse click down a LOLLIPOP point.
+#' @param LOLLIPOPMouseDownDisplay Default False, show/not the tooltip when mouse click down a LOLLIPOP point
 #' @param LOLLIPOPMouseDownColor Color when mouse moving down the element
 #' @param LOLLIPOPMouseDownCircleSize Circle size when mouse moving down the element
 #' @param LOLLIPOPMouseDownCircleOpacity Circle opacity when mouse moving down the element
 #' @param LOLLIPOPMouseDownCircleStrokeColor Circle stroke color when mouse moving down the element
 #' @param LOLLIPOPMouseDownCircleStrokeWidth Circle stroke width when mouse moving down the element
-#' @param LOLLIPOPMouseEnterDisplay Default False, show/not the tooltip when mouse mover over a LOLLIPOP point.
+#' @param LOLLIPOPMouseEnterDisplay Default False, show/not the tooltip when mouse mover over a LOLLIPOP point
 #' @param LOLLIPOPMouseEnterColor Color when mouse entering the element
 #' @param LOLLIPOPMouseEnterCircleSize Circle size when mouse entering the element
 #' @param LOLLIPOPMouseEnterCircleOpacity Circle opacity when mouse entering the element
 #' @param LOLLIPOPMouseEnterCircleStrokeColor Circle stroke color when mouse entering the element
 #' @param LOLLIPOPMouseEnterCircleStrokeWidth Circle stroke width when mouse entering the element
-#' @param LOLLIPOPMouseLeaveDisplay Default False, show/not the tooltip when mouse mover leave a LOLLIPOP point.
+#' @param LOLLIPOPMouseLeaveDisplay Default False, show/not the tooltip when mouse mover leave a LOLLIPOP point
 #' @param LOLLIPOPMouseLeaveColor Color when mouse leaving the element
 #' @param LOLLIPOPMouseLeaveCircleSize Circle size when mouse leaving the element
 #' @param LOLLIPOPMouseLeaveCircleOpacity Circle opacity when mouse leaving the element
 #' @param LOLLIPOPMouseLeaveCircleStrokeColor Circle stroke color when mouse leaving the element
 #' @param LOLLIPOPMouseLeaveCircleStrokeWidth Circle stroke width when mouse leaving the element
-#' @param LOLLIPOPMouseMoveDisplay Default False, show/not the tooltip when mouse move into a LOLLIPOP point.
+#' @param LOLLIPOPMouseMoveDisplay Default False, show/not the tooltip when mouse move into a LOLLIPOP point
 #' @param LOLLIPOPMouseMoveColor Color when mouse moving in the element
 #' @param LOLLIPOPMouseMoveCircleSize Circle size when mouse moving in the element
 #' @param LOLLIPOPMouseMoveCircleOpacity Circle opacity when mouse moving in the element
 #' @param LOLLIPOPMouseMoveCircleStrokeColor Circle stroke color when mouse moving in the element
 #' @param LOLLIPOPMouseMoveCircleStrokeWidth Circle stroke width when mouse moving in the element
-#' @param LOLLIPOPMouseOverDisplay Default False, show/not the tooltip when mouse hover on a LOLLIPOP point.
+#' @param LOLLIPOPMouseOverDisplay Default False, show/not the tooltip when mouse hover on a LOLLIPOP point
 #' @param LOLLIPOPMouseOverColor Color when mouse moving over the element
 #' @param LOLLIPOPMouseOverCircleSize Circle size when mouse moving over the element
 #' @param LOLLIPOPMouseOverCircleOpacity Circle opacity when mouse moving over the element
@@ -605,7 +604,7 @@
 #' @param LOLLIPOPMouseOverTooltipsPadding Default "3px"
 #' @param LOLLIPOPMouseOverTooltipsBorderRadius Default "3px"
 #' @param LOLLIPOPMouseOverTooltipsOpacity Default 0.8
-#' @param LOLLIPOPMouseOutDisplay Defalut False, hide/not tooltip when mouse is not hovering a LOLLIPOP point anymore.
+#' @param LOLLIPOPMouseOutDisplay Defalut False, hide/not tooltip when mouse is not hovering a LOLLIPOP point anymore
 #' @param LOLLIPOPMouseOutAnimationTime Animation time when mouse moving out the element
 #' @param LOLLIPOPMouseOutColor Color when mouse moving out the element
 #' @param LOLLIPOPMouseOutCircleSize Circle size when mouse moving out the element
@@ -615,7 +614,7 @@
 #'
 #' @param CNVxlink Default False, add/not xlink for CNV module
 #' @param CNVMouseEvent Default True, open/not open mouse event of CNV module
-#' @param CNVMouseClickDisplay Default False, show/not the tooltip when mouse click on a CNV point.
+#' @param CNVMouseClickDisplay Default False, show/not the tooltip when mouse click on a CNV point
 #' @param CNVMouseClickColor Color when mouse clicking
 #' @param CNVMouseClickArcOpacity Arc opacity when mouse clicking the element
 #' @param CNVMouseClickArcStrokeColor Arc stroke color when mouse clicking the element
@@ -626,32 +625,32 @@
 #' @param CNVMouseClickTextSize Text size when mouse clicking the element
 #' @param CNVMouseClickTextPostionX,CNVMouseClickTextPostionY Text coordinates when mouse clicking the element
 #' @param CNVMouseClickTextDrag Whether text is draggable when mouse clicking the element
-#' @param CNVMouseUpDisplay Default False, show/not the tooltip when mouse click up a CNV point.
+#' @param CNVMouseUpDisplay Default False, show/not the tooltip when mouse click up a CNV point
 #' @param CNVMouseUpColor Color when mouse moving up the element
 #' @param CNVMouseUpArcOpacity Arc opacity when mouse clicking the element
 #' @param CNVMouseUpArcStrokeColor Arc stroke color when mouse clicking the element
 #' @param CNVMouseUpArcStrokeWidth Arc stroke width when mouse clicking the element
-#' @param CNVMouseDownDisplay Default False, show/not the tooltip when mouse click down a CNV point.
+#' @param CNVMouseDownDisplay Default False, show/not the tooltip when mouse click down a CNV point
 #' @param CNVMouseDownColor Color when mouse moving down the element
 #' @param CNVMouseDownArcOpacity Arc opacity when mouse moving down the element
 #' @param CNVMouseDownArcStrokeColor Arc stroke color when mouse moving down the element
 #' @param CNVMouseDownArcStrokeWidth Arc stroke width when mouse moving down the element
-#' @param CNVMouseEnterDisplay Default False, show/not the tooltip when mouse mover over a CNV point.
+#' @param CNVMouseEnterDisplay Default False, show/not the tooltip when mouse mover over a CNV point
 #' @param CNVMouseEnterColor Color when mouse entering the element
 #' @param CNVMouseEnterArcOpacity Arc opacity when mouse entering the element
 #' @param CNVMouseEnterArcStrokeColor Arc stroke color when mouse entering the element
 #' @param CNVMouseEnterArcStrokeWidth Arc stroke width when mouse entering the element
-#' @param CNVMouseLeaveDisplay Default False, show/not the tooltip when mouse mover leave a CNV point.
+#' @param CNVMouseLeaveDisplay Default False, show/not the tooltip when mouse mover leave a CNV point
 #' @param CNVMouseLeaveColor Color when mouse leaving the element
 #' @param CNVMouseLeaveArcOpacity Arc opacity when mouse leaving the element
 #' @param CNVMouseLeaveArcStrokeColor Arc stroke color when mouse leaving the element
 #' @param CNVMouseLeaveArcStrokeWidth Arc stroke width when mouse leaving the element
-#' @param CNVMouseMoveDisplay Default False, show/not the tooltip when mouse move into a CNV point.
+#' @param CNVMouseMoveDisplay Default False, show/not the tooltip when mouse move into a CNV point
 #' @param CNVMouseMoveColor Color when mouse moving in the element
 #' @param CNVMouseMoveArcOpacity Arc opacity when mouse moving in the element
 #' @param CNVMouseMoveArcStrokeColor Arc stroke color when mouse moving in the element
 #' @param CNVMouseMoveArcStrokeWidth Arc stroke width when mouse moving in the element
-#' @param CNVMouseOverDisplay Default False, show/not the tooltip when mouse hover on a CNV point.
+#' @param CNVMouseOverDisplay Default False, show/not the tooltip when mouse hover on a CNV point
 #' @param CNVMouseOverColor Color when mouse moving over the element
 #' @param CNVMouseOverArcOpacity Arc opacity when mouse moving over the element
 #' @param CNVMouseOverArcStrokeColor Arc stroke color when mouse moving over the element
@@ -665,7 +664,7 @@
 #' @param CNVMouseOverTooltipsPadding Default "3px"
 #' @param CNVMouseOverTooltipsBorderRadius Default "3px"
 #' @param CNVMouseOverTooltipsOpacity Default 0.8
-#' @param CNVMouseOutDisplay Defalut False, hide/not tooltip when mouse is not hovering a CNV point anymore.
+#' @param CNVMouseOutDisplay Defalut False, hide/not tooltip when mouse is not hovering a CNV point anymore
 #' @param CNVMouseOutAnimationTime Animation time when mouse moving out the element
 #' @param CNVMouseOutColor Color when mouse moving out the element
 #' @param CNVMouseOutArcOpacity Arc opacity when mouse moving out the element
@@ -673,37 +672,37 @@
 #' @param CNVMouseOutArcStrokeWidth Arc stroke width when mouse moving out the element
 #'
 #' @param HEATMAPMouseEvent Default True, open/not open mouse event of HEATMAP module
-#' @param HEATMAPMouseClickDisplay Default False, show/not the tooltip when mouse click on a HEATMAP point.
+#' @param HEATMAPMouseClickDisplay Default False, show/not the tooltip when mouse click on a HEATMAP point
 #' @param HEATMAPMouseClickColor Color when mouse clicking
 #' @param HEATMAPMouseClickOpacity Opacity when mouse clicking
 #' @param HEATMAPMouseClickStrokeColor Stroke color when mouse clicking
 #' @param HEATMAPMouseClickStrokeWidth Stroke width when mouse clicking
-#' @param HEATMAPMouseUpDisplay Default False, show/not the tooltip when mouse click up a HEATMAP point.
+#' @param HEATMAPMouseUpDisplay Default False, show/not the tooltip when mouse click up a HEATMAP point
 #' @param HEATMAPMouseUpColor Color when mouse moving up the element
 #' @param HEATMAPMouseUpOpacity Opacity when mouse moving up the element
 #' @param HEATMAPMouseUpStrokeColor Stroke color when mouse moving up the element
 #' @param HEATMAPMouseUpStrokeWidth Stroke width when mouse moving up the element
-#' @param HEATMAPMouseDownDisplay Default False, show/not the tooltip when mouse click down a HEATMAP point.
+#' @param HEATMAPMouseDownDisplay Default False, show/not the tooltip when mouse click down a HEATMAP point
 #' @param HEATMAPMouseDownColor Color when mouse moving down the element
 #' @param HEATMAPMouseDownOpacity Opacity when mouse moving down the element
 #' @param HEATMAPMouseDownStrokeColor Stroke color when mouse moving down the element
 #' @param HEATMAPMouseDownStrokeWidth Stroke width when mouse moving down the element
-#' @param HEATMAPMouseEnterDisplay Default False, show/not the tooltip when mouse mover over a HEATMAP point.
+#' @param HEATMAPMouseEnterDisplay Default False, show/not the tooltip when mouse mover over a HEATMAP point
 #' @param HEATMAPMouseEnterColor Color when mouse entering the element
 #' @param HEATMAPMouseEnterOpacity Opacity when mouse entering the element
 #' @param HEATMAPMouseEnterStrokeColor Stroke color when mouse entering the element
 #' @param HEATMAPMouseEnterStrokeWidth Stroke width when mouse entering the element
-#' @param HEATMAPMouseLeaveDisplay Default False, show/not the tooltip when mouse mover leave a HEATMAP point.
+#' @param HEATMAPMouseLeaveDisplay Default False, show/not the tooltip when mouse mover leave a HEATMAP point
 #' @param HEATMAPMouseLeaveColor Color when mouse leaving the element
 #' @param HEATMAPMouseLeaveOpacity Opacity when mouse leaving the element
 #' @param HEATMAPMouseLeaveStrokeColor Stroke color when mouse leaving the element
 #' @param HEATMAPMouseLeaveStrokeWidth Stroke width when mouse leaving the element
-#' @param HEATMAPMouseMoveDisplay Default False, show/not the tooltip when mouse move into a HEATMAP point.
+#' @param HEATMAPMouseMoveDisplay Default False, show/not the tooltip when mouse move into a HEATMAP point
 #' @param HEATMAPMouseMoveColor Color when mouse moving in the element
 #' @param HEATMAPMouseMoveOpacity Opacity when mouse moving in the element
 #' @param HEATMAPMouseMoveStrokeColor Stroke color when mouse moving in the element
 #' @param HEATMAPMouseMoveStrokeWidth Stroke width when mouse moving in the element
-#' @param HEATMAPMouseOverDisplay Default False, show/not the tooltip when mouse hover on a HEATMAP point.
+#' @param HEATMAPMouseOverDisplay Default False, show/not the tooltip when mouse hover on a HEATMAP point
 #' @param HEATMAPMouseOverColor Color when mouse moving over the element
 #' @param HEATMAPMouseOverOpacity Opacity when mouse moving over the element
 #' @param HEATMAPMouseOverStrokeColor Stroke color when mouse moving over the element
@@ -717,7 +716,7 @@
 #' @param HEATMAPMouseOverTooltipsPadding Default "3px"
 #' @param HEATMAPMouseOverTooltipsBorderRadius Default "3px"
 #' @param HEATMAPMouseOverTooltipsOpacity Default 0.8
-#' @param HEATMAPMouseOutDisplay Defalut False, hide/not tooltip when mouse is not hovering a HEATMAP point anymore.
+#' @param HEATMAPMouseOutDisplay Defalut False, hide/not tooltip when mouse is not hovering a HEATMAP point anymore
 #' @param HEATMAPMouseOutAnimationTime Animation time when mouse moving out the element
 #' @param HEATMAPMouseOutColor Color when mouse moving out the element
 #' @param HEATMAPMouseOutOpacity Opacity when mouse moving out the element
@@ -726,37 +725,37 @@
 #'
 #' @param BUBBLExlink Default False, add/not xlink for BUBBLE module
 #' @param BUBBLEMouseEvent Default True, open/not open mouse event of BUBBLE module
-#' @param BUBBLEMouseClickDisplay Default False, show/not the tooltip when mouse click on a BUBBLE point.
+#' @param BUBBLEMouseClickDisplay Default False, show/not the tooltip when mouse click on a BUBBLE point
 #' @param BUBBLEMouseClickColor Color when mouse clicking
 #' @param BUBBLEMouseClickOpacity Opacity when mouse clicking
 #' @param BUBBLEMouseClickStrokeColor Stroke color when mouse clicking
 #' @param BUBBLEMouseClickStrokeWidth Stroke width when mouse clicking
-#' @param BUBBLEMouseUpDisplay Default False, show/not the tooltip when mouse click up a BUBBLE point.
+#' @param BUBBLEMouseUpDisplay Default False, show/not the tooltip when mouse click up a BUBBLE point
 #' @param BUBBLEMouseUpColor Color when mouse moving up the element
 #' @param BUBBLEMouseUpOpacity Opacity when mouse moving up the element
 #' @param BUBBLEMouseUpStrokeColor Stroke color when mouse moving up the element
 #' @param BUBBLEMouseUpStrokeWidth Stroke width when mouse moving up the element
-#' @param BUBBLEMouseDownDisplay Default False, show/not the tooltip when mouse click down a BUBBLE point.
+#' @param BUBBLEMouseDownDisplay Default False, show/not the tooltip when mouse click down a BUBBLE point
 #' @param BUBBLEMouseDownColor Color when mouse moving down the element
 #' @param BUBBLEMouseDownOpacity Opacity when mouse moving down the element
 #' @param BUBBLEMouseDownStrokeColor Stroke color when mouse moving down the element
 #' @param BUBBLEMouseDownStrokeWidth Stroke width when mouse moving down the element
-#' @param BUBBLEMouseEnterDisplay Default False, show/not the tooltip when mouse mover over a BUBBLE point.
+#' @param BUBBLEMouseEnterDisplay Default False, show/not the tooltip when mouse mover over a BUBBLE point
 #' @param BUBBLEMouseEnterColor Color when mouse entering the element
 #' @param BUBBLEMouseEnterOpacity Opacity when mouse entering the element
 #' @param BUBBLEMouseEnterStrokeColor Stroke color when mouse entering the element
 #' @param BUBBLEMouseEnterStrokeWidth Stroke width when mouse entering the element
-#' @param BUBBLEMouseLeaveDisplay Default False, show/not the tooltip when mouse mover leave a BUBBLE point.
+#' @param BUBBLEMouseLeaveDisplay Default False, show/not the tooltip when mouse mover leave a BUBBLE point
 #' @param BUBBLEMouseLeaveColor Color when mouse leaving the element
 #' @param BUBBLEMouseLeaveOpacity Opacity when mouse leaving the element
 #' @param BUBBLEMouseLeaveStrokeColor Stroke color when mouse leaving the element
 #' @param BUBBLEMouseLeaveStrokeWidth Stroke width when mouse leaving the element
-#' @param BUBBLEMouseMoveDisplay Default False, show/not the tooltip when mouse move into a BUBBLE point.
+#' @param BUBBLEMouseMoveDisplay Default False, show/not the tooltip when mouse move into a BUBBLE point
 #' @param BUBBLEMouseMoveColor Color when mouse moving in the element
 #' @param BUBBLEMouseMoveOpacity Opacity when mouse moving in the element
 #' @param BUBBLEMouseMoveStrokeColor Stroke color when mouse moving in the element
 #' @param BUBBLEMouseMoveStrokeWidth Stroke width when mouse moving in the element
-#' @param BUBBLEMouseOverDisplay Default False, show/not the tooltip when mouse hover on a BUBBLE point.
+#' @param BUBBLEMouseOverDisplay Default False, show/not the tooltip when mouse hover on a BUBBLE point
 #' @param BUBBLEMouseOverColor Color when mouse moving over the element
 #' @param BUBBLEMouseOverOpacity Opacity when mouse moving over the element
 #' @param BUBBLEMouseOverStrokeColor Stroke color when mouse moving over the element
@@ -770,18 +769,18 @@
 #' @param BUBBLEMouseOverTooltipsPadding Default "3px"
 #' @param BUBBLEMouseOverTooltipsBorderRadius Default "3px"
 #' @param BUBBLEMouseOverTooltipsOpacity Default 0.8
-#' @param BUBBLEMouseOutDisplay Defalut False, hide/not tooltip when mouse is not hovering a BUBBLE point anymore.
+#' @param BUBBLEMouseOutDisplay Defalut False, hide/not tooltip when mouse is not hovering a BUBBLE point anymore
 #' @param BUBBLEMouseOutAnimationTime Animation time when mouse moving out the element
 #' @param BUBBLEMouseOutColor Color when mouse moving out the element
 #' @param BUBBLEMouseOutOpacity Opacity when mouse moving out the element
 #' @param BUBBLEMouseOutStrokeColor Stroke color when mouse moving out the element
 #' @param BUBBLEMouseOutStrokeWidth Stroke width when mouse moving out the element
 #'
-#' @param elementId the name of the HTML id to be used to contain the visualization.
+#' @param elementId the name of the HTML id to be used to contain the visualization
 #'
 #' @param ... Ignored
 #'
-#' @return The main figure for interacCircos with all tracks.
+#' @return The main figure for interacCircos with all tracks
 #'
 #' @examples
 #' Circos(genome = "hg19")
@@ -1135,7 +1134,7 @@ Circos <- function(moduleList = CircosModuleList(),
                      LOLLIPOPMouseOverTooltipsBorderRadius = "3px", LOLLIPOPMouseOverTooltipsOpacity = 1,
                       elementId = NULL, ...) {
 
-  # If genome is a string, convert to corresponding chromosome lengths
+# check whether the genome is set by default
   if(is(genome)[1] == "character"){
     if(genome == "hg19"){
       genome = list("1" = 249250621,
@@ -1164,7 +1163,7 @@ Circos <- function(moduleList = CircosModuleList(),
                     "Y" = 59373566)
     }
     else{
-      stop("\'genome\' parameter should be either a list of chromosome lengths or \'hg19\'.")
+      stop("\'genome\' should be \'hg19\' or a list of chromosome lengths.")
     }
   }
 
@@ -1196,18 +1195,15 @@ Circos <- function(moduleList = CircosModuleList(),
                     "Y" = 59373566)
     }
     else{
-      stop("\'genome\' parameter should be either a list of chromosome lengths or \'hg19\'.")
+      stop("\'genome\' should be \'hg19\' or a list of chromosome lengths.")
     }
   }
-
-  # If genomeFillColor is a palette, create corresponding color vector
-  genomeFillColor = .CircosColorCheck(genomeFillColor, length(genome), "genomeFillColor")
+  genomeFillColor = .colorPalette(genomeFillColor, length(genome), "genomeFillColor")
   
   # Extract module of circosJS
   moduleList_circosJS<-moduleList[which(grepl("CHORD.p",moduleList))]
   moduleList_NGCircos<-moduleList[which(!grepl("CHORD.p",moduleList))]
   
-  # forward options using x
   x = list(
     message = message,
     moduleList_NGCircos = moduleList_NGCircos,
@@ -2005,49 +2001,19 @@ Circos <- function(moduleList = CircosModuleList(),
   )
 }
 
-#' Shiny bindings for interacCircos
+#' BACKGROUND module 
 #'
-#' Output and render functions for using interacCircos within Shiny
-#' applications and interactive Rmd documents.
+#' Background for better display of other modules
 #'
-#' @param outputId output variable to read from
-#' @param width,height Must be a valid CSS unit (like \code{'100\%'},
-#'   \code{'400px'}, \code{'auto'}) or a number, which will be coerced to a
-#'   string and have \code{'px'} appended.
-#' @param expr An expression that generates a interacCircos
-#' @param env The environment in which to evaluate \code{expr}.
-#' @param quoted Is \code{expr} a quoted expression (with \code{quote()})? This
-#'   is useful if you want to save an expression in a variable.
-#'
-#' @return The output and render functions for shiny
-#'
-#' @name Circos-shiny
-#'
-#' @export
-CircosOutput <- function(outputId, width = '100%', height = '100%'){
-  htmlwidgets::shinyWidgetOutput(outputId, 'interacCircos', width, height, package = 'interacCircos')
-}
-
-#' @rdname Circos-shiny
-#' @export
-renderCircos <- function(expr, env = parent.frame(), quoted = FALSE) {
-  if (!quoted) { expr <- substitute(expr) } # force quoted
-  htmlwidgets::shinyRenderWidget(expr, CircosOutput, env, quoted = TRUE)
-}
-
-#' Create a BACKGROUND module to be added to a moduleList
-#'
-#' Simple background to display behind another module
-#'
-#' @param modulename The name of the new module.
+#' @param modulename The name of the new module
 #' @param compareGroup The group number of this module in compare module
-#' @param fillColors The color of the background element, in hexadecimal RGB format.
-#' @param borderColors The color of the background borders, in hexadecimal RGB format.
+#' @param fillColors The filling color of the module
+#' @param borderColors The border color of the module
 #' @param axisShow Whether show a axis or not
 #' @param axisWidth,axisColor,axisOpacity,axisNum The color, opacity value and number of line for axis
-#' @param minRadius,maxRadius Where the module should begin and end
-#' @param borderSize The thickness of the background borders.
-#' @param animationDisplay Whether display a animation or not
+#' @param minRadius,maxRadius The outer and inner ring range of module
+#' @param borderSize The thickness of the border
+#' @param animationDisplay Whether display animation or not
 #' @param animationTime,animationDelay,animationType The time, delay and display type for animation
 #'
 #' @param ... Ignored
@@ -2073,21 +2039,21 @@ CircosBackground <- function(modulename,compareGroup = 1, fillColors = "#EEEEFF"
   return(module)
 }
 
-#' @title Create Text module to be added to a moduleList
+#' @title Text module
 #'
-#' @description Simple text annotation displayed in the visualization
+#' @description Text for better explaination of other modules
 #'
-#' @param modulename The name of the new module.
+#' @param modulename The name of the new module
 #'
-#' @param text The text to be displayed.
+#' @param text The details of text
 #'
-#' @param x,y Coordinates of the lower left corner of the annotation
-#' @param size Font size, with units specified (such as em or px).
-#' @param color Font color, in hexadecimal RGB format.
-#' @param weight Font weight. Can be "normal", "bold", "bolder" or "lighter".
-#' @param opacity Font opacity.
+#' @param x,y The coordinates of the text
+#' @param size Font size
+#' @param color Font color
+#' @param weight Font weight. Should be either "normal", "bold", "bolder" or "lighter"
+#' @param opacity Font opacity
 #' @param rotateRate ratate rate for text
-#' @param animationDisplay Whether display a animation or not
+#' @param animationDisplay Whether display animation or not
 #' @param animationInitialSize Initial text size in animation
 #' @param animationInitialWeight Initial text weight in animation
 #' @param animationInitialColor Initial text color in animation
@@ -2123,20 +2089,20 @@ CircosText <- function(modulename, text,
   return(module)
 }
 
-#' @title Create a LEGEND module to a moduleList
+#' @title LEGEND module
 #'
-#' @description Simple legend annotation displayed in the visualization.
+#' @description Simple legend annotation displayed in the visualization
 #'
-#' @param modulename The name of the new module.
+#' @param modulename The name of the new module
 #'
-#' @param x,y Coordinates of the lower left corner of the annotation
+#' @param x,y The coordinates if legend
 #' @param title The title for legend
-#' @param size Font size for title, with units specified (such as em or px).
-#' @param weight Font weight for title. Can be "normal", "bold", "bolder" or "lighter".
-#' @param GapBetweenGraphicText Gap between icon and text in legend.
+#' @param size Font size for title
+#' @param weight Font weight for title. Should be either "normal", "bold", "bolder" or "lighter"
+#' @param GapBetweenGraphicText Gap between icon and text in legend
 #' @param GapBetweenLines Gap between each two lines in legend
 #' @param data A list of legend with details including type, color, opacity, circleSize, rectSize, lineWidth,
-#'             lineHeight, text, textSize and textWeight. Details can be found on document.
+#'             lineHeight, text, textSize and textWeight. Details can be found on document
 #'
 #' @param ... Ignored
 #'
@@ -2160,14 +2126,14 @@ CircosLegend <- function(modulename, x = 20, y = 20, title = "legend", size = 6,
   return(module)
 }
 
-#' Create a AUXILIARYLINE module to a moduleList
+#' AUXILIARYLINE module
 #'
-#' A auxiliary line displayed in the visualization
+#' A auxiliary line for better explaination of the visualization
 #'
-#' @param modulename The name of the new module.
+#' @param modulename The name of the new module
 #'
-#' @param startX,startY Start coordinates for auxiliary line.
-#' @param endX,endY End coordinates for auxiliary line.
+#' @param startX,startY Start coordinates for auxiliary line
+#' @param endX,endY End coordinates for auxiliary line
 #' @param color Color for auxiliary line
 #' @param width Width for auxiliary line
 #' @param type Type for auxiliary line, could be straight/curve/broken
@@ -2183,7 +2149,7 @@ CircosLegend <- function(modulename, x = 20, y = 20, title = "legend", size = 6,
 #'
 #' @param ... Ignored
 #'
-#' @return The module tracks for auxliary line modules.
+#' @return The module tracks for auxliary line modules
 #'
 #' @examples
 #' Circos(CircosAuxLine('AuxLine01'))
@@ -2207,28 +2173,28 @@ CircosAuxLine <- function(modulename, startX = 20, startY = 20, endX = 120, endY
   return(module)
 }
 
-#' @title Create a CNV module to a moduleList
+#' @title CNV module
 #'
-#' @description A copy number variance module displayed in the visualization
+#' @description Create a copy number variance module
 #'
-#' @param modulename The name of the new module.
+#' @param modulename The name of the new module
 #'
 #' @param compareGroup The group number of this module in compare module
-#' @param maxRadius,minRadius Where the module should begin and end.
+#' @param maxRadius,minRadius The outer and inner ring range of module
 #' @param width Width for CNV module
 #' @param color Color for CNV module
-#' @param ValueAxisManualScale Whether manually control the scale of value
+#' @param ValueAxisManualScale Whether manually control the scale of value or not
 #' @param ValueAxisMaxScale,ValueAxisMinScale The max and min scale value for manually control
 #' @param strokeColor,strokeWidth The color and width for stroke
 #' @param opacity The opacity for module
-#' @param animationDisplay Whether display animation
-#' @param animationTime,animationDelay,animationType The time, delay and display type for animation
+#' @param animationDisplay Whether display animationn
+#' @param animationTime,animationDelay,animationType The time, delay and display type for animationn
 #' @param data A list of CNV with details including start, end, value, link, color and html.
-#'             Details can be found on document.
+#'             Details can be found on document
 #'
 #' @param ... Ignored
 #'
-#' @return The module tracks for cnv modules.
+#' @return The module tracks for cnv modules
 #'
 #' @examples
 #' cnvData<-cnvExample
@@ -2267,16 +2233,16 @@ CircosCnv <- function(modulename, compareGroup = 1, maxRadius = 200, minRadius =
 #' }
 "cnvExample"
 
-#' @title Create a HEATMAP module to a moduleList
+#' @title HEATMAP module
 #'
-#' @description A heatmap plot displayed in the visualization
+#' @description Create a heatmap plot
 #'
-#' @param modulename The name of the new module.
+#' @param modulename The name of the new module
 #'
 #' @param compareGroup The group number of this module in compare module
-#' @param maxRadius,minRadius Where the module should begin and end.
-#' @param minColor The color for heatmap with min value
-#' @param maxColor The color for heatmap with max value
+#' @param maxRadius,minRadius Where the module should begin and end
+#' @param minColor The color for heatmap of min value
+#' @param maxColor The color for heatmap of max value
 #' @param ValueAxisManualScale Whether manually control the scale of value
 #' @param ValueAxisMaxScale,ValueAxisMinScale The max and min scale value for manually control
 #' @param totalLayer The color and width for stroke
@@ -2285,7 +2251,7 @@ CircosCnv <- function(modulename, compareGroup = 1, maxRadius = 200, minRadius =
 #' @param animationColorDirection The color changing in animation. L2C: lowest to customized, H2C: highest to customized, the customized color should be defined in data
 #' @param animationTime,animationDelay,animationType The time, delay and display type for animation
 #' @param data A list of value in heatmap plot with details including chr, start, end, value, name, layer and html.
-#'             Details can be found on document.
+#'             Details can be found on document
 #'
 #' @param ... Ignored
 #'
@@ -2330,14 +2296,14 @@ CircosHeatmap <- function(modulename, compareGroup = 1, maxRadius = 180, minRadi
 #' }
 "heatmapExample"
 
-#' @title Create a BUBBLE module to a moduleList
+#' @title BUBBLE module
 #'
-#' @description A bubble plot displayed in the visualization
+#' @description Create a bubble plot
 #'
-#' @param modulename The name of the new module.
+#' @param modulename The name of the new module
 #'
 #' @param compareGroup The group number of this module in compare module
-#' @param maxRadius,minRadius Where the module should begin and end.
+#' @param maxRadius,minRadius The outer and inner ring range of module
 #' @param blockStroke Whether display the stroke between each bubble block
 #' @param blockStrokeColor Stroke color for block
 #' @param blockStrokeWidth Stroke width for block
@@ -2345,19 +2311,19 @@ CircosHeatmap <- function(modulename, compareGroup = 1, maxRadius = 180, minRadi
 #' @param blockFillColor The color for filling the block
 #' @param bubbleMaxSize The max size for bubble
 #' @param bubbleMinSize The min size for bubble
-#' @param maxColor The color the bubble with max value
-#' @param minColor The color the bubble with min value
+#' @param maxColor The color the bubble of max value
+#' @param minColor The color the bubble of min value
 #' @param ValueAxisManualScale Whether manually control the scale of value
 #' @param ValueAxisMaxScale,ValueAxisMinScale The max and min scale value for manually control
 #' @param totalLayer The color and width for stroke
 #' @param animationDisplay Whether display animation
 #' @param animationTime,animationDelay,animationType The time, delay and display type for animation
 #' @param data A list of value in bubble plot with details including chr, start, end, value, name, layer, color and html.
-#'             Details can be found on document.
+#'             Details can be found on document
 #'
 #' @param ... Ignored
 #'
-#' @return The module tracks for bubble modules.
+#' @return The module tracks for bubble modules
 #'
 #' @examples
 #' bubbleData<-bubbleExample
@@ -2404,14 +2370,14 @@ CircosBubble <- function(modulename, compareGroup = 1, maxRadius = 200, minRadiu
 "bubbleExample"
 
 
-#' @title Create a GENE module to a moduleList
+#' @title GENE module
 #'
-#' @description A number of genes with different functional region displayed in the visualization
+#' @description Create a number of genes with different functional region
 #'
-#' @param modulename The name of the new module.
+#' @param modulename The name of the new module
 #'
 #' @param compareGroup The group number of this module in compare module
-#' @param outerRadius,innerRadius Where the module should begin and end.
+#' @param outerRadius,innerRadius Where the module should begin and end
 #' @param pathColor The color for path between gene elements
 #' @param pathWidth The width for path between gene elements
 #' @param arrow Whether display arrows on path
@@ -2421,11 +2387,11 @@ CircosBubble <- function(modulename, compareGroup = 1, maxRadius = 200, minRadiu
 #' @param animationDisplay Whether display animation
 #' @param animationTime,animationDelay,animationType The time, delay and display type for animation
 #' @param data A list of gene with details including chr, strand, start, end, type, name, link and html.
-#'             Details can be found on document.
+#'             Details can be found on document
 #'
 #' @param ... Ignored
 #'
-#' @return The module tracks for gene modules.
+#' @return The module tracks for gene modules
 #' 
 #' @examples
 #' geneData<-geneExample
@@ -2470,11 +2436,11 @@ CircosGene <- function(modulename, compareGroup = 1, outerRadius = 180, innerRad
 "geneExample"
 
 
-#' @title Create a module with SNPs to be added to a moduleList
+#' @title  SNP module
 #'
-#' @description SNPs are defined by genomic coordinates and associated with a numerical value
+#' @description Create SNPs are defined by genomic coordinates and associated with a numerical value
 #'
-#' @param modulename The name of the new module.
+#' @param modulename The name of the new module
 #'
 #' @param compareGroup The group number of this module in compare module
 #' @param maxRadius,minRadius Where the module should begin and end
@@ -2491,11 +2457,11 @@ CircosGene <- function(modulename, compareGroup = 1, outerRadius = 180, innerRad
 #' @param animationInitialPositionX,animationInitialPositionY The initial position coordinates for animation
 #' @param animationTime,animationDelay,animationType The time, delay and display type for animation
 #' @param data A list of SNP value with details including chr, pos, value, des, color, r2value, link, index, image and html.
-#'             Details can be found on document.
+#'             Details can be found on document
 #'
 #' @param ... Ignored
 #'
-#' @return The module tracks for snp modules.
+#' @return The module tracks for snp modules
 #'
 #' @examples
 #' snpData<-snpExample
@@ -2547,16 +2513,16 @@ CircosSnp <- function(modulename, compareGroup = 1, minRadius = 153, maxRadius =
 
 
 
-#' @title Create a LINK module to a moduleList
+#' @title LINK module
 #'
-#' @description Link two specific region in genome.
+#' @description Create a link of two specific region in genome
 #'
-#' @param modulename The name of the new module.
+#' @param modulename The name of the new module
 #'
 #' @param compareGroup The group number of thic module in compare module
-#' @param radius Radius of link circle.
-#' @param fillColor Color for link.
-#' @param width Width for link.
+#' @param radius Radius of link circle
+#' @param fillColor Color for link
+#' @param width Width for link
 #' @param type Type of link, could be Q/S/T
 #' @param displayLinkAxis Whether display axis for link or not
 #' @param axisColor The color for axis
@@ -2570,11 +2536,11 @@ CircosSnp <- function(modulename, compareGroup = 1, minRadius = 153, maxRadius =
 #' @param animationDirection The direction of link animation, could be 1to2 or 2to1
 #' @param animationTime,animationDelay,animationType The time, delay and display type for animation
 #' @param data A list of link with details including g1chr, g1start, g1end, g2chr, g2start, g2end, g1name, g2name,
-#'             fusion, link and html. Details can be found on document.
+#'             fusion, link and html. Details can be found on document
 #'
 #' @param ... Ignored
 #'
-#' @return The module tracks for link modules.
+#' @return The module tracks for link modules
 #'
 #' @examples
 #' linkData<-linkExample
@@ -2623,16 +2589,16 @@ CircosLink <- function(modulename, compareGroup = 1, radius = 108, fillColor = "
 "linkExample"
 
 
-#' @title Create a CHORD module of NG-Circos to a moduleList
+#' @title CHORD module of NG-Circos
 #'
-#' @description Display a chord module using a data matrix.
+#' @description Create a chord module using a data matrix
 #'
-#' @param modulename The name of the new module.
+#' @param modulename The name of the new module
 #'
 #' @param innerRadius The inner radius for chord circle
 #' @param outerRadius The outer radius for chord circle
-#' @param fillOpacity The opacity for filling color.
-#' @param fillStrokeWidth The stroke width for chord.
+#' @param fillOpacity The opacity for filling color
+#' @param fillStrokeWidth The stroke width for chord
 #' @param padding The pad of chord
 #' @param autoFillColor Whether auto assign color for chord
 #' @param fillColor If not, manually assign color for chord
@@ -2642,11 +2608,11 @@ CircosLink <- function(modulename, compareGroup = 1, radius = 108, fillColor = "
 #' @param outerARCColor The manullay assigned color for arc
 #' @param outerARCStrokeColor The stroke color for arc
 #' @param outerARCText Whether display text for arc or not
-#' @param data A matrix-list of chord value with relationship details.
+#' @param data A matrix-list of chord value with relationship details
 #'
 #' @param ... Ignored
 #'
-#' @return The module tracks for chord modules of NG-Circos.
+#' @return The module tracks for chord modules of NG-Circos
 #'
 #' @examples
 #'
@@ -2712,20 +2678,20 @@ CircosChord <- function(modulename, innerRadius = 237, outerRadius = 238, fillOp
 #' }
 "chordExample"
 
-#' @title Create a CHORD module of circosJS to a moduleList
+#' @title CHORD module of circosJS
 #'
-#' @description Display a chord module using a data path. chord.p meaens chord plot based on path.
+#' @description Create a chord module using a data path. chord.p meaens chord plot based on path
 #'
-#' @param modulename The name of the new module.
+#' @param modulename The name of the new module
 #'
-#' @param radius The radius for chord circle.
-#' @param opacity The opacity for chord.
+#' @param radius The radius for chord circle
+#' @param opacity The opacity for chord
 #' @param color The color for chord
-#' @param data A list of chord value with relationship details, details could be found on chord.pExample.
+#' @param data A list of chord value with relationship details, details could be found on chord.pExample
 #'
 #' @param ... Ignored
 #'
-#' @return The module tracks for chord modules of circosJS.
+#' @return The module tracks for chord modules of circosJS
 #'
 #' @examples
 #'
@@ -2760,24 +2726,24 @@ CircosChord.p <- function(modulename, radius = 216, opacity = 0.67, color = "#B8
 "chord.pExample"
 
 
-#' @title Create a HISTOGRAM module to a moduleList
+#' @title HISTOGRAM module
 #'
-#' @description Display a multi-layer histogram in circos
+#' @description Create a multi-layer histogram plot
 #'
-#' @param modulename The name of the new module.
+#' @param modulename The name of the new module
 #'
 #' @param compareGroup The group number of this module in compare module
 #' @param maxRadius,minRadius Where the module should begin and end
 #' @param ValueAxisManualScale Whether manually control the scale of value
 #' @param ValueAxisMaxScale,ValueAxisMinScale The max and min scale value for manually control
-#' @param fillColor The color for histgram.
+#' @param fillColor The color for histgram
 #' @param animationDisplay Whether display animation
 #' @param animationTime,animationDelay The time and delay for animation
-#' @param data A list of value with details including chr, start, end, name, link, value and html. Details can be found on document.
+#' @param data A list of value with details including chr, start, end, name, link, value and html. Details can be found on document
 #'
 #' @param ... Ignored
 #'
-#' @return The module tracks for histogram modules.
+#' @return The module tracks for histogram modules
 #'
 #' @examples
 #'
@@ -2821,11 +2787,11 @@ CircosHistogram <- function(modulename, compareGroup = 1, maxRadius = 108, minRa
 #' }
 "histogramExample"
 
-#' @title Create a LINE module to a moduleList
+#' @title LINE module
 #'
-#' @description Display a multi-layer line plot in circos
+#' @description Create a multi-layer line plot
 #'
-#' @param modulename The name of the new module.
+#' @param modulename The name of the new module
 #'
 #' @param compareGroup The group number of this module in compare module
 #' @param maxRadius,minRadius Where the module should begin and end
@@ -2837,11 +2803,11 @@ CircosHistogram <- function(modulename, compareGroup = 1, maxRadius = 108, minRa
 #' @param animationDisplay Whether display animation
 #' @param animationDirection The direction of animation, could be S2E(start to end) or E2S(end to start)
 #' @param animationTime,animationDelay,animationType The time, delay and display type for animation
-#' @param data A list of value with details including chr, pos, des, value and html. Details can be found on document.
+#' @param data A list of value with details including chr, pos, des, value and html. Details can be found on document
 #'
 #' @param ... Ignored
 #'
-#' @return The module tracks for line modules.
+#' @return The module tracks for line modules
 #'
 #' @examples
 #'
@@ -2883,11 +2849,11 @@ CircosLine <- function(modulename, compareGroup = 1, maxRadius = 108, minRadius 
 #' }
 "lineExample"
 
-#' @title Create a WIG module to a moduleList
+#' @title WIG module
 #'
-#' @description Display a multi-layer line plot in circos
+#' @description Create a multi-layer line plot
 #'
-#' @param modulename The name of the new module.
+#' @param modulename The name of the new module
 #'
 #' @param compareGroup The group number of this module in compare module
 #' @param maxRadius,minRadius Where the module should begin and end
@@ -2901,11 +2867,11 @@ CircosLine <- function(modulename, compareGroup = 1, maxRadius = 108, minRadius 
 #' @param strokeType Line type for stroke, could be linear, cardinal, basis and monotone
 #' @param animationDisplay Whether display animation
 #' @param animationTime,animationDelay,animationType The time, delay and display type for animation
-#' @param data A list of value with details including chr, pos, des, value and html. Details can be found on document.
+#' @param data A list of value with details including chr, pos, des, value and html. Details can be found on document
 #'
 #' @param ... Ignored
 #'
-#' @return The module tracks for wig modules.
+#' @return The module tracks for wig modules
 #'
 #' @examples
 #'
@@ -2948,11 +2914,11 @@ CircosWig <- function(modulename, compareGroup = 1, maxRadius = 108, minRadius =
 #' }
 "wigExample"
 
-#' @title Create a SCATTER module to a moduleList
+#' @title SCATTER module
 #'
-#' @description Display a point plot in circos
+#' @description Create a point plot
 #'
-#' @param modulename The name of the new module.
+#' @param modulename The name of the new module
 #'
 #' @param compareGroup The group number of this module in compare module
 #' @param radius Radius of scatter circle
@@ -2967,11 +2933,11 @@ CircosWig <- function(modulename, compareGroup = 1, maxRadius = 108, minRadius =
 #' @param animationInitialPositionX,animationInitialPositionY The initial coordinates for animation
 #' @param animationTime,animationDelay,animationType The time, delay and display type for animation
 #' @param data A list of value with details including chr, start, end, name, des, link and html.
-#'             Details can be found on document.
+#'             Details can be found on document
 #'
 #' @param ... Ignored
 #' 
-#' @return The module tracks for scatter modules.
+#' @return The module tracks for scatter modules
 #'
 #' @examples
 #'
@@ -3020,11 +2986,11 @@ CircosScatter <- function(modulename, compareGroup = 1, radius = 140, innerCircl
 #' }
 "scatterExample"
 
-#' @title Create a ARC module to a moduleList
+#' @title ARC module
 #'
-#' @description Display the CNV without value, Gene domain, Chromosome band in the visualization
+#' @description Create the CNV plot without value, Gene domain, Chromosome band
 #'
-#' @param modulename The name of the new module.
+#' @param modulename The name of the new module
 #'
 #' @param compareGroup The group number of this module in compare module
 #' @param innerRadius,outerRadius Where the module should begin and end
@@ -3032,11 +2998,11 @@ CircosScatter <- function(modulename, compareGroup = 1, radius = 140, innerCircl
 #' @param animationDisplay Whether display animation
 #' @param animationTime,animationDelay,animationType The time, delay and display type for animation
 #' @param data A list of arc with details including chr, start, end, color, des, link and html.
-#'             Details can be found on document.
+#'             Details can be found on document
 #'
 #' @param ... Ignored
 #' 
-#' @return The module tracks for arc modules.
+#' @return The module tracks for arc modules
 #'
 #' @examples
 #' arcData<-arcExample
@@ -3072,7 +3038,7 @@ CircosArc <- function(modulename, compareGroup = 1, outerRadius = 150, innerRadi
 "arcExample"
 
 #' @title Ideogram for hg19
-#' @description The ideogram for human hg19 reference including the color for each region.
+#' @description The ideogram for human hg19 reference including the color for each region
 #'
 #' @format A data frame with 4 columns:
 #' \describe{
@@ -3083,11 +3049,11 @@ CircosArc <- function(modulename, compareGroup = 1, outerRadius = 150, innerRadi
 #' }
 "hg19_ideogram"
 
-#' @title Create a LOLLIPOP module to a moduleList
+#' @title LOLLIPOP module
 #'
-#' @description Display a lollipop plot in the visualization
+#' @description Create a lollipop plot
 #'
-#' @param modulename The name of the new module.
+#' @param modulename The name of the new module
 #'
 #' @param compareGroup The group number of this module in compare module
 #' @param fillColor Filling color for lollipop
@@ -3102,14 +3068,14 @@ CircosArc <- function(modulename, compareGroup = 1, outerRadius = 150, innerRadi
 #' @param lineAutoMaximumHeightZoomRate If auto assign, the zoom rate for each lollipop
 #' @param lineHeightRate If manually assign, the rate of lollipop compared to real value
 #' @param lineWidth,lineColor The width and color for the line of lollipop
-#' @param realStart The real start position for data in genome.
+#' @param realStart The real start position for data in genome
 #' @param ValueAxisManualScale Whether manually control the scale of value
 #' @param ValueAxisMaxScale,ValueAxisMinScale The max and min scale value for manually control
 #' @param animationDisplay Whether display animation
 #' @param animationTime,animationDelay,animationType The time, delay and display type for animation
 #' @param data A list of lollipop value with details including protein, chr, pos, strand, CancerTypeNumber, color, link,
 #'             Consequence, AA_pos, AA_change, type, link and html.
-#'             Details can be found on document.
+#'             Details can be found on document
 #'
 #' @param ... Ignored
 #'
@@ -3175,8 +3141,8 @@ CircosLollipop <- function(modulename, compareGroup = 1, fillColor = "#9400D3", 
 #'
 #' @name CircosModuleList
 #'
-#' @param x The moduleList on which other modules should be added or removed.
-#' @param ... The modules to add (as moduleLists) or to remove (as module names).
+#' @param x The moduleList on which other modules should be added or removed
+#' @param ... The modules to add (as moduleLists) or to remove (as module names)
 #'
 #' @return The list of all tracks of modules.
 #'
@@ -3211,7 +3177,7 @@ CircosModuleList <- function(){
   return(y)
 }
 
-.CircosColorCheck <- function(colVar, colLength, varName = "Color") {
+.colorPalette <- function(colVar, colLength, varName = "Color") {
   colorError = paste0("\'", varName,
                       "\' parameter should be either a vector of chromosome colors or the name of a RColorBrewer brewer.")
   if(is(colVar)[1] == "character"){

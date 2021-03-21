@@ -2,7 +2,7 @@
 % Please edit documentation in R/interacCircos.R
 \name{CircosArc}
 \alias{CircosArc}
-\title{Create a ARC module to a moduleList}
+\title{ARC module}
 \usage{
 CircosArc(
   modulename,
@@ -19,7 +19,7 @@ CircosArc(
 )
 }
 \arguments{
-\item{modulename}{The name of the new module.}
+\item{modulename}{The name of the new module}
 
 \item{compareGroup}{The group number of this module in compare module}
 
@@ -32,15 +32,15 @@ CircosArc(
 \item{animationTime, animationDelay, animationType}{The time, delay and display type for animation}
 
 \item{data}{A list of arc with details including chr, start, end, color, des, link and html.
-Details can be found on document.}
+Details can be found on document}
 
 \item{...}{Ignored}
 }
 \value{
-The module tracks for arc modules.
+The module tracks for arc modules
 }
 \description{
-Display the CNV without value, Gene domain, Chromosome band in the visualization
+Create the CNV plot without value, Gene domain, Chromosome band
 }
 \examples{
 arcData<-arcExample

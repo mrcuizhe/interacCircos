@@ -2,7 +2,7 @@
 % Please edit documentation in R/interacCircos.R
 \name{CircosCnv}
 \alias{CircosCnv}
-\title{Create a CNV module to a moduleList}
+\title{CNV module}
 \usage{
 CircosCnv(
   modulename,
@@ -26,17 +26,17 @@ CircosCnv(
 )
 }
 \arguments{
-\item{modulename}{The name of the new module.}
+\item{modulename}{The name of the new module}
 
 \item{compareGroup}{The group number of this module in compare module}
 
-\item{maxRadius, minRadius}{Where the module should begin and end.}
+\item{maxRadius, minRadius}{The outer and inner ring range of module}
 
 \item{width}{Width for CNV module}
 
 \item{color}{Color for CNV module}
 
-\item{ValueAxisManualScale}{Whether manually control the scale of value}
+\item{ValueAxisManualScale}{Whether manually control the scale of value or not}
 
 \item{ValueAxisMaxScale, ValueAxisMinScale}{The max and min scale value for manually control}
 
@@ -44,20 +44,20 @@ CircosCnv(
 
 \item{opacity}{The opacity for module}
 
-\item{animationDisplay}{Whether display animation}
+\item{animationDisplay}{Whether display animationn}
 
-\item{animationTime, animationDelay, animationType}{The time, delay and display type for animation}
+\item{animationTime, animationDelay, animationType}{The time, delay and display type for animationn}
 
 \item{data}{A list of CNV with details including start, end, value, link, color and html.
-Details can be found on document.}
+Details can be found on document}
 
 \item{...}{Ignored}
 }
 \value{
-The module tracks for cnv modules.
+The module tracks for cnv modules
 }
 \description{
-A copy number variance module displayed in the visualization
+Create a copy number variance module
 }
 \examples{
 cnvData<-cnvExample

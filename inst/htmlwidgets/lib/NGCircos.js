@@ -3632,6 +3632,7 @@ var NGCircos;
                   x: (0 + Math.sin(v.pos * line_k + d[self.initGenome[v.chr]].startAngle) * ((self.LINEsettings.minRadius + ( (v.value-self.line_value_maxmin(self.LINE[linei])[1])/(self.line_value_maxmin(self.LINE[linei])[0]-self.line_value_maxmin(self.LINE[linei])[1])*(self.LINEsettings.maxRadius-self.LINEsettings.minRadius) )))),
                   y: (0 - Math.cos(v.pos * line_k + d[self.initGenome[v.chr]].startAngle) * ((self.LINEsettings.minRadius + ( (v.value-self.line_value_maxmin(self.LINE[linei])[1])/(self.line_value_maxmin(self.LINE[linei])[0]-self.line_value_maxmin(self.LINE[linei])[1])*(self.LINEsettings.maxRadius-self.LINEsettings.minRadius) )))),
                   line_html:v.html,
+
                 };
               });
             }
@@ -3741,27 +3742,91 @@ var NGCircos;
             var LINEMouseOn = svg.selectAll("path.NGCircosLINE");
 
             if(self.settings.LINEMouseOverDisplay==true){
-                LINEMouseOn.on("mouseover",function(d){
+              LINEMouseOn.on("mouseover",function(d){
+                var i=d.length;
+                var minLineValue;
+                var maxLineValue;
+                var minlinePos;
+                var maxlinePos;
+                for(var k=0;k<i;k++){
+                  if(k==0){
+                    minLineValue=d[k].line_value;
+                    maxLineValue=d[k].line_value;
+                    minlinePos=d[k].line_pos;
+                    maxlinePos=d[k].line_pos;
+                  }else{
+                    if(d[k].line_value>maxLineValue){
+                      maxLineValue=d[k].line_value;
+                      maxlinePos=d[k].line_pos;
+                    }
+                    if(d[k].line_value<minLineValue){
+                      minLineValue=d[k].line_value;
+                      minlinePos=d[k].line_pos;
+                    }
+                  }
+                  
+                }
+                
+                if(self.LINEsettings.ValueAxisManualScale == true){
+                  if(self.LINEsettings.ValueAxisMaxScale>maxLineValue){
+                    maxLineValue=self.LINEsettings.ValueAxisMaxScale
+                  }
+                  if(self.LINEsettings.ValueAxisMinScale<minLineValue){
+                    minLineValue=self.LINEsettings.ValueAxisMinScale
+                  }
+                }
+                
+                var lineValueMaxmin = new Array();
+                var linePosMaxmin = new Array();
+
+                lineValueMaxmin[0]=maxLineValue;
+                lineValueMaxmin[1]=minLineValue;
+                linePosMaxmin[0]=maxlinePos;
+                linePosMaxmin[1]=minlinePos;
+                // console.log(lineValueMaxmin,linePosMaxmin)
+                if(self.ticksOffset != undefined){
+                    LINEMouseOnTooltip.html(function(){if(self.settings.LINEMouseOverTooltipsSetting == "style1"){
+                                return "chr : "+d[0].line_chr+" <br>Max value: "+lineValueMaxmin[0]+"<br>Position of max value : "+(parseInt(linePosMaxmin[0])+self.ticksOffset)+" <br>Min value: "+lineValueMaxmin[1]+"<br>Position of min value : "+(parseInt(linePosMaxmin[1])+self.ticksOffset)+""
+                              }else if (self.settings.LINEMouseOverTooltipsSetting == "custom") {
+                                return self.settings.LINEMouseOverTooltipsHtml+d.line_html
+                              }
+                          })
+                         .style("left", (d3.event.pageX) + "px")
+                         .style("top", (d3.event.pageY + 20) + "px")
+                         .style("position", self.settings.LINEMouseOverTooltipsPosition)
+                         .style("background-color", self.settings.LINEMouseOverTooltipsBackgroundColor)
+                         .style("border-style", self.settings.LINEMouseOverTooltipsBorderStyle)
+                         .style("border-width", self.settings.LINEMouseOverTooltipsBorderWidth)
+                         .style("padding", self.settings.LINEMouseOverTooltipsPadding)
+                         .style("border-radius", self.settings.LINEMouseOverTooltipsBorderRadius)
+                         .style("opacity", self.settings.LINEMouseOverTooltipsOpacity)
+                      d3.select(this)
+                         .style("opacity",  function(d,i) { if(self.settings.LINEMouseOverLineOpacity=="none"){return "";}else{return self.settings.LINEMouseOverLineOpacity;} })
+                         .style("stroke", function(d,i) { if(self.settings.LINEMouseOverLineStrokeColor=="none"){return "";}else{return self.settings.LINEMouseOverLineStrokeColor;} })
+                         .style("stroke-width", function(d,i) { if(self.settings.LINEMouseOverLineStrokeWidth=="none"){return "";}else{return self.settings.LINEMouseOverLineStrokeWidth;} });
+                }else{
                   LINEMouseOnTooltip.html(function(){if(self.settings.LINEMouseOverTooltipsSetting == "style1"){
-                              return self.settings.LINEMouseOverTooltipsHtml
-                            }else if (self.settings.LINEMouseOverTooltipsSetting == "custom") {
-                              return self.settings.LINEMouseOverTooltipsHtml+d.line_html
-                            }
-                        })
-                       .style("left", (d3.event.pageX) + "px")
-                       .style("top", (d3.event.pageY + 20) + "px")
-                       .style("position", self.settings.LINEMouseOverTooltipsPosition)
-                       .style("background-color", self.settings.LINEMouseOverTooltipsBackgroundColor)
-                       .style("border-style", self.settings.LINEMouseOverTooltipsBorderStyle)
-                       .style("border-width", self.settings.LINEMouseOverTooltipsBorderWidth)
-                       .style("padding", self.settings.LINEMouseOverTooltipsPadding)
-                       .style("border-radius", self.settings.LINEMouseOverTooltipsBorderRadius)
-                       .style("opacity", self.settings.LINEMouseOverTooltipsOpacity)
-                    d3.select(this)
-                       .style("opacity",  function(d,i) { if(self.settings.LINEMouseOverLineOpacity=="none"){return "";}else{return self.settings.LINEMouseOverLineOpacity;} })
-                       .style("stroke", function(d,i) { if(self.settings.LINEMouseOverLineStrokeColor=="none"){return "";}else{return self.settings.LINEMouseOverLineStrokeColor;} })
-                       .style("stroke-width", function(d,i) { if(self.settings.LINEMouseOverLineStrokeWidth=="none"){return "";}else{return self.settings.LINEMouseOverLineStrokeWidth;} });
-                })
+                                return "chr : "+d[0].line_chr+" <br>Max value: "+lineValueMaxmin[0]+"<br>Position of max value : "+linePosMaxmin[0]+" <br>Min value: "+lineValueMaxmin[1]+"<br>Position of min value : "+linePosMaxmin[1]+""
+                              }else if (self.settings.LINEMouseOverTooltipsSetting == "custom") {
+                                return self.settings.LINEMouseOverTooltipsHtml+d.line_html
+                              }
+                          })
+                         .style("left", (d3.event.pageX) + "px")
+                         .style("top", (d3.event.pageY + 20) + "px")
+                         .style("position", self.settings.LINEMouseOverTooltipsPosition)
+                         .style("background-color", self.settings.LINEMouseOverTooltipsBackgroundColor)
+                         .style("border-style", self.settings.LINEMouseOverTooltipsBorderStyle)
+                         .style("border-width", self.settings.LINEMouseOverTooltipsBorderWidth)
+                         .style("padding", self.settings.LINEMouseOverTooltipsPadding)
+                         .style("border-radius", self.settings.LINEMouseOverTooltipsBorderRadius)
+                         .style("opacity", self.settings.LINEMouseOverTooltipsOpacity)
+                      d3.select(this)
+                         .style("opacity",  function(d,i) { if(self.settings.LINEMouseOverLineOpacity=="none"){return "";}else{return self.settings.LINEMouseOverLineOpacity;} })
+                         .style("stroke", function(d,i) { if(self.settings.LINEMouseOverLineStrokeColor=="none"){return "";}else{return self.settings.LINEMouseOverLineStrokeColor;} })
+                         .style("stroke-width", function(d,i) { if(self.settings.LINEMouseOverLineStrokeWidth=="none"){return "";}else{return self.settings.LINEMouseOverLineStrokeWidth;} });
+                  
+                }
+              })
             }
             if(self.settings.LINEMouseClickDisplay==true){
                 LINEMouseOn.on("click",function(d){
@@ -3995,8 +4060,50 @@ var NGCircos;
 
             if(self.settings.WIGMouseOverDisplay==true){
                 WIGMouseOn.on("mouseover",function(d){
+                  var i=d.length;
+                  var minWigValue;
+                  var maxWigValue;
+                  var minWigPos;
+                  var maxWigPos;
+                  for(var k=0;k<i;k++){
+                    if(k==0){
+                      minWigValue=d[k].WIG_value;
+                      maxWigValue=d[k].WIG_value;
+                      minWigPos=d[k].WIG_pos;
+                      maxWigPos=d[k].WIG_pos;
+                    }else{
+                      if(d[k].WIG_value>maxWigValue){
+                        maxWigValue=d[k].WIG_value;
+                        maxWigPos=d[k].WIG_pos;
+                      }
+                      if(d[k].WIG_value<minWigValue){
+                        minWigValue=d[k].WIG_value;
+                        minWigPos=d[k].WIG_pos;
+                      }
+                    }
+                    
+                  }
+                  
+                  if(self.WIGsettings.ValueAxisManualScale == true){
+                    if(self.WIGsettings.ValueAxisMaxScale>maxWigValue){
+                      maxWigValue=self.WIGsettings.ValueAxisMaxScale
+                    }
+                    if(self.WIGsettings.ValueAxisMinScale<minWigValue){
+                      minWigValue=self.WIGsettings.ValueAxisMinScale
+                    }
+                  }
+                  
+                  var wigValueMaxmin = new Array();
+                  var wigPosMaxmin = new Array();
+
+                  wigValueMaxmin[0]=maxWigValue;
+                  wigValueMaxmin[1]=minWigValue;
+                  wigPosMaxmin[0]=maxWigPos;
+                  wigPosMaxmin[1]=minWigPos;
+
+                  if(self.ticksOffset != undefined){
                     WIGMouseOnTooltip.html(function(){if(self.settings.WIGMouseOverTooltipsSetting == "style1"){
-                              return self.settings.WIGMouseOverTooltipsHtml+"chr"
+                              return "chr : "+d[0].WIG_chr+" <br>Max value: "+wigValueMaxmin[0]+"<br>Position of max value : "+(parseInt(wigPosMaxmin[0])+self.ticksOffset)+" <br>Min value: "+wigValueMaxmin[1]+"<br>Position of min value : "+(parseInt(wigPosMaxmin[1])+self.ticksOffset)+""
                             }else if (self.settings.WIGMouseOverTooltipsSetting == "custom") {
                               return self.settings.WIGMouseOverTooltipsHtml+d.WIG_html
                             }
@@ -4015,6 +4122,29 @@ var NGCircos;
                        .style("fill", function(d,i) { if(self.settings.WIGMouseOverFillColor=="none"){return "";}else{return self.settings.WIGMouseOverFillColor;} })
                        .style("stroke", function(d,i) { if(self.settings.WIGMouseOverLineStrokeColor=="none"){return "";}else{return self.settings.WIGMouseOverLineStrokeColor;} })
                        .style("stroke-width", function(d,i) { if(self.settings.WIGMouseOverLineStrokeWidth=="none"){return "";}else{return self.settings.WIGMouseOverLineStrokeWidth;} });
+                  }else{
+                    WIGMouseOnTooltip.html(function(){if(self.settings.WIGMouseOverTooltipsSetting == "style1"){
+                              return "chr : "+d[0].WIG_chr+" <br>Max value: "+wigValueMaxmin[0]+"<br>Position of max value : "+wigPosMaxmin[0]+" <br>Min value: "+wigValueMaxmin[1]+"<br>Position of min value : "+wigPosMaxmin[1]+""
+                            }else if (self.settings.WIGMouseOverTooltipsSetting == "custom") {
+                              return self.settings.WIGMouseOverTooltipsHtml+d.WIG_html
+                            }
+                        })
+                       .style("left", (d3.event.pageX) + "px")
+                       .style("top", (d3.event.pageY + 20) + "px")
+                       .style("position", self.settings.WIGMouseOverTooltipsPosition)
+                       .style("background-color", self.settings.WIGMouseOverTooltipsBackgroundColor)
+                       .style("border-style", self.settings.WIGMouseOverTooltipsBorderStyle)
+                       .style("border-width", self.settings.WIGMouseOverTooltipsBorderWidth)
+                       .style("padding", self.settings.WIGMouseOverTooltipsPadding)
+                       .style("border-radius", self.settings.WIGMouseOverTooltipsBorderRadius)
+                       .style("opacity", self.settings.WIGMouseOverTooltipsOpacity)
+                    d3.select(this)
+                       .style("opacity",  function(d,i) { if(self.settings.WIGMouseOverLineOpacity=="none"){return "";}else{return self.settings.WIGMouseOverLineOpacity;} })
+                       .style("fill", function(d,i) { if(self.settings.WIGMouseOverFillColor=="none"){return "";}else{return self.settings.WIGMouseOverFillColor;} })
+                       .style("stroke", function(d,i) { if(self.settings.WIGMouseOverLineStrokeColor=="none"){return "";}else{return self.settings.WIGMouseOverLineStrokeColor;} })
+                       .style("stroke-width", function(d,i) { if(self.settings.WIGMouseOverLineStrokeWidth=="none"){return "";}else{return self.settings.WIGMouseOverLineStrokeWidth;} });
+                  }
+
                 })
             }
             if(self.settings.WIGMouseClickDisplay==true){

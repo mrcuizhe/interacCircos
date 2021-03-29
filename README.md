@@ -6,7 +6,7 @@
 [![GPLv3](https://www.gnu.org/graphics/gplv3-or-later.png)](https://www.gnu.org/licenses/gpl-3.0.html)
 <!-- badges: end -->
 
-The **interacCircos** package is designed for visualization of interactive Circos plot
+The **interacCircos** package is designed for the generation of interactive Circos plot
 
 ## Introduction
 

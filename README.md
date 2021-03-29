@@ -43,15 +43,15 @@ By CRAN:
 
         # htmlwidgets, RColorBrewer, plyr, jsonlite, grDevices are required !  
 
-## Document
+## Documentation
 
-Document is available at 
+Documentation is available at 
 
-- [interacCircos-document](https://mrcuizhe.github.io/interacCircos_document/index.html)
+- [interacCircos-documentation](https://mrcuizhe.github.io/interacCircos_documentation/index.html)
 
 Or 
 
-- [interacCircos-pdf](https://github.com/mrcuizhe/interacCircos/blob/master/doc/interacCircos_0.99.1.pdf)
+- [interacCircos-pdf](https://mrcuizhe.github.io/interacCircos_documentation/html/all_parameters.html)
 
         
 ## Contact

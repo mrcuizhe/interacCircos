@@ -15,13 +15,13 @@ JavaScript-based Circos libraries have been widely implemented to generate inter
 
 ## Quick Start
 
-The Quick Start step for interacCircos is available at https://mrcuizhe.github.io/interacCircos_document/html/quick_start.html
+The Quick Start step for interacCircos is available at https://mrcuizhe.github.io/interacCircos_documentation/html/quick_start.html
 
 ## Example
 
 Default genome track
 
-```{r eval=FALSE, screenshot.force = FALSE}
+```{r}
 library(interacCircos)
 
 Circos(zoom=FALSE)
@@ -29,7 +29,7 @@ Circos(zoom=FALSE)
 
 Try changing genome list and its color
 
-```{r eval=FALSE, screenshot.force = FALSE}
+```{r}
 library(interacCircos)
 
 Circos(zoom = FALSE,genome=list("Example1"=100,"Example2"=200,
@@ -38,7 +38,7 @@ Circos(zoom = FALSE,genome=list("Example1"=100,"Example2"=200,
 
 Try automatically filling genome color
 
-```{r eval=FALSE, screenshot.force = FALSE}
+```{r}
 library(interacCircos)
 
 Circos(zoom = FALSE,genome=list("Example1"=100,"Example2"=200,
@@ -48,20 +48,20 @@ Circos(zoom = FALSE,genome=list("Example1"=100,"Example2"=200,
 
 Simple example with modules
 
-```{r eval=FALSE, screenshot.force = FALSE}
+```{r}
 library(interacCircos)
 
-histogramData=histogramExample
+histogramData <- histogramExample
 Circos(moduleList=CircosHistogram('HISTOGRAM01', data = histogramData,
 fillColor= "#ff7f0e",maxRadius = 210,minRadius = 175,
 animationDisplay = TRUE),genome=list("2L"=23011544,"2R"=21146708,"3L"=24543557,"3R"= 27905053,"X"=22422827,"4"=1351857),
 outerRadius = 220)
 ```
 
-```{r eval=FALSE, screenshot.force = FALSE}
+```{r}
 library(interacCircos)
 
-snpData=snpExample
+snpData <- snpExample
 Circos(moduleList=CircosSnp('SNP01', minRadius =150, 
 maxRadius = 190, data = snpExample,SNPFillColor= "#9ACD32", 
 circleSize= 2, SNPAxisColor= "#B8B8B8", SNPAxisWidth= 0.5, 

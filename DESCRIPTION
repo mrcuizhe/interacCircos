@@ -2,15 +2,15 @@ Package: interacCircos
 Type: Package
 Title: The Generation of Interactive Circos Plot
 Description: Implement in an efficient approach to display the genomic data, relationship, information in an interactive circular genome(Circos) plot. 'interacCircos' are inspired by 'circosJS', 'BioCircos.js' and 'NG-Circos' and we integrate the modules of 'circosJS', 'BioCircos.js' and 'NG-Circos' into this R package, based on 'htmlwidgets' framework.
-Version: 0.99.4
+Version: 1.1.0
 Authors@R: person("Zhe", "Cui", email = "mrcuizhe@gmail.com",
                 role = c("aut", "cre"))
 License: GPL-3
 Encoding: UTF-8
 LazyData: true
-Depends: R (>= 4.0)
-Imports: RColorBrewer, htmlwidgets, jsonlite, plyr, grDevices, methods
-RoxygenNote: 7.1.0
+Depends: R (>= 4.1)
+Imports: RColorBrewer, htmlwidgets, plyr, methods
+RoxygenNote: 7.1.1
 Suggests: knitr, rmarkdown
 VignetteBuilder: knitr
-biocViews:Visualization
+biocViews: Visualization

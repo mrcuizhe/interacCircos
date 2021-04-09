@@ -21,7 +21,7 @@
 #' @param displayGenomeBorder Whether display a border for genome track or not
 #' @param genomeBorderColor,genomeBorderSize The color and size for border of genome
 #' @param genomeTicksDisplay Whether display the ticks for genome track
-#' @param genomeTicksDisplay,genomeTicksLen,genomeTicksColor,genomeTicksTextSize,genomeTicksTextColor,genomeTicksScale,genomeTicksRealLength,genomeTicksOffset arameters only works when genomeTicksDisplay is TRUE and their details are available on document
+#' @param genomeTicksLen,genomeTicksColor,genomeTicksTextSize,genomeTicksTextColor,genomeTicksScale,genomeTicksRealLength,genomeTicksOffset arameters only works when genomeTicksDisplay is TRUE and their details are available on document
 #' @param genomeLabelDisplay,genomeLabelTextSize,genomeLabelTextColor,genomeLabelDx,genomeLabelDy Whether display the label for chromosome panel. Other parameters only
 #'  works when genomeTicksDisplay is TRUE and their details are available on document
 #' @param compareEvent  Default False, open/not COMPARE module

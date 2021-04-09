@@ -820,6 +820,8 @@ Circos(
 
 \item{genomeTicksDisplay}{Whether display the ticks for genome track}
 
+\item{genomeTicksLen, genomeTicksColor, genomeTicksTextSize, genomeTicksTextColor, genomeTicksScale, genomeTicksRealLength, genomeTicksOffset}{arameters only works when genomeTicksDisplay is TRUE and their details are available on document}
+
 \item{genomeLabelDisplay, genomeLabelTextSize, genomeLabelTextColor, genomeLabelDx, genomeLabelDy}{Whether display the label for chromosome panel. Other parameters only
 works when genomeTicksDisplay is TRUE and their details are available on document}
 
@@ -2304,8 +2306,6 @@ works when genomeTicksDisplay is TRUE and their details are available on documen
 \item{elementId}{the name of the HTML id to be used to contain the visualization}
 
 \item{...}{Ignored}
-
-\item{genomeTicksDisplay, genomeTicksLen, genomeTicksColor, genomeTicksTextSize, genomeTicksTextColor, genomeTicksScale, genomeTicksRealLength, genomeTicksOffset}{arameters only works when genomeTicksDisplay is TRUE and their details are available on document}
 }
 \value{
 The main figure for interacCircos with all tracks

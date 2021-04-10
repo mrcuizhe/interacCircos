@@ -2455,6 +2455,9 @@ var NGCircos;
   var drawTime=0
   NGCircos.prototype.draw_genome = function(genome){
     //console.log(genome)
+    if (drawTime>=2) {
+      drawTime=0
+    }
     drawTime += 1
     if(genome == 0 ){
       return;
@@ -2502,6 +2505,7 @@ var NGCircos;
         .domain(d3.range(4))
         .range(self.genomeFillColor);
 
+    console.log(drawTime)
     if(drawTime == 1){
       if(self.zoom == true){
           function zoom() {

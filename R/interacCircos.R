@@ -3134,7 +3134,6 @@ CircosLollipop <- function(modulename, compareGroup = 1, fillColor = "#9400D3", 
 #' }
 "lollipopExample"
 
-
 #' @title Create a list of modules
 #'
 #' @description This allows the use of the '+' and '-' operator on these lists

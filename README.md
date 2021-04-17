@@ -34,14 +34,14 @@ By devtools
         if (!require('devtools')){install.packages('devtools')}
         devtools::install_github('mrcuizhe/interacCircos')
         
-        # htmlwidgets, RColorBrewer, plyr, jsonlite, grDevices are required !  
+        # htmlwidgets, RColorBrewer, plyr are required !  
 
 By CRAN:
 
         #Via CRAN
         install.packages("interacCircos")
 
-        # htmlwidgets, RColorBrewer, plyr, jsonlite, grDevices are required !  
+        # htmlwidgets, RColorBrewer, plyr are required !  
 
 ## Documentation
 

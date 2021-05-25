@@ -45,8 +45,8 @@ By Bioconductor:
         BiocManager::install("interacCircos")
 
         # htmlwidgets, RColorBrewer, plyr are required !  
-        # Bioconductor version: newer than Release (3.13)
-        # R version 4.1
+        # Bioconductor version: ≥ Release (3.13)
+        # R version ≥ 4.1
 
 ## Documentation
 

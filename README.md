@@ -36,12 +36,17 @@ By devtools
         
         # htmlwidgets, RColorBrewer, plyr are required !  
 
-By CRAN:
+By Bioconductor:
 
-        #Via CRAN
-        install.packages("interacCircos")
+        #Via Bioconductor
+        if (!requireNamespace("BiocManager", quietly = TRUE))
+        install.packages("BiocManager")
+        
+        BiocManager::install("interacCircos")
 
         # htmlwidgets, RColorBrewer, plyr are required !  
+        # Bioconductor version: Release (3.13)
+        # R version 4.1
 
 ## Documentation
 

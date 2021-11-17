@@ -60,7 +60,7 @@ Or
 
 ## Citation
 
-Please cite [interacCircos](https://doi.org/10.1093/bioinformatics/btab232) for publication
+Please cite [interacCircos: an R package based on JavaScript libraries for the generation of interactive circos plots](https://doi.org/10.1093/bioinformatics/btab232) for publication
 
 ## Contact
 

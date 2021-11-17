@@ -58,7 +58,10 @@ Or
 
 - [interacCircos-pdf](https://mrcuizhe.github.io/interacCircos_documentation/html/all_parameters.html)
 
-        
+## Citation
+
+Please cite [interacCircos](https://doi.org/10.1093/bioinformatics/btab232) for publication
+
 ## Contact
 
 Please contact cuizhe@hit.edu.cn or mrcuizhe@gmail.com for help

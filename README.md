@@ -64,5 +64,5 @@ Please cite [interacCircos: an R package based on JavaScript libraries for the g
 
 ## Contact
 
-Please contact cuizhe@hit.edu.cn or mrcuizhe@gmail.com for help
+Please contact mrcuizhe@gmail.com for help
 

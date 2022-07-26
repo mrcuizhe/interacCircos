@@ -1,7 +1,7 @@
 # interacCircos
 
 <!-- badges: start -->
-[![Bioconductor status](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://www.bioconductor.org/packages/release/bioc/html/interacCircos.html)
+[![Bioconductor status](https://img.shields.io/badge/Bioconductor-stable-brightgreen.svg)](https://www.bioconductor.org/packages/release/bioc/html/interacCircos.html)
 [![Lifecycle: stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://www.tidyverse.org/lifecycle/#stable)
 [![GPLv3](https://www.gnu.org/graphics/gplv3-or-later.png)](https://www.gnu.org/licenses/gpl-3.0.html)
 <!-- badges: end -->
